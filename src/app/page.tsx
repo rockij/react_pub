@@ -1,6 +1,10 @@
 import { Button, Card } from '../components';
 
 export default function Home() {
+  const storybookUrl =
+    process.env.NEXT_PUBLIC_STORYBOOK_URL ??
+    (process.env.NODE_ENV === 'production' ? '/storybook/' : 'http://localhost:6006');
+
   return (
     <main style={{ padding: '2rem', display: 'grid', gap: '1.5rem' }}>
       <div>
@@ -16,7 +20,7 @@ export default function Home() {
       </Card>
 
       <div>
-        <a href="http://localhost:6006" target="_blank" rel="noreferrer">
+        <a href={storybookUrl} target="_blank" rel="noreferrer">
           <Button label="Storybook 열기" size="large" />
         </a>
       </div>
