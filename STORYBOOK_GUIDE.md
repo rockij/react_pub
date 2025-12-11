@@ -9,6 +9,7 @@
 3. [컴포넌트 작성](#컴포넌트-작성)
 4. [스토리 작성](#스토리-작성)
 5. [컴포넌트 사용 예제](#컴포넌트-사용-예제)
+6. [Netlify 배포](#netlify-배포)
 
 ## 🚀 환경 설정
 
@@ -218,11 +219,81 @@ argTypes: {
 
 `tags: ['autodocs']`를 사용하면 컴포넌트의 props와 사용법이 자동으로 문서화됩니다.
 
+## 🚀 Netlify 배포
+
+Netlify를 사용하여 Storybook을 정적 사이트로 배포할 수 있습니다.
+
+### 1. 설정 파일 확인
+
+프로젝트 루트에 `netlify.toml` 파일이 이미 생성되어 있습니다:
+
+```toml
+[build]
+  command = "npm run build-storybook"
+  publish = "storybook-static"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+### 2. Netlify 배포 방법
+
+#### 방법 1: Netlify 웹 대시보드 사용
+
+1. [Netlify](https://www.netlify.com/)에 로그인
+2. "Add new site" → "Import an existing project" 클릭
+3. Git 저장소 연결 (GitHub, GitLab, Bitbucket 등)
+4. 빌드 설정:
+   - **Build command**: `npm run build-storybook`
+   - **Publish directory**: `storybook-static`
+5. "Deploy site" 클릭
+
+#### 방법 2: Netlify CLI 사용
+
+```bash
+# Netlify CLI 설치
+npm install -g netlify-cli
+
+# Netlify 로그인
+netlify login
+
+# 배포
+netlify deploy --prod
+```
+
+### 3. 배포 확인
+
+배포가 완료되면 Netlify에서 제공하는 URL로 Storybook에 접속할 수 있습니다.
+
+예: `https://your-site-name.netlify.app`
+
+### 4. 자동 배포 설정
+
+Git 저장소와 연결한 경우, 다음 상황에서 자동으로 재배포됩니다:
+
+- `main` 또는 `master` 브랜치에 푸시할 때
+- Pull Request가 생성될 때 (프리뷰 배포)
+
+### 5. 환경 변수 설정 (필요한 경우)
+
+Netlify 대시보드에서:
+1. Site settings → Build & deploy → Environment variables
+2. 필요한 환경 변수 추가
+
+### 6. 커스텀 도메인 설정
+
+1. Netlify 대시보드 → Domain settings
+2. "Add custom domain" 클릭
+3. 도메인 입력 및 DNS 설정
+
 ## 📚 추가 리소스
 
 - [Storybook 공식 문서](https://storybook.js.org/)
 - [Next.js 공식 문서](https://nextjs.org/docs)
 - [Storybook + Next.js 가이드](https://storybook.js.org/docs/get-started/frameworks/nextjs)
+- [Netlify 공식 문서](https://docs.netlify.com/)
 
 ## 🎯 다음 단계
 
@@ -230,4 +301,5 @@ argTypes: {
 2. 해당 컴포넌트의 스토리 파일 작성
 3. Storybook에서 컴포넌트 테스트 및 문서화
 4. Next.js 앱에서 컴포넌트 사용
+5. Netlify에 배포하여 팀과 공유
 

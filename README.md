@@ -35,6 +35,20 @@ react_pub/
 
 자세한 사용 가이드는 [STORYBOOK_GUIDE.md](./STORYBOOK_GUIDE.md)를 참고하세요.
 
+## 🚀 배포
+
+### Netlify 배포
+
+```bash
+# Storybook 빌드
+npm run build-storybook
+
+# Netlify CLI로 배포
+netlify deploy --prod
+```
+
+자세한 배포 방법은 [STORYBOOK_GUIDE.md](./STORYBOOK_GUIDE.md#-netlify-배포)를 참고하세요.
+
 ## 🎨 컴포넌트
 
 - **Button**: 다양한 스타일과 크기의 버튼 컴포넌트
