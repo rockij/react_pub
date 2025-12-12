@@ -1,11 +1,7 @@
-import { Button, Card } from "../components";
-
 export default function Home() {
   const storybookUrl =
     process.env.NEXT_PUBLIC_STORYBOOK_URL ??
-    (process.env.NODE_ENV === "production"
-      ? "/storybook/"
-      : "http://localhost:6006");
+    (process.env.NODE_ENV === 'production' ? '/storybook/' : 'http://localhost:6006');
 
   return (
     <main className="survey-main">
@@ -29,9 +25,7 @@ export default function Home() {
               <span>Generation Survey</span>
             </h1>
 
-            <div className="hero__subtitle">
-              We value your time and insights
-            </div>
+            <div className="hero__subtitle">We value your time and insights</div>
           </div>
         </div>
       </section>
@@ -47,9 +41,8 @@ export default function Home() {
             <header className="info-block__header">
               <p className="info-block__eyebrow">Introduction</p>
               <p className="info-block__text">
-                Feedback is integral to our growth. We are dedicated to
-                understanding your needs and providing you with the best
-                products.
+                Feedback is integral to our growth. We are dedicated to understanding your needs and
+                providing you with the best products.
               </p>
             </header>
           </article>
@@ -62,8 +55,8 @@ export default function Home() {
             <header className="info-block__header">
               <p className="info-block__eyebrow">Structure</p>
               <p className="info-block__text">
-                This survey is comprised of multiple-choice questions. It will
-                take a maximum of ten minutes to complete.
+                This survey is comprised of multiple-choice questions. It will take a maximum of ten
+                minutes to complete.
               </p>
             </header>
           </article>
@@ -76,9 +69,8 @@ export default function Home() {
             <header className="info-block__header">
               <p className="info-block__eyebrow">Reminders</p>
               <p className="info-block__text">
-                Please complete this within 72 hours. You are allowed to retake
-                it anytime within that period. After that, you will get a
-                confirmation of receipt from our team.
+                Please complete this within 72 hours. You are allowed to retake it anytime within
+                that period. After that, you will get a confirmation of receipt from our team.
               </p>
             </header>
           </article>
@@ -118,18 +110,14 @@ export default function Home() {
           </header>
 
           <div className="question__widget">
-            <iframe
-              src="canva-embed/q1.html"
-              title="Question 1 poll"
-              loading="lazy"
-            ></iframe>
+            <iframe src="canva-embed/q1.html" title="Question 1 poll" loading="lazy"></iframe>
           </div>
 
           <aside className="question-tip">
             <div className="question-tip__body">
               <strong>Canva tip: </strong>
-              Select the poll or quiz to customize it, or go to the{" "}
-              <strong>Elements</strong> tab for more options!
+              Select the poll or quiz to customize it, or go to the <strong>Elements</strong> tab
+              for more options!
             </div>
           </aside>
 
@@ -144,17 +132,11 @@ export default function Home() {
         <div className="section__inner question">
           <header className="question__header">
             <p className="question__eyebrow">Question # 2</p>
-            <h2 className="question__title">
-              How did you hear about our company?
-            </h2>
+            <h2 className="question__title">How did you hear about our company?</h2>
           </header>
 
           <div className="question__widget">
-            <iframe
-              src="canva-embed/q2.html"
-              title="Question 2 poll"
-              loading="lazy"
-            ></iframe>
+            <iframe src="canva-embed/q2.html" title="Question 2 poll" loading="lazy"></iframe>
           </div>
 
           <button className="pill pill--solid question__next" type="button">
@@ -190,11 +172,7 @@ export default function Home() {
           </header>
 
           <div className="question__widget">
-            <iframe
-              src="canva-embed/q3.html"
-              title="Question 3 poll"
-              loading="lazy"
-            ></iframe>
+            <iframe src="canva-embed/q3.html" title="Question 3 poll" loading="lazy"></iframe>
           </div>
 
           <button className="pill pill--solid question__next" type="button">
@@ -214,11 +192,7 @@ export default function Home() {
           </header>
 
           <div className="question__widget">
-            <iframe
-              src="canva-embed/q4.html"
-              title="Question 4 poll"
-              loading="lazy"
-            ></iframe>
+            <iframe src="canva-embed/q4.html" title="Question 4 poll" loading="lazy"></iframe>
           </div>
 
           <button className="pill pill--solid question__next" type="button">
@@ -238,11 +212,7 @@ export default function Home() {
           </header>
 
           <div className="question__widget">
-            <iframe
-              src="canva-embed/q5.html"
-              title="Question 5 poll"
-              loading="lazy"
-            ></iframe>
+            <iframe src="canva-embed/q5.html" title="Question 5 poll" loading="lazy"></iframe>
           </div>
 
           <button className="pill pill--solid question__next" type="button">
@@ -257,12 +227,8 @@ export default function Home() {
           <p className="final__eyebrow">GET IN TOUCH</p>
           <h2 className="final__title">We appreciate your participation</h2>
           <p className="final__text">
-            If there’s anything else you wish to share with our team, please
-            email{" "}
-            <a href="mailto:hello@reallygreatsite.com">
-              hello@reallygreatsite.com
-            </a>
-            .
+            If there’s anything else you wish to share with our team, please email{' '}
+            <a href="mailto:hello@reallygreatsite.com">hello@reallygreatsite.com</a>.
           </p>
         </div>
       </section>
