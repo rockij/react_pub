@@ -1,31 +1,42 @@
 import React from 'react';
 import '../../assets/css/checkbox.css';
 
-export interface Props {
+interface Props {
+  /**
+   * 최상위 wrapper에 적용할 커스텀 클래스
+   */
+  className?: string;
+
   /**
    * 체크박스 id
    */
   id: string;
+
   /**
    * 체크박스 라벨
    */
   label: string;
+
   /**
    * 크기
    */
   size: 'small' | 'medium' | 'large';
+
   /**
    * 체크 여부
    */
   checked: boolean;
+
   /**
    * 비활성화 여부
    */
   disabled?: boolean;
+
   /**
    * 필수 여부
    */
   required?: boolean;
+
   /**
    * 클릭 이벤트 핸들러
    */
@@ -36,6 +47,7 @@ export interface Props {
  * 재사용 가능한 checkbox 컴포넌트
  */
 export const Checkbox: React.FC<Props> = ({
+  className,
   id,
   label,
   size = 'medium',
@@ -45,7 +57,7 @@ export const Checkbox: React.FC<Props> = ({
   onChange,
 }) => {
   return (
-    <div className={`checkbox -${size}`}>
+    <div className={`checkbox ${className} -${size}`.trim()}>
       <input
         id={id}
         type="checkbox"
