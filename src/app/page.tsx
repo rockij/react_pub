@@ -1,3 +1,8 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import section2 from '../assets/images/section2-bg.jpg';
+import section3 from '../assets/images/section3-bg.jpg';
+
 export default function Home() {
   const storybookUrl =
     process.env.NEXT_PUBLIC_STORYBOOK_URL ??
@@ -5,258 +10,91 @@ export default function Home() {
 
   return (
     <main className="survey-main">
-      {/* Hero 섹션 */}
-      <section className="section section--hero">
-        <div className="section__inner hero">
-          <div className="hero__bg">
-            <img src="images/hero-photo.jpg" alt="People working together" />
+      <section className="survey-hero">
+        <div className="inner">
+          <p className="brand">Total Communication Group</p>
+          <h1 className="titles">
+            wylie
+            <span className="highlight">퍼블리셔와 밀접하게 협업했을 때의 장점</span>
+          </h1>
+          <p className="subtitle">We value your time and insights</p>
+          <button type="button" className="cta">
+            LET’S BEGIN!
+          </button>
+        </div>
+      </section>
+      <section className="survey-info">
+        <div className="inner">
+          <Image src={section2} alt="" className="img" />
+          <div className="texts">
+            <h2>디자인과 개발을 연결하는 핵심 엔지니어</h2>
+            <ol>
+              <li>
+                <div>
+                  <p className="tit">역할 분리가 명확해져 개발 생산성 증대</p>
+                  퍼블리셔는 레이아웃·스타일·반응형·접근성을 전담하고 개발자는 비즈니스 로직·상태
+                  관리·API 연동에 집중하여 병렬 작업으로 전체 일정 단축되는 효과를 가져옵니다.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <p className="tit">UI 구조 품질이 초기부터 안정화</p>
+                  시맨틱 마크업, 레이아웃 구조가 초기 설계 단계에서 정리하여 div 남발, 중첩 과다,
+                  CSS 충돌 방지 가능하여 결과적으로 유지보수 비용이 줄어듭니다.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <p className="tit">접근성(A11y)·표준 대응 리스크 감소</p>
+                  접근성과 표준 대응은 개발과 병행할수록 개발자의 집중도를 분산시키고, 핵심 로직
+                  구현의 속도를 떨어뜨립니다.
+                  <br />
+                  우리는 접근성과 웹 표준을 개발자의 부가 업무가 아닌, 퍼블리셔의 전문 영역으로
+                  봅니다.
+                  <br />
+                  퍼블리셔는 접근성·표준 리스크를 선제적으로 관리해 개발자의 집중도를 보호합니다.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <p className="tit">디자이너–개발자 간 커뮤니케이션 완충 역할</p>
+                  퍼블리셔는 디자인 의도를 기술 언어로 번역하는 역할을 수행합니다.
+                  <br />
+                  퍼블리셔가 디자인 의도를 정확히 구현하면 개발자는 설계 의도를 오해 없이 이해하여
+                  개발에 집중할 수 있습니다.
+                </div>
+              </li>
+            </ol>
           </div>
-
-          <div className="hero__content">
-            <div className="hero__badge-pill">
-              <span className="pill pill--outline">Let’s begin!</span>
-            </div>
-
-            <div className="hero__eyebrow">Lovinstein Inc.</div>
-
-            <h1 className="hero__title">
-              <span>Lead</span>
+        </div>
+      </section>
+      <section className="survey-info -storybook">
+        <div className="inner">
+          <div className="texts">
+            <h2>
+              React, Vue
               <br />
-              <span>Generation Survey</span>
-            </h1>
-
-            <div className="hero__subtitle">We value your time and insights</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Intro / 구조 / 안내 섹션 */}
-      <section className="section section--info">
-        <div className="section__inner info-grid">
-          {/* Intro */}
-          <article className="info-block">
-            <div className="info-block__icon-circle">
-              <span className="info-block__step-number">01</span>
-            </div>
-            <header className="info-block__header">
-              <p className="info-block__eyebrow">Introduction</p>
-              <p className="info-block__text">
-                Feedback is integral to our growth. We are dedicated to understanding your needs and
-                providing you with the best products.
-              </p>
-            </header>
-          </article>
-
-          {/* Structure */}
-          <article className="info-block">
-            <div className="info-block__icon-circle">
-              <span className="info-block__step-number">02</span>
-            </div>
-            <header className="info-block__header">
-              <p className="info-block__eyebrow">Structure</p>
-              <p className="info-block__text">
-                This survey is comprised of multiple-choice questions. It will take a maximum of ten
-                minutes to complete.
-              </p>
-            </header>
-          </article>
-
-          {/* Reminders */}
-          <article className="info-block">
-            <div className="info-block__icon-circle">
-              <span className="info-block__step-number">03</span>
-            </div>
-            <header className="info-block__header">
-              <p className="info-block__eyebrow">Reminders</p>
-              <p className="info-block__text">
-                Please complete this within 72 hours. You are allowed to retake it anytime within
-                that period. After that, you will get a confirmation of receipt from our team.
-              </p>
-            </header>
-          </article>
-
-          {/* 큰 타이틀 “Before we start” */}
-          <div className="info-intro">
-            <h2 className="info-intro__title">Before we start</h2>
-            <hr className="info-intro__divider" />
-          </div>
-        </div>
-      </section>
-
-      {/* Section 1 : Starting out */}
-      <section className="section section--section1">
-        <div className="section__inner section-intro">
-          <p className="section-intro__eyebrow">Section 1</p>
-          <h2 className="section-intro__title">Starting out</h2>
-
-          <button className="pill pill--solid section-intro__cta" type="button">
-            START
-          </button>
-
-          <div className="section-intro__image">
-            <img src="images/section1-illustration.png" alt="" />
-          </div>
-        </div>
-      </section>
-
-      {/* Question 1 */}
-      <section className="section section--question section--question1">
-        <div className="section__inner question">
-          <header className="question__header">
-            <p className="question__eyebrow">Question # 1</p>
-            <h2 className="question__title">
-              What is the primary reason you’re interested in our services?
+              전문 퍼블리싱
             </h2>
-          </header>
-
-          <div className="question__widget">
-            <iframe src="canva-embed/q1.html" title="Question 1 poll" loading="lazy"></iframe>
+            해당 환경에서 UI스크립트 작업이 가능하여 개발자의 로직 영역을 침범하지 않고, UI 동작을
+            완결하는 것이 가능합니다.
+            <br />
+            <br />
+            퍼블리셔가 컴포넌트를 먼저 설계하면,
+            <br />
+            개발자는 UI 고민 없이 로직에만 집중할 수 있습니다.
+            <br />
+            <br />
+            storybook으로 컴포넌트를 설계·검증하여 개발 생산성을 극대화합니다.
+            <br />
+            <Link target="_blank" href={storybookUrl} rel="noopener noreferrer" className="cta">
+              storybook 보러가기
+            </Link>
           </div>
-
-          <aside className="question-tip">
-            <div className="question-tip__body">
-              <strong>Canva tip: </strong>
-              Select the poll or quiz to customize it, or go to the <strong>Elements</strong> tab
-              for more options!
-            </div>
-          </aside>
-
-          <button className="pill pill--solid question__next" type="button">
-            NEXT
-          </button>
+          <Image src={section3} alt="" className="img" />
         </div>
       </section>
-
-      {/* Question 2 */}
-      <section className="section section--question section--question2">
-        <div className="section__inner question">
-          <header className="question__header">
-            <p className="question__eyebrow">Question # 2</p>
-            <h2 className="question__title">How did you hear about our company?</h2>
-          </header>
-
-          <div className="question__widget">
-            <iframe src="canva-embed/q2.html" title="Question 2 poll" loading="lazy"></iframe>
-          </div>
-
-          <button className="pill pill--solid question__next" type="button">
-            NEXT
-          </button>
-        </div>
-      </section>
-
-      {/* Section 2 : Your purchases */}
-      <section className="section section--section2">
-        <div className="section__inner section-intro">
-          <p className="section-intro__eyebrow">Section 2</p>
-          <h2 className="section-intro__title">Your purchases</h2>
-
-          <button className="pill pill--solid section-intro__cta" type="button">
-            START
-          </button>
-
-          <div className="section-intro__image">
-            <img src="images/section2-illustration.png" alt="" />
-          </div>
-        </div>
-      </section>
-
-      {/* Question 3 */}
-      <section className="section section--question section--question3">
-        <div className="section__inner question">
-          <header className="question__header">
-            <p className="question__eyebrow">Question # 3</p>
-            <h2 className="question__title">
-              Which feature of our product is most important to you?
-            </h2>
-          </header>
-
-          <div className="question__widget">
-            <iframe src="canva-embed/q3.html" title="Question 3 poll" loading="lazy"></iframe>
-          </div>
-
-          <button className="pill pill--solid question__next" type="button">
-            NEXT
-          </button>
-        </div>
-      </section>
-
-      {/* Question 4 */}
-      <section className="section section--question section--question4">
-        <div className="section__inner question">
-          <header className="question__header">
-            <p className="question__eyebrow">Question # 4</p>
-            <h2 className="question__title">
-              What budget range have you allocated for your purchase?
-            </h2>
-          </header>
-
-          <div className="question__widget">
-            <iframe src="canva-embed/q4.html" title="Question 4 poll" loading="lazy"></iframe>
-          </div>
-
-          <button className="pill pill--solid question__next" type="button">
-            NEXT
-          </button>
-        </div>
-      </section>
-
-      {/* Question 5 + Finish 섹션 */}
-      <section className="section section--question section--question5">
-        <div className="section__inner question">
-          <header className="question__header">
-            <p className="question__eyebrow">Question # 5</p>
-            <h2 className="question__title">
-              How soon are you planning to make a purchase decision?
-            </h2>
-          </header>
-
-          <div className="question__widget">
-            <iframe src="canva-embed/q5.html" title="Question 5 poll" loading="lazy"></iframe>
-          </div>
-
-          <button className="pill pill--solid question__next" type="button">
-            FINISH
-          </button>
-        </div>
-      </section>
-
-      {/* Get in touch / 마무리 */}
-      <section className="section section--final">
-        <div className="section__inner final">
-          <p className="final__eyebrow">GET IN TOUCH</p>
-          <h2 className="final__title">We appreciate your participation</h2>
-          <p className="final__text">
-            If there’s anything else you wish to share with our team, please email{' '}
-            <a href="mailto:hello@reallygreatsite.com">hello@reallygreatsite.com</a>.
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="survey-footer">
-        <div className="survey-footer__inner">
-          <button type="button" className="footer-link">
-            약관 및 지원
-          </button>
-          <button type="button" className="footer-link">
-            개인정보 처리방침
-          </button>
-
-          <a
-            href="https://www.canva.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-pill footer-pill--primary"
-            aria-label="Design made with Canva"
-          >
-            <span className="footer-pill__bg"></span>
-            <span className="footer-pill__label">
-              Made with <span className="footer-pill__logo">Canva</span>
-            </span>
-          </a>
-        </div>
-      </footer>
+      <footer>ⓒ wylie. All rights reserved.</footer>
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../assets/css/button.css';
 
 export interface ButtonProps {
   /**
@@ -33,40 +34,13 @@ export const Button: React.FC<ButtonProps> = ({
   disabled = false,
   onClick,
 }) => {
-  const baseStyles: React.CSSProperties = {
-    padding: size === 'small' ? '8px 16px' : size === 'large' ? '16px 32px' : '12px 24px',
-    fontSize: size === 'small' ? '14px' : size === 'large' ? '18px' : '16px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: disabled ? 'not-allowed' : 'pointer',
-    opacity: disabled ? 0.6 : 1,
-    transition: 'all 0.2s ease',
-    fontWeight: 500,
-  };
-
-  const variantStyles: Record<string, React.CSSProperties> = {
-    primary: {
-      backgroundColor: '#0070f3',
-      color: 'white',
-    },
-    secondary: {
-      backgroundColor: '#6c757d',
-      color: 'white',
-    },
-    danger: {
-      backgroundColor: '#dc3545',
-      color: 'white',
-    },
-  };
+  const className = ['btn', `btn--${size}`, `btn--${variant}`, disabled ? 'btn--disabled' : '']
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <button
-      style={{ ...baseStyles, ...variantStyles[variant] }}
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <button className={className} onClick={onClick} disabled={disabled}>
       {label}
     </button>
   );
 };
-

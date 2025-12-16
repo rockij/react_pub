@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../assets/css/card.css';
 
 export interface CardProps {
   /**
@@ -22,50 +23,16 @@ export interface CardProps {
 /**
  * 재사용 가능한 Card 컴포넌트
  */
-export const Card: React.FC<CardProps> = ({
-  title,
-  children,
-  imageUrl,
-  onClick,
-}) => {
-  const cardStyles: React.CSSProperties = {
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    cursor: onClick ? 'pointer' : 'default',
-    transition: 'all 0.3s ease',
-    maxWidth: '400px',
-    backgroundColor: 'white',
-  };
-
-  const imageStyles: React.CSSProperties = {
-    width: '100%',
-    height: '200px',
-    objectFit: 'cover',
-  };
-
-  const contentStyles: React.CSSProperties = {
-    padding: '16px',
-  };
-
-  const titleStyles: React.CSSProperties = {
-    fontSize: '20px',
-    fontWeight: 600,
-    marginBottom: '12px',
-    color: '#333',
-  };
+export const Card: React.FC<CardProps> = ({ title, children, imageUrl, onClick }) => {
+  const className = ['card', onClick ? 'card--clickable' : ''].filter(Boolean).join(' ');
 
   return (
-    <div style={cardStyles} onClick={onClick}>
-      {imageUrl && (
-        <img src={imageUrl} alt={title} style={imageStyles} />
-      )}
-      <div style={contentStyles}>
-        <h3 style={titleStyles}>{title}</h3>
-        <div style={{ color: '#666', lineHeight: '1.6' }}>{children}</div>
+    <div className={className} onClick={onClick}>
+      {imageUrl && <img src={imageUrl} alt={title} className="card__image" />}
+      <div className="card__content">
+        <h3 className="card__title">{title}</h3>
+        <div className="card__body">{children}</div>
       </div>
     </div>
   );
 };
-

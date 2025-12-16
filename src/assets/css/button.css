@@ -1,0 +1,53 @@
+:root {
+  --btn-primary-bg: #0070f3;
+  --btn-secondary-bg: #6c757d;
+  --btn-danger-bg: #dc3545;
+  --btn-color: #ffffff;
+}
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.btn--medium {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.btn--large {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+.btn--primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-color);
+}
+
+.btn--secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-color);
+}
+
+.btn--danger {
+  background-color: var(--btn-danger-bg);
+  color: var(--btn-color);
+}
+
+.btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}

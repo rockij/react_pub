@@ -74,4 +74,3 @@ export const Disabled: Story = {
     variant: 'primary',
   },
 };
-
