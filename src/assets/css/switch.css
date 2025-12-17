@@ -1,0 +1,108 @@
+.switch {
+  --sw-w: 44px;
+  --sw-h: 24px;
+  --sw-pad: 3px;
+
+  --track-off: #9a9a9a;
+  --track-on: #a9c9ef; /* 연한 파랑 트랙 */
+  --thumb-off: #ffffff;
+  --thumb-on: #0b66d8; /* 진한 파랑 썸 */
+
+  --track-off-disabled: #e6e6e6;
+  --track-on-disabled: #cfe0f6;
+  --thumb-disabled: #bcd2ee;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 접근성 유지: 화면에서만 숨김 */
+.switch-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.switch-track {
+  width: var(--sw-w);
+  height: var(--sw-h);
+  border-radius: 999px;
+  background: var(--track-off);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  transition: background-color 160ms ease;
+}
+
+.switch-thumb {
+  width: calc(var(--sw-h) - (var(--sw-pad) * 2));
+  height: calc(var(--sw-h) - (var(--sw-pad) * 2));
+  border-radius: 999px;
+  background: var(--thumb-off);
+  position: absolute;
+  top: var(--sw-pad);
+  left: var(--sw-pad);
+  transition: transform 160ms ease, background-color 160ms ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.switch-label {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* checked 상태 */
+.switch-input:checked + .switch-track {
+  background: var(--track-on);
+}
+
+.switch-input:checked + .switch-track .switch-thumb {
+  background: var(--thumb-on);
+  transform: translateX(calc(var(--sw-w) - var(--sw-h)));
+}
+
+/* focus ring */
+.switch-input:focus-visible + .switch-track {
+  outline: 3px solid rgba(11, 102, 216, 0.35);
+  outline-offset: 2px;
+}
+
+/* disabled wrapper */
+.switch.disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.switch.disabled .switch-track {
+  box-shadow: none;
+}
+
+/* disabled input */
+.switch-input:disabled + .switch-track {
+  background: var(--track-off-disabled);
+}
+
+.switch-input:disabled + .switch-track .switch-thumb {
+  box-shadow: none;
+}
+
+/* disabled + checked */
+.switch-input:disabled:checked + .switch-track {
+  background: var(--track-on-disabled);
+}
+
+.switch-input:disabled:checked + .switch-track .switch-thumb {
+  background: var(--thumb-disabled);
+}
