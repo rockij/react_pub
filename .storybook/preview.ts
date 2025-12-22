@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import '../src/assets/css/global.css';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const preview: Preview = {
   parameters: {

@@ -1,0 +1,150 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.modal-overlay--after-open {
+  opacity: 1;
+}
+
+.modal-overlay--before-close {
+  opacity: 0;
+}
+
+.modal-content {
+  background: #ffffff;
+  color: #111827;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  width: 520px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.2);
+  outline: none;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.modal-content--after-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.modal-content--before-close {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+}
+
+.modal-content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content button[aria-label='Close'] {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: calc(100% - 32px);
+    padding: 16px;
+    border-radius: 6px;
+  }
+}
+
+/* Bottom sheet styles */
+.modal-bottom-content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  border-radius: 12px 12px 0 0;
+  padding: 16px 20px;
+  background: #ffffff;
+  box-shadow: 0 -8px 30px rgba(2, 6, 23, 0.12);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1), opacity 200ms ease;
+}
+
+.modal-bottom-content--after-open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-bottom-content--before-close {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.modal-bottom-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.modal-bottom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-bottom-close {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Full screen dialog styles */
+.modal-full-content {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  background: #ffffff;
+  z-index: 1001;
+  overflow: auto;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.modal-full-content--after-open {
+  opacity: 1;
+}
+
+.modal-full-content--before-close {
+  opacity: 0;
+}
+
+.modal-full-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-full-close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-full-body {
+  margin-top: 12px;
+}
