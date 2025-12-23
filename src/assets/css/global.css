@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* 색상 변수 */
   --color-bg-overlay: rgba(0, 0, 0, 0.3);

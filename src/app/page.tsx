@@ -15,15 +15,15 @@ export default function Home() {
           <p className="brand">Total Communication Group</p>
           <h1 className="titles">
             wylie
-            <span className="highlight">퍼블리셔와 밀접하게 협업했을 때의 장점</span>
+            <span className="highlight">퍼블리셔와 같이 협업했을 때의 장점</span>
           </h1>
           <p className="subtitle">We value your time and insights</p>
-          <button type="button" className="cta">
+          <a href="#survey-info" className="cta">
             LET’S BEGIN!
-          </button>
+          </a>
         </div>
       </section>
-      <section className="survey-info">
+      <section id="survey-info" className="survey-info">
         <div className="inner">
           <Image src={section2} alt="" className="img" />
           <div className="texts">
