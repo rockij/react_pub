@@ -94,6 +94,32 @@ export default function Home() {
           <Image src={section3} alt="" className="img" />
         </div>
       </section>
+      <section className="survey-info -storybook">
+        <div className="inner">
+          <div className="texts">
+            <h2>
+              React, Vue
+              <br />
+              전문 퍼블리싱
+            </h2>
+            해당 환경에서 UI스크립트 작업이 가능하여 개발자의 로직 영역을 침범하지 않고, UI 동작을
+            완결하는 것이 가능합니다.
+            <br />
+            <br />
+            퍼블리셔가 컴포넌트를 먼저 설계하면,
+            <br />
+            개발자는 UI 고민 없이 로직에만 집중할 수 있습니다.
+            <br />
+            <br />
+            storybook으로 컴포넌트를 설계·검증하여 개발 생산성을 극대화합니다.
+            <br />
+            <Link target="_blank" href="/pubsheet" rel="noopener noreferrer" className="cta">
+              현황판 보러가기
+            </Link>
+          </div>
+          <Image src={section3} alt="" className="img" />
+        </div>
+      </section>
       <footer>ⓒ wylie. All rights reserved.</footer>
     </main>
   );

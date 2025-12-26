@@ -404,3 +404,173 @@ footer {
   padding: 0.8rem;
   font-size: 12px;
 }
+
+/* -----------------------------
+   Members list / pubsheet styles
+   ----------------------------- */
+.members-card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(18, 25, 32, 0.06);
+  padding: 2rem;
+  border: 1px solid #eee;
+}
+.members-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.members-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #333;
+}
+.members-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.members-search {
+  padding: 0.55rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  font-size: 1.4rem;
+  color: #333;
+  width: 260px;
+}
+.btn-go {
+  background: #4b4b4b;
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  border-radius: 4px;
+  border: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.members-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.45rem;
+  min-width: 980px;
+}
+.members-table thead th {
+  background: #f6f5f4;
+  color: #6b6b6b;
+  text-align: left;
+  padding: 1.25rem 1rem;
+  font-weight: 700;
+  border-bottom: 1px solid #e6e6e6;
+  vertical-align: middle;
+}
+.members-table tbody td {
+  padding: 1.05rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+  vertical-align: middle;
+}
+.members-table tbody tr.row-hover:hover td {
+  background: #fbfbfb;
+}
+.members-table td.center {
+  text-align: center;
+}
+.members-table td.right {
+  text-align: right;
+}
+.url-cell a {
+  color: #2f6fb6;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.copy-btn {
+  display: inline-block;
+  margin-left: 0.6rem;
+  background: #e9e9eb;
+  color: #6b6b6b;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  border: 0;
+  cursor: pointer;
+}
+.badge {
+  display: inline-block;
+  background: #61b32c;
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.sort-arrows {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 0.6rem;
+  font-size: 0.9rem;
+  color: #9b9b9b;
+  vertical-align: middle;
+}
+.sort-arrows .up,
+.sort-arrows .down {
+  line-height: 0.8;
+}
+
+/* column helpers */
+.col-depth {
+  width: 12%;
+}
+.col-screen {
+  width: 14%;
+}
+.col-kubun {
+  width: 8%;
+}
+.col-url {
+  width: 18%;
+}
+.col-date {
+  width: 10%;
+}
+.col-person {
+  width: 12%;
+}
+.col-done {
+  width: 8%;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .members-table {
+    min-width: 800px;
+  }
+  .members-search {
+    width: 180px;
+  }
+}
+@media (max-width: 800px) {
+  .members-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .members-search {
+    width: 100%;
+  }
+  .members-table {
+    font-size: 1.3rem;
+    min-width: 0;
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* small utilities */
+.muted {
+  color: #888;
+  font-size: 1.35rem;
+}
