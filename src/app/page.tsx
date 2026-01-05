@@ -94,7 +94,7 @@ export default function Home() {
           <Image src={section3} alt="" className="img" />
         </div>
       </section>
-      <section className="survey-info -storybook">
+      {/* <section className="survey-info -storybook">
         <div className="inner">
           <div className="texts">
             <h2>
@@ -119,7 +119,7 @@ export default function Home() {
           </div>
           <Image src={section3} alt="" className="img" />
         </div>
-      </section>
+      </section> */}
       <footer>ⓒ wylie. All rights reserved.</footer>
     </main>
   );
