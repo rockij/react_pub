@@ -1,126 +1,135 @@
-import Image from 'next/image';
+import React from 'react';
 import Link from 'next/link';
-import section2 from '../assets/images/section2-bg.jpg';
-import section3 from '../assets/images/section3-bg.jpg';
 
-export default function Home() {
+/**
+ * @description Wylie Publishing 서비스 소개 페이지
+ * 사용자의 요청에 따라 기술 태그를 삭제하고 '스토리북 바로가기' 버튼을 추가했습니다.
+ * CSS Nesting 구조를 유지하며 외부 파일 분리가 용이하도록 설계되었습니다.
+ */
+
+const App = () => {
   const storybookUrl =
     process.env.NEXT_PUBLIC_STORYBOOK_URL ??
     (process.env.NODE_ENV === 'production' ? '/storybook/' : 'http://localhost:6006');
-
   return (
-    <main className="survey-main">
-      <section className="survey-hero">
-        <div className="inner">
-          <p className="brand">Total Communication Group</p>
-          <h1 className="titles">
-            wylie
-            <span className="highlight">퍼블리셔와 같이 협업했을 때의 장점</span>
-          </h1>
-          <p className="subtitle">We value your time and insights</p>
-          <a href="#survey-info" className="cta">
-            LET’S BEGIN!
-          </a>
-        </div>
-      </section>
-      <section id="survey-info" className="survey-info">
-        <div className="inner">
-          <Image src={section2} alt="" className="img" />
-          <div className="texts">
-            <h2>디자인과 개발을 연결하는 핵심 엔지니어</h2>
-            <ol>
-              <li>
-                <div>
-                  <p className="tit">역할 분리가 명확해져 개발 생산성 증대</p>
-                  퍼블리셔는 레이아웃·스타일·반응형·접근성을 전담하고 개발자는 비즈니스 로직·상태
-                  관리·API 연동에 집중하여 병렬 작업으로 전체 일정 단축되는 효과를 가져옵니다.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p className="tit">UI 구조 품질이 초기부터 안정화</p>
-                  시맨틱 마크업, 레이아웃 구조가 초기 설계 단계에서 정리하여 div 남발, 중첩 과다,
-                  CSS 충돌 방지 가능하여 결과적으로 유지보수 비용이 줄어듭니다.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p className="tit">접근성(A11y)·표준 대응 리스크 감소</p>
-                  접근성과 표준 대응은 개발과 병행할수록 개발자의 집중도를 분산시키고, 핵심 로직
-                  구현의 속도를 떨어뜨립니다.
-                  <br />
-                  우리는 접근성과 웹 표준을 개발자의 부가 업무가 아닌, 퍼블리셔의 전문 영역으로
-                  봅니다.
-                  <br />
-                  퍼블리셔는 접근성·표준 리스크를 선제적으로 관리해 개발자의 집중도를 보호합니다.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p className="tit">디자이너–개발자 간 커뮤니케이션 완충 역할</p>
-                  퍼블리셔는 디자인 의도를 기술 언어로 번역하는 역할을 수행합니다.
-                  <br />
-                  퍼블리셔가 디자인 의도를 정확히 구현하면 개발자는 설계 의도를 오해 없이 이해하여
-                  개발에 집중할 수 있습니다.
-                </div>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </section>
-      <section className="survey-info -storybook">
-        <div className="inner">
-          <div className="texts">
-            <h2>
-              React, Vue
-              <br />
-              전문 퍼블리싱
-            </h2>
-            해당 환경에서 UI스크립트 작업이 가능하여 개발자의 로직 영역을 침범하지 않고, UI 동작을
-            완결하는 것이 가능합니다.
-            <br />
-            <br />
-            퍼블리셔가 컴포넌트를 먼저 설계하면,
-            <br />
-            개발자는 UI 고민 없이 로직에만 집중할 수 있습니다.
-            <br />
-            <br />
-            storybook으로 컴포넌트를 설계·검증하여 개발 생산성을 극대화합니다.
-            <br />
-            <Link target="_blank" href={storybookUrl} rel="noopener noreferrer" className="cta">
-              storybook 보러가기
+    <div className="wylie-container">
+      {/* Hero Section */}
+      <header className="hero-section">
+        <span className="badge">Total Communication Group</span>
+        <h1>Wylie Publishing</h1>
+        <p>프로젝트의 완성도를 결정짓는 전문 퍼블리싱 가이드를 제안합니다.</p>
+      </header>
+
+      {/* 독립된 타이틀 영역 */}
+      <div className="main-title-area">
+        <h2>
+          퍼블리셔 협업의 <span>핵심 가치</span>
+        </h2>
+        <p className="sub-desc">
+          디자인과 개발 사이의 간극을 줄여 효율적인 워크플로우를 완성합니다.
+        </p>
+      </div>
+
+      <main className="content-wrapper">
+        {/* 장점 섹션 */}
+        <section className="benefit-grid">
+          <article className="benefit-card">
+            <div className="icon-box">01</div>
+            <div className="text-content">
+              <h3>개발 생산성 증대</h3>
+              <ul className="feature-list">
+                <li>
+                  <strong>Role Separation (역할 분리)</strong>
+                  <span>
+                    UI 구조 전담을 통해 개발자가 로직 구현에만 집중할 수 있는 환경을 제공합니다.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="benefit-card">
+            <div className="icon-box">02</div>
+            <div className="text-content">
+              <h3>UI 구조 품질 안정화</h3>
+              <ul className="feature-list">
+                <li>
+                  <strong>UI Architecture (UI 설계)</strong>
+                  <span>
+                    시맨틱 마크업 설계로 코드의 논리적 구조를 완성하고 유지보수 비용을 절감합니다.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="benefit-card">
+            <div className="icon-box">03</div>
+            <div className="text-content">
+              <h3>접근성 및 표준 준수</h3>
+              <ul className="feature-list">
+                <li>
+                  <strong>A11y (접근성 리스크 관리)</strong>
+                  <span>
+                    웹 표준 가이드를 준수하여 모든 사용자의 환경에서 차별 없는 정보를 제공합니다.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="benefit-card">
+            <div className="icon-box">04</div>
+            <div className="text-content">
+              <h3>커뮤니케이션 가교</h3>
+              <ul className="feature-list">
+                <li>
+                  <strong>Bridge Role (중재 역할)</strong>
+                  <span>
+                    디자인 시스템의 기술적 해석을 통해 디자이너와 개발자 사이의 소통 비용을
+                    낮춥니다.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        {/* 기술 섹션 */}
+        <section className="framework-section">
+          <div className="text-area">
+            <h2>React & Vue 전문 퍼블리싱</h2>
+            <p>프레임워크 환경에 즉시 최적화된 컴포넌트 단위의 UI 결과물을 제공합니다.</p>
+            <Link
+              target="_blank"
+              href={storybookUrl}
+              rel="noopener noreferrer"
+              className="storybook-btn"
+            >
+              스토리북 바로가기
             </Link>
           </div>
-          <Image src={section3} alt="" className="img" />
-        </div>
-      </section>
-      {/* <section className="survey-info -storybook">
-        <div className="inner">
-          <div className="texts">
-            <h2>
-              React, Vue
-              <br />
-              전문 퍼블리싱
-            </h2>
-            해당 환경에서 UI스크립트 작업이 가능하여 개발자의 로직 영역을 침범하지 않고, UI 동작을
-            완결하는 것이 가능합니다.
-            <br />
-            <br />
-            퍼블리셔가 컴포넌트를 먼저 설계하면,
-            <br />
-            개발자는 UI 고민 없이 로직에만 집중할 수 있습니다.
-            <br />
-            <br />
-            storybook으로 컴포넌트를 설계·검증하여 개발 생산성을 극대화합니다.
-            <br />
-            <Link target="_blank" href="/pubsheet" rel="noopener noreferrer" className="cta">
-              현황판 보러가기
-            </Link>
+          <div className="tech-cards">
+            <div className="tech-card">
+              <h4>최적화된 UI 스크립트</h4>
+              <p>프레임워크 내부 인터랙션을 직접 구현하여 개발 로드를 대폭 절감합니다.</p>
+            </div>
+            <div className="tech-card">
+              <h4>Storybook 기반 검증</h4>
+              <p>독립된 컴포넌트 테스트를 통해 UI의 무결성을 사전에 보장합니다.</p>
+            </div>
           </div>
-          <Image src={section3} alt="" className="img" />
+        </section>
+      </main>
+
+      <footer>
+        <div className="company-name">Wylie Publishing</div>
+        <div className="final-msg">
+          구조적 품질과 효율적 협업을 위한 최상의 퍼블리싱 파트너입니다.
         </div>
-      </section> */}
-      <footer>ⓒ wylie. All rights reserved.</footer>
-    </main>
+      </footer>
+    </div>
   );
-}
+};
+
+export default App;
