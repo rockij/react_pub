@@ -238,6 +238,11 @@ textarea {
 html {
   font-size: 62.5%;
 }
+@media (max-width: 1024px) {
+  html {
+    font-size: 52.5%;
+  }
+}
 
 /* Wylie Publishing 페이지 스타일 */
 .wylie-container {
@@ -294,7 +299,7 @@ html {
   /* 섹션 타이틀 */
   .main-title-area {
     text-align: center;
-    padding: 12rem 0 8rem;
+    padding: 12rem 4rem 8rem;
 
     h2 {
       font-size: 4.4rem;
