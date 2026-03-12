@@ -1,35 +1,29 @@
 import React from 'react';
 import styles from './UserProfileCard.module.css';
 
-export interface UserProfileCardProps {
+interface UserProfileCardProps {
   avatarUrl: string;
-  userName: string;
-  userTitle: string;
+  name: string;
+  title: string;
+  location: string;
   description: string;
-  socialLinks: Array<{ id: string; label: string; url: string }>;
 }
 
-const UserProfileCard: React.FC<UserProfileCardProps> = ({ avatarUrl, userName, userTitle, description, socialLinks }) => {
+const UserProfileCard: React.FC<UserProfileCardProps> = ({ avatarUrl, name, title, location, description }) => {
   return (
-    <section className={styles.card} aria-label="User Profile">
-      <img src={avatarUrl} alt={`${userName} avatar`} className={styles.avatar} />
+    <article className={styles.card}>
       <header className={styles.header}>
-        <h1 className={styles.userName}>{userName}</h1>
-        <p className={styles.userTitle}>{userTitle}</p>
+        <img className={styles.avatar} src={avatarUrl} alt={`${name}'s avatar`} />
+        <div className={styles.userInfo}>
+          <h1 className={styles.name}>{name}</h1>
+          <p className={styles.title}>{title}</p>
+          <p className={styles.location}>{location}</p>
+        </div>
       </header>
-      <p className={styles.description}>{description}</p>
-      <nav aria-label="Social media links">
-        <ul className={styles.socialList}>
-          {socialLinks.map(({ id, label, url }) => (
-            <li key={id} className={styles.socialItem}>
-              <a href={url} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </section>
+      <section className={styles.description}>
+        <p>{description}</p>
+      </section>
+    </article>
   );
 };
 
