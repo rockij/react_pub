@@ -1,44 +1,50 @@
 import React from 'react';
-import styles from './UserProfileCard.module.css';
+import styles from './AuthorsList.module.css';
 
-export interface UserProfileCardProps {
+export interface Author {
+  id: string | number;
   name: string;
-  role: string;
-  avatarSrc: string;
-  description: string;
-  tags?: string[];
+  followersCount: number;
+  avatarUrl?: string;
 }
 
-const Tag: React.FC<{ label: string }> = ({ label }) => {
-  return <span className={styles.tag}>{label}</span>;
-};
+interface AuthorsListProps {
+  title: string;
+  authors: Author[];
+}
 
-const UserProfileCard: React.FC<UserProfileCardProps> = ({
-  name,
-  role,
-  avatarSrc,
-  description,
-  tags = [],
-}) => {
+const AuthorItem: React.FC<{author: Author}> = ({ author }) => {
   return (
-    <article className={styles.card}>
-      <header className={styles.header}>
-        <img src={avatarSrc} alt={`${name} avatar`} className={styles.avatar} />
-        <div>
-          <h2 className={styles.name}>{name}</h2>
-          <p className={styles.role}>{role}</p>
-        </div>
-      </header>
-      <p className={styles.description}>{description}</p>
-      {tags.length > 0 && (
-        <section className={styles.tagsSection} aria-label="User tags">
-          {tags.map((tag, idx) => (
-            <Tag key={idx} label={tag} />
-          ))}
-        </section>
+    <li className={styles.authorItem} key={author.id}>
+      {author.avatarUrl && (
+        <img
+          src={author.avatarUrl}
+          alt={`${author.name} avatar`}
+          className={styles.avatar}
+          loading="lazy"
+          width={48}
+          height={48}
+        />
       )}
-    </article>
+      <div className={styles.authorInfo}>
+        <h3 className={styles.authorName}>{author.name}</h3>
+        <p className={styles.followersCount} aria-label={`${author.followersCount} followers`}>{author.followersCount}</p>
+      </div>
+    </li>
   );
 };
 
-export default UserProfileCard;
+const AuthorsList: React.FC<AuthorsListProps> = ({ title, authors }) => {
+  return (
+    <section className={styles.authorsSection}>
+      <h2 className={styles.sectionTitle}>{title}</h2>
+      <ul className={styles.authorsList}>
+        {authors.map(author => (
+          <AuthorItem author={author} key={author.id} />
+        ))}
+      </ul>
+    </section>
+  );
+};
+
+export default AuthorsList;
