@@ -1,5 +1,36 @@
-{
-  "componentName": "PricingCard",
-  "componentTsx": "import React from 'react';\nimport styles from './PricingCard.module.css';\n\ninterface PricingCardProps {\n  title: string;\n  priceAmount: string;\n  pricePeriod: string;\n  features: string[];\n  buttonText: string;\n  onButtonClick?: () => void;\n}\n\nconst PricingCard: React.FC<PricingCardProps> = ({ title, priceAmount, pricePeriod, features, buttonText, onButtonClick }) => {\n  return (\n    <article className={styles.card}>\n      <header className={styles.header}>\n        <h2 className={styles.title}>{title}</h2>\n        <div className={styles.price}>\n          <span className={styles.priceAmount}>{priceAmount}</span>\n          <span className={styles.pricePeriod}> / {pricePeriod}</span>\n        </div>\n      </header>\n      <ul className={styles.features}>\n        {features.map((feature, index) => (\n          <li key={index} className={styles.featureItem}>\n            {feature}\n          </li>\n        ))}\n      </ul>\n      <button className={styles.button} onClick={onButtonClick} type=\"button\">\n        {buttonText}\n      </button>\n    </article>\n  );\n};\n\nexport default PricingCard;\n",
-  "styleCss": ".card {\n  background-color: #fefefe;\n  box-shadow: 0 4px 8px rgba(0,0,0,0.1);\n  border-radius: 12px;\n  padding: 24px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  max-width: 320px;\n}\n\n.header {\n  text-align: center;\n  margin-bottom: 24px;\n}\n\n.title {\n  font-weight: 700;\n  font-size: 1.5rem;\n  margin-bottom: 8px;\n  color: #222;\n}\n\n.price {\n  font-weight: 500;\n  font-size: 1.75rem;\n  color: #444;\n}\n\n.priceAmount {\n  font-weight: 700;\n  font-size: 2rem;\n}\n\n.pricePeriod {\n  font-weight: 400;\n  font-size: 1rem;\n  color: #666;\n  margin-left: 4px;\n}\n\n.features {\n  list-style: none;\n  padding: 0;\n  margin: 0 0 32px 0;\n  width: 100%;\n}\n\n.featureItem {\n  font-size: 1rem;\n  color: #555;\n  padding-left: 1rem;\n  margin-bottom: 12px;\n  position: relative;\n}\n\n.featureItem::before {\n  content: '•';\n  position: absolute;\n  left: 0;\n  color: #007bff;\n}\n\n.button {\n  background-color: #007bff;\n  color: white;\n  font-weight: 600;\n  font-size: 1rem;\n  border: none;\n  border-radius: 8px;\n  padding: 12px 28px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n  width: 100%;\n}\n\n.button:hover {\n  background-color: #0056b3;\n}\n",
+import React from 'react';
+import styles from './UserProfileCard.module.css';
+
+export interface UserProfileCardProps {
+  avatarUrl: string;
+  userName: string;
+  userTitle: string;
+  description: string;
+  socialLinks: Array<{ id: string; label: string; url: string }>;
 }
+
+const UserProfileCard: React.FC<UserProfileCardProps> = ({ avatarUrl, userName, userTitle, description, socialLinks }) => {
+  return (
+    <section className={styles.card} aria-label="User Profile">
+      <img src={avatarUrl} alt={`${userName} avatar`} className={styles.avatar} />
+      <header className={styles.header}>
+        <h1 className={styles.userName}>{userName}</h1>
+        <p className={styles.userTitle}>{userTitle}</p>
+      </header>
+      <p className={styles.description}>{description}</p>
+      <nav aria-label="Social media links">
+        <ul className={styles.socialList}>
+          {socialLinks.map(({ id, label, url }) => (
+            <li key={id} className={styles.socialItem}>
+              <a href={url} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </section>
+  );
+};
+
+export default UserProfileCard;
