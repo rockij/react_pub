@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AuthorsList.module.css';
+import styles from './GeneratedComponent.module.css';
 
 export interface Author {
   id: string | number;
@@ -8,12 +8,12 @@ export interface Author {
   avatarUrl?: string;
 }
 
-interface AuthorsListProps {
+interface GeneratedComponentProps {
   title: string;
   authors: Author[];
 }
 
-const AuthorItem: React.FC<{author: Author}> = ({ author }) => {
+const AuthorItem: React.FC<{ author: Author }> = ({ author }) => {
   return (
     <li className={styles.authorItem} key={author.id}>
       {author.avatarUrl && (
@@ -28,13 +28,15 @@ const AuthorItem: React.FC<{author: Author}> = ({ author }) => {
       )}
       <div className={styles.authorInfo}>
         <h3 className={styles.authorName}>{author.name}</h3>
-        <p className={styles.followersCount} aria-label={`${author.followersCount} followers`}>{author.followersCount}</p>
+        <p className={styles.followersCount} aria-label={`${author.followersCount} followers`}>
+          {author.followersCount}
+        </p>
       </div>
     </li>
   );
 };
 
-const AuthorsList: React.FC<AuthorsListProps> = ({ title, authors }) => {
+const GeneratedComponent: React.FC<GeneratedComponentProps> = ({ title, authors }) => {
   return (
     <section className={styles.authorsSection}>
       <h2 className={styles.sectionTitle}>{title}</h2>
@@ -47,4 +49,4 @@ const AuthorsList: React.FC<AuthorsListProps> = ({ title, authors }) => {
   );
 };
 
-export default AuthorsList;
+export default GeneratedComponent;

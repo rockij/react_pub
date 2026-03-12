@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import GeneratedComponent from '../components/GeneratedComponent';
 
 /**
  * @description Wylie Publishing 서비스 소개 페이지
@@ -11,6 +12,12 @@ const App = () => {
   const storybookUrl =
     process.env.NEXT_PUBLIC_STORYBOOK_URL ??
     (process.env.NODE_ENV === 'production' ? '/storybook/' : 'http://localhost:6006');
+
+  const sampleAuthors = [
+    { id: 1, name: '김철수', followersCount: 1250, avatarUrl: 'https://via.placeholder.com/48' },
+    { id: 2, name: '이순신', followersCount: 2840, avatarUrl: 'https://via.placeholder.com/48' },
+    { id: 3, name: '박영희', followersCount: 1620, avatarUrl: 'https://via.placeholder.com/48' },
+  ];
   return (
     <div className="wylie-container">
       {/* Hero Section */}
@@ -119,6 +126,11 @@ const App = () => {
               <p>독립된 컴포넌트 테스트를 통해 UI의 무결성을 사전에 보장합니다.</p>
             </div>
           </div>
+        </section>
+
+        {/* GeneratedComponent 섹션 */}
+        <section style={{ marginTop: '60px' }}>
+          <GeneratedComponent title="추천 저자" authors={sampleAuthors} />
         </section>
       </main>
 
