@@ -1,30 +1,33 @@
 import React from 'react';
-import styles from './UserProfileCard.module.css';
+import styles from './ProfileCard.module.css';
 
-interface UserProfileCardProps {
+interface ProfileCardProps {
   avatarUrl: string;
   name: string;
-  title: string;
-  location: string;
-  description: string;
+  jobTitle: string;
+  bio: string;
+  buttonText: string;
+  onButtonClick?: () => void;
 }
 
-const UserProfileCard: React.FC<UserProfileCardProps> = ({ avatarUrl, name, title, location, description }) => {
+const ProfileCard: React.FC<ProfileCardProps> = ({ avatarUrl, name, jobTitle, bio, buttonText, onButtonClick }) => {
   return (
     <article className={styles.card}>
+      <img src={avatarUrl} alt={`${name} avatar`} className={styles.avatar} />
       <header className={styles.header}>
-        <img className={styles.avatar} src={avatarUrl} alt={`${name}'s avatar`} />
-        <div className={styles.userInfo}>
-          <h1 className={styles.name}>{name}</h1>
-          <p className={styles.title}>{title}</p>
-          <p className={styles.location}>{location}</p>
-        </div>
+        <h2 className={styles.name}>{name}</h2>
+        <p className={styles.jobTitle}>{jobTitle}</p>
       </header>
-      <section className={styles.description}>
-        <p>{description}</p>
+      <section className={styles.bio}>
+        <p>{bio}</p>
       </section>
+      <footer className={styles.footer}>
+        <button className={styles.button} onClick={onButtonClick} type="button">
+          {buttonText}
+        </button>
+      </footer>
     </article>
   );
 };
 
-export default UserProfileCard;
+export default ProfileCard;
