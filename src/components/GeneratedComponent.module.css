@@ -1,123 +1,65 @@
-/* ProfileCard.module.css */
-
-.card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(20, 33, 61, 0.05);
-  padding: 24px 32px 40px;
-  max-width: 336px;
+/* Container section for the authors block */
+.authorsSection {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #14213d;
+  gap: 1rem;
+  padding: 1rem 0;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 9999px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.headerText {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.name {
+/* Title of the authors list */
+.sectionTitle {
   margin: 0;
+  font-size: 1.5rem;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 1.2;
+  color: #000;
 }
 
-.title {
-  margin: 0;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.57;
-  color: #677294;
-}
-
-.descriptionSection {
-  /* margin and spacing handled by gap of parent */
-}
-
-.description {
-  margin: 0;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #14213d;
-  flex-grow: 1;
-}
-
-.skillsSection {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.skillsTitle {
-  margin: 0;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.4;
-  color: #14213d;
-}
-
-.skillsList {
+/* Wrapper for the list of authors */
+.authorsList {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.skillItem {
-  padding: 6px 12px;
-  background-color: #e0e6f3;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #14213d;
-  user-select: none;
-}
-
-.footer {
+/* Single author item container */
+.authorItem {
   display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Author avatar image styling */
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Container for author name and followers count */
+.authorInfo {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.contactButton {
-  background-color: #14213d;
-  color: #ffffff;
-  border: none;
-  border-radius: 36px;
-  padding: 10px 40px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.33;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Author's name styling */
+.authorName {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.2;
 }
 
-.contactButton:hover {
-  background-color: #0f172a;
-}
-
-.contactButton:focus {
-  outline: 2px solid #677294;
-  outline-offset: 2px;
+/* Followers count styling (small grey text) */
+.followersCount {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.2;
 }
