@@ -1,52 +1,35 @@
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.button:disabled, .button[aria-disabled="true"] {
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
+  cursor: not-allowed;
+  color: #6c757d;
 }
 
-.name {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #000;
-  margin: 0;
+.iconLeft {
+  display: inline-flex;
+  margin-right: 0.5rem;
 }
 
-.role {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  color: #7b7b7b;
-  margin: 0;
+.iconRight {
+  display: inline-flex;
+  margin-left: 0.5rem;
 }
 
-.body {
-  padding-left: 6px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: #333;
-}
-
-.description {
-  margin: 0;
-}
-
-.footer {
-  padding-left: 6px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #333;
-}
-
-.contact {
-  font-style: normal;
-  margin: 0;
+.label {
+  display: inline-block;
+  line-height: 1;
 }
