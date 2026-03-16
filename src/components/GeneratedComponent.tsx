@@ -1,52 +1,28 @@
 import React from 'react';
-import styles from './GeneratedComponent.module.css';
+import styles from './UserProfileCard.module.css';
 
-export interface Author {
-  id: string | number;
+interface UserProfileCardProps {
   name: string;
-  followersCount: number;
-  avatarUrl?: string;
+  role: string;
+  description: string;
+  contactInfo: string;
 }
 
-interface GeneratedComponentProps {
-  title: string;
-  authors: Author[];
-}
-
-const AuthorItem: React.FC<{ author: Author }> = ({ author }) => {
+const UserProfileCard: React.FC<UserProfileCardProps> = ({ name, role, description, contactInfo }) => {
   return (
-    <li className={styles.authorItem} key={author.id}>
-      {author.avatarUrl && (
-        <img
-          src={author.avatarUrl}
-          alt={`${author.name} avatar`}
-          className={styles.avatar}
-          loading="lazy"
-          width={48}
-          height={48}
-        />
-      )}
-      <div className={styles.authorInfo}>
-        <h3 className={styles.authorName}>{author.name}</h3>
-        <p className={styles.followersCount} aria-label={`${author.followersCount} followers`}>
-          {author.followersCount}
-        </p>
-      </div>
-    </li>
+    <article className={styles.card}>
+      <header className={styles.header}>
+        <h1 className={styles.name}>{name}</h1>
+        <h2 className={styles.role}>{role}</h2>
+      </header>
+      <section className={styles.body}>
+        <p className={styles.description}>{description}</p>
+      </section>
+      <footer className={styles.footer}>
+        <address className={styles.contact}>{contactInfo}</address>
+      </footer>
+    </article>
   );
 };
 
-const GeneratedComponent: React.FC<GeneratedComponentProps> = ({ title, authors }) => {
-  return (
-    <section className={styles.authorsSection}>
-      <h2 className={styles.sectionTitle}>{title}</h2>
-      <ul className={styles.authorsList}>
-        {authors.map(author => (
-          <AuthorItem author={author} key={author.id} />
-        ))}
-      </ul>
-    </section>
-  );
-};
-
-export default GeneratedComponent;
+export default UserProfileCard;
