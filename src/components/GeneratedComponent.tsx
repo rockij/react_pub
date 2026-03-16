@@ -1,28 +1,15 @@
-import React, { ReactNode, MouseEvent } from 'react';
-import styles from './Button.module.css';
+import React from 'react';
 
-interface ButtonProps {
-  label: string;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
-  disabled?: boolean;
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  label?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, leftIcon, rightIcon, disabled = false, onClick }) => {
+export const PrimaryButton: React.FC<PrimaryButtonProps> = ({ label = '버튼', ...props }) => {
   return (
-    <button
-      type="button"
-      className={styles.button}
-      disabled={disabled}
-      onClick={onClick}
-      aria-disabled={disabled}
-    >
-      {leftIcon && <span className={styles.iconLeft}>{leftIcon}</span>}
-      <span className={styles.label}>{label}</span>
-      {rightIcon && <span className={styles.iconRight}>{rightIcon}</span>}
+    <button className="primary-button" {...props}>
+      <span className="icon left-icon" aria-hidden="true">&#9664;</span>
+      <span className="label">{label}</span>
+      <span className="icon right-icon" aria-hidden="true">&#9654;</span>
     </button>
   );
 };
-
-export default Button;
