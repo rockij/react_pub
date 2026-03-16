@@ -1,28 +1,28 @@
-import React from 'react';
-import styles from './UserProfileCard.module.css';
+import React, { ReactNode, MouseEvent } from 'react';
+import styles from './Button.module.css';
 
-interface UserProfileCardProps {
-  name: string;
-  role: string;
-  description: string;
-  contactInfo: string;
+interface ButtonProps {
+  label: string;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+  disabled?: boolean;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const UserProfileCard: React.FC<UserProfileCardProps> = ({ name, role, description, contactInfo }) => {
+const Button: React.FC<ButtonProps> = ({ label, leftIcon, rightIcon, disabled = false, onClick }) => {
   return (
-    <article className={styles.card}>
-      <header className={styles.header}>
-        <h1 className={styles.name}>{name}</h1>
-        <h2 className={styles.role}>{role}</h2>
-      </header>
-      <section className={styles.body}>
-        <p className={styles.description}>{description}</p>
-      </section>
-      <footer className={styles.footer}>
-        <address className={styles.contact}>{contactInfo}</address>
-      </footer>
-    </article>
+    <button
+      type="button"
+      className={styles.button}
+      disabled={disabled}
+      onClick={onClick}
+      aria-disabled={disabled}
+    >
+      {leftIcon && <span className={styles.iconLeft}>{leftIcon}</span>}
+      <span className={styles.label}>{label}</span>
+      {rightIcon && <span className={styles.iconRight}>{rightIcon}</span>}
+    </button>
   );
 };
 
-export default UserProfileCard;
+export default Button;
