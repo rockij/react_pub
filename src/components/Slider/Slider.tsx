@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/slider.css';
+import '../../assets/css/component/slider.css';
 
 interface SliderProps {
   /**

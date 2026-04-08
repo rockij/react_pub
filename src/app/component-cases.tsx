@@ -5,12 +5,17 @@ import { Accordion } from '../components/Accordion/Accordion';
 import { Button } from '../components/Button/Button';
 import { Card } from '../components/Card/Card';
 import { Checkbox } from '../components/Checkbox/Checkbox';
-import { Dialog } from '../components/Dialog/Dialog';
+import { DatePicker } from '../components/DatePicker/DatePicker';
+import { Dialog } from '../components/Dialog/DialogIcon';
+import { Pagination } from '../components/Pagination/Pagination';
 import { RadioGroup } from '../components/RadioGroup/RadioGroup';
 import { Select } from '../components/Select/Select';
 import { Skeleton } from '../components/Skeleton/Skeleton';
 import { Slider } from '../components/Slider/Slider';
 import { Switch } from '../components/Switch/Switch';
+import { Table } from '../components/Table/Table';
+import { Tabs } from '../components/Tabs/Tabs';
+import { Textarea } from '../components/Textarea/Textarea';
 import { TextField } from '../components/TextField/TextField';
 import { Toast } from '../components/Toast/Toast';
 import TooltipDemo from '../components/Tooltip/Tooltip';
@@ -63,6 +68,19 @@ const selectOptions = [
   { value: '20', label: '20 years' },
   { value: '30', label: '30 years' },
   { value: '40', label: '40 years' },
+];
+
+const teamTableColumns = [
+  { key: 'name', header: 'Name' },
+  { key: 'team', header: 'Team' },
+  { key: 'status', header: 'Status', align: 'center' as const, width: '120px' },
+  { key: 'score', header: 'Score', align: 'right' as const, width: '120px' },
+];
+
+const teamTableRows = [
+  { id: 'member-1', name: 'Avery Kim', team: 'Design', status: 'Active', score: '92' },
+  { id: 'member-2', name: 'Mina Lee', team: 'Frontend', status: 'Review', score: '88' },
+  { id: 'member-3', name: 'Joon Park', team: 'QA', status: 'Pending', score: '76' },
 ];
 
 function ButtonPrimaryCase() {
@@ -260,6 +278,45 @@ function CheckboxSizeCase() {
   );
 }
 
+function DatePickerDefaultCase() {
+  const [value, setValue] = React.useState<Date | undefined>(new Date('2026-04-08'));
+
+  return (
+    <div style={centeredPanelStyle}>
+      <div style={{ width: 280 }}>
+        <DatePicker
+          id="case-datepicker-default"
+          label="체크인"
+          value={value}
+          onChange={setValue}
+          helperText="기본 단일 날짜 선택 예제입니다."
+        />
+      </div>
+    </div>
+  );
+}
+
+function DatePickerBoundedCase() {
+  const [value, setValue] = React.useState<Date | undefined>();
+
+  return (
+    <div style={panelStyle}>
+      <div style={{ ...stackStyle, maxWidth: 320 }}>
+        <DatePicker
+          id="case-datepicker-bounded"
+          label="예약일"
+          value={value}
+          onChange={setValue}
+          helperText="오늘부터 30일 안의 평일만 예약 가능하도록 제한했습니다."
+          fromDate={new Date('2026-04-08')}
+          toDate={new Date('2026-05-08')}
+          disabledDays={{ dayOfWeek: [0, 6] }}
+        />
+      </div>
+    </div>
+  );
+}
+
 function DialogDefaultCase() {
   const [open, setOpen] = React.useState(false);
 
@@ -293,6 +350,44 @@ function DialogVariantsCase() {
       >
         <p>One component can support several layouts based on context.</p>
       </Dialog>
+    </div>
+  );
+}
+
+function PaginationDefaultCase() {
+  const [page, setPage] = React.useState(6);
+
+  return (
+    <div style={centeredPanelStyle}>
+      <div style={{ ...stackStyle, justifyItems: 'center' }}>
+        <Pagination count={12} page={page} onChange={setPage} />
+        <div style={{ fontSize: 14, color: '#47627a' }}>
+          current page: <strong>{page}</strong>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PaginationEdgesCase() {
+  const [page, setPage] = React.useState(9);
+
+  return (
+    <div style={centeredPanelStyle}>
+      <div style={{ ...stackStyle, justifyItems: 'center' }}>
+        <Pagination
+          count={24}
+          page={page}
+          onChange={setPage}
+          boundaryCount={2}
+          showFirstButton
+          showLastButton
+          size="large"
+        />
+        <div style={{ fontSize: 14, color: '#47627a' }}>
+          archive page <strong>{page}</strong> of 24
+        </div>
+      </div>
     </div>
   );
 }
@@ -408,6 +503,140 @@ function SwitchSettingsCase() {
   );
 }
 
+function TabsUnderlineCase() {
+  return (
+    <div style={panelStyle}>
+      <Tabs
+        defaultActiveId="overview"
+        items={[
+          {
+            id: 'overview',
+            label: 'Overview',
+            content: (
+              <div style={{ display: 'grid', gap: 12 }}>
+                <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+                  Tabs let you switch between related content without moving away from the current page.
+                </p>
+                <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+                  This example uses the default underline style for product or summary sections.
+                </p>
+              </div>
+            ),
+          },
+          {
+            id: 'details',
+            label: 'Details',
+            content: (
+              <ul style={{ margin: 0, paddingLeft: 20, color: '#47627a', fontSize: 16, lineHeight: 1.8 }}>
+                <li>Supports controlled and uncontrolled active tab state</li>
+                <li>Includes arrow-key, Home, and End keyboard navigation</li>
+                <li>Disabled tabs remain visible but cannot be selected</li>
+              </ul>
+            ),
+          },
+          {
+            id: 'history',
+            label: 'History',
+            content: (
+              <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+                Recent changes, audit notes, or secondary records can be grouped into separate tab panels.
+              </p>
+            ),
+          },
+        ]}
+      />
+    </div>
+  );
+}
+
+function TabsVerticalCase() {
+  return (
+    <div style={panelStyle}>
+      <Tabs
+        orientation="vertical"
+        defaultActiveId="billing"
+        items={[
+          {
+            id: 'profile',
+            label: 'Profile settings',
+            content: (
+              <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+                Manage account basics, notification defaults, and member profile information.
+              </p>
+            ),
+          },
+          {
+            id: 'billing',
+            label: 'Billing',
+            content: (
+              <div style={{ display: 'grid', gap: 12 }}>
+                <div style={{ padding: 16, borderRadius: 14, background: '#f5f8fb' }}>
+                  <strong style={{ display: 'block', marginBottom: 6 }}>Current plan</strong>
+                  <span style={{ color: '#5c6c7a', fontSize: 15 }}>Team Pro Annual</span>
+                </div>
+                <div style={{ padding: 16, borderRadius: 14, background: '#f5f8fb' }}>
+                  <strong style={{ display: 'block', marginBottom: 6 }}>Next invoice</strong>
+                  <span style={{ color: '#5c6c7a', fontSize: 15 }}>May 01, 2026</span>
+                </div>
+              </div>
+            ),
+          },
+          {
+            id: 'security',
+            label: 'Security',
+            content: (
+              <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+                Keep session controls, 2FA policies, and access approvals in a separate settings area.
+              </p>
+            ),
+          },
+          {
+            id: 'audit',
+            label: 'Audit log',
+            disabled: true,
+            content: <p style={{ margin: 0 }}>Disabled tab content</p>,
+          },
+        ]}
+      />
+    </div>
+  );
+}
+
+function TableDefaultCase() {
+  return (
+    <div style={panelStyle}>
+      <Table
+        caption="Team performance"
+        columns={teamTableColumns}
+        data={teamTableRows}
+        hoverable
+      />
+    </div>
+  );
+}
+
+function TableCompactCase() {
+  return (
+    <div style={panelStyle}>
+      <Table
+        caption="Recent invoices"
+        columns={[
+          { key: 'invoice', header: 'Invoice' },
+          { key: 'date', header: 'Date', width: '160px' },
+          { key: 'amount', header: 'Amount', align: 'right', width: '140px' },
+        ]}
+        data={[
+          { id: 'invoice-1', invoice: 'INV-2401', date: 'Apr 02, 2026', amount: '$1,200.00' },
+          { id: 'invoice-2', invoice: 'INV-2402', date: 'Apr 05, 2026', amount: '$860.00' },
+          { id: 'invoice-3', invoice: 'INV-2403', date: 'Apr 07, 2026', amount: '$540.00' },
+        ]}
+        striped
+        compact
+      />
+    </div>
+  );
+}
+
 function TextFieldOutlinedCase() {
   const [value, setValue] = React.useState('');
 
@@ -435,6 +664,64 @@ function TextFieldStatesCase() {
           onChange={() => {}}
           error
           helperText="Please review the input value."
+        />
+      </div>
+    </div>
+  );
+}
+
+function TextareaBasicCase() {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <div style={centeredPanelStyle}>
+      <div style={{ width: 320 }}>
+        <Textarea
+          id="case-textarea-basic"
+          label="프로젝트 메모"
+          value={value}
+          onChange={setValue}
+          placeholder="세부 내용을 입력하세요"
+          rows={5}
+        />
+      </div>
+    </div>
+  );
+}
+
+function TextareaStatesCase() {
+  const [feedback, setFeedback] = React.useState('이번 릴리스에서 확인한 이슈와 개선 포인트를 정리합니다.');
+
+  return (
+    <div style={panelStyle}>
+      <div style={{ ...stackStyle, maxWidth: 360 }}>
+        <Textarea
+          id="case-textarea-filled"
+          label="회의 노트"
+          variant="filled"
+          value="Filled variant works well in dense form layouts."
+          onChange={() => {}}
+          rows={4}
+          resize="none"
+        />
+        <Textarea
+          id="case-textarea-feedback"
+          label="상세 피드백"
+          value={feedback}
+          onChange={setFeedback}
+          helperText="핵심 이슈를 간단히 정리해 주세요."
+          maxLength={160}
+          showCount
+          rows={5}
+        />
+        <Textarea
+          id="case-textarea-error"
+          label="검토 코멘트"
+          value="Too short"
+          onChange={() => {}}
+          error
+          helperText="최소 한 가지 구체적인 예시를 포함해 주세요."
+          rows={4}
         />
       </div>
     </div>
@@ -573,6 +860,29 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   This variation combines media and text content in one card layout.
 </Card>`,
   },
+  'date-picker': {
+    default: `const [value, setValue] = useState<Date | undefined>(new Date('2026-04-08'));
+
+<DatePicker
+  id="case-datepicker-default"
+  label="체크인"
+  value={value}
+  onChange={setValue}
+  helperText="기본 단일 날짜 선택 예제입니다."
+/>`,
+    bounded: `const [value, setValue] = useState<Date | undefined>();
+
+<DatePicker
+  id="case-datepicker-bounded"
+  label="예약일"
+  value={value}
+  onChange={setValue}
+  helperText="오늘부터 30일 안의 평일만 예약 가능하도록 제한했습니다."
+  fromDate={new Date('2026-04-08')}
+  toDate={new Date('2026-05-08')}
+  disabledDays={{ dayOfWeek: [0, 6] }}
+/>`,
+  },
   checkbox: {
     basic: `const [checked, setChecked] = useState(false);
 
@@ -633,6 +943,28 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   >
     <p>One component can support several layouts based on context.</p>
   </Dialog>
+</>`,
+  },
+  pagination: {
+    default: `const [page, setPage] = useState(6);
+
+<>
+  <Pagination count={12} page={page} onChange={setPage} />
+  <div>current page: {page}</div>
+</>`,
+    edges: `const [page, setPage] = useState(9);
+
+<>
+  <Pagination
+    count={24}
+    page={page}
+    onChange={setPage}
+    boundaryCount={2}
+    showFirstButton
+    showLastButton
+    size="large"
+  />
+  <div>archive page {page} of 24</div>
 </>`,
   },
   'radio-group': {
@@ -713,6 +1045,115 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   />
   <span>{darkMode ? 'ON' : 'OFF'}</span>
 </>`,
+  },
+  table: {
+    default: `<Table
+  caption="Team performance"
+  columns={[
+    { key: 'name', header: 'Name' },
+    { key: 'team', header: 'Team' },
+    { key: 'status', header: 'Status', align: 'center', width: '120px' },
+    { key: 'score', header: 'Score', align: 'right', width: '120px' },
+  ]}
+  data={[
+    { id: 'member-1', name: 'Avery Kim', team: 'Design', status: 'Active', score: '92' },
+    { id: 'member-2', name: 'Mina Lee', team: 'Frontend', status: 'Review', score: '88' },
+    { id: 'member-3', name: 'Joon Park', team: 'QA', status: 'Pending', score: '76' },
+  ]}
+  hoverable
+/>`,
+    compact: `<Table
+  caption="Recent invoices"
+  columns={[
+    { key: 'invoice', header: 'Invoice' },
+    { key: 'date', header: 'Date', width: '160px' },
+    { key: 'amount', header: 'Amount', align: 'right', width: '140px' },
+  ]}
+  data={[
+    { id: 'invoice-1', invoice: 'INV-2401', date: 'Apr 02, 2026', amount: '$1,200.00' },
+    { id: 'invoice-2', invoice: 'INV-2402', date: 'Apr 05, 2026', amount: '$860.00' },
+    { id: 'invoice-3', invoice: 'INV-2403', date: 'Apr 07, 2026', amount: '$540.00' },
+  ]}
+  striped
+  compact
+/>`,
+  },
+  textarea: {
+    basic: `const [value, setValue] = useState('');
+
+<Textarea
+  id="case-textarea-basic"
+  label="프로젝트 메모"
+  value={value}
+  onChange={setValue}
+  placeholder="세부 내용을 입력하세요"
+  rows={5}
+/>`,
+    states: `const [feedback, setFeedback] = useState('이번 릴리스에서 확인한 이슈와 개선 포인트를 정리합니다.');
+
+<div style={{ display: 'grid', gap: 16, maxWidth: 360 }}>
+  <Textarea
+    id="case-textarea-filled"
+    label="회의 노트"
+    variant="filled"
+    value="Filled variant works well in dense form layouts."
+    onChange={() => {}}
+    rows={4}
+    resize="none"
+  />
+  <Textarea
+    id="case-textarea-feedback"
+    label="상세 피드백"
+    value={feedback}
+    onChange={setFeedback}
+    helperText="핵심 이슈를 간단히 정리해 주세요."
+    maxLength={160}
+    showCount
+    rows={5}
+  />
+  <Textarea
+    id="case-textarea-error"
+    label="검토 코멘트"
+    value="Too short"
+    onChange={() => {}}
+    error
+    helperText="최소 한 가지 구체적인 예시를 포함해 주세요."
+    rows={4}
+  />
+</div>`,
+  },
+  tabs: {
+    underline: `const items = [
+  {
+    id: 'overview',
+    label: 'Overview',
+    content: <p>Tabs let you switch between related content without leaving the current page.</p>,
+  },
+  {
+    id: 'details',
+    label: 'Details',
+    content: <p>Use separate panels for grouped details or status information.</p>,
+  },
+  {
+    id: 'history',
+    label: 'History',
+    content: <p>Recent activity can stay in a dedicated panel.</p>,
+  },
+];
+
+<Tabs defaultActiveId="overview" items={items} />`,
+    vertical: `const items = [
+  { id: 'profile', label: 'Profile settings', content: <p>Profile content</p> },
+  { id: 'billing', label: 'Billing', content: <p>Billing content</p> },
+  { id: 'security', label: 'Security', content: <p>Security content</p> },
+  { id: 'audit', label: 'Audit log', disabled: true, content: <p>Disabled tab</p> },
+];
+
+<Tabs
+  orientation="vertical"
+  defaultActiveId="billing"
+  items={items}
+/>`,
   },
   'text-field': {
     outlined: `const [value, setValue] = useState('');
@@ -806,6 +1247,13 @@ const componentCases: Record<string, ComponentCaseCollection> = {
       { id: 'image', title: '이미지 포함', description: '이미지와 텍스트를 하나의 카드 안에서 함께 보여주는 예제입니다.', preview: <CardImageCase /> },
     ],
   },
+  'date-picker': {
+    summary: '기본 날짜 선택과 선택 가능한 범위를 제한한 예약형 예제를 함께 확인할 수 있는 데이트피커 케이스 모음입니다.',
+    cases: [
+      { id: 'default', title: '기본형', description: '폼 입력에 바로 연결할 수 있는 기본 단일 날짜 선택 예제입니다.', preview: <DatePickerDefaultCase /> },
+      { id: 'bounded', title: '예약 가능 범위 제한', description: '선택 가능한 기간과 요일을 제한한 예약형 데이트피커 예제입니다.', preview: <DatePickerBoundedCase /> },
+    ],
+  },
   checkbox: {
     summary: '단일 동의 흐름과 크기 변형을 확인할 수 있는 체크박스 케이스 모음입니다.',
     cases: [
@@ -818,6 +1266,13 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     cases: [
       { id: 'default', title: '기본형 Dialog', description: '짧은 확인이나 안내에 사용하는 기본 모달 예제입니다.', preview: <DialogDefaultCase /> },
       { id: 'variants', title: '바텀시트와 전체 화면', description: '같은 컴포넌트로 서로 다른 레이아웃을 전환해 보는 예제입니다.', preview: <DialogVariantsCase /> },
+    ],
+  },
+  pagination: {
+    summary: '목록 이동과 대량 페이지 탐색에 맞춘 기본형, 양끝 버튼 포함 예제를 확인할 수 있는 페이지네이션 케이스 모음입니다.',
+    cases: [
+      { id: 'default', title: '기본형', description: '현재 페이지와 인접 페이지를 중심으로 이동하는 기본 Pagination 예제입니다.', preview: <PaginationDefaultCase /> },
+      { id: 'edges', title: '양끝 이동 포함', description: '처음과 마지막 페이지로 빠르게 이동할 수 있는 대량 목록용 Pagination 예제입니다.', preview: <PaginationEdgesCase /> },
     ],
   },
   'radio-group': {
@@ -847,6 +1302,27 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     cases: [
       { id: 'default', title: '라벨 포함', description: '켜짐과 꺼짐을 전환하는 기본 스위치 예제입니다.', preview: <SwitchDefaultCase /> },
       { id: 'settings', title: '설정형 예제', description: '스위치와 ON/OFF 상태 표시를 함께 보여주는 설정형 예제입니다.', preview: <SwitchSettingsCase /> },
+    ],
+  },
+  table: {
+    summary: '기본 테이블과 밀도 높은 요약형 테이블을 비교할 수 있는 데이터 테이블 케이스 모음입니다.',
+    cases: [
+      { id: 'default', title: '기본형', description: '상태와 수치를 한 번에 비교하는 기본 데이터 테이블 예제입니다.', preview: <TableDefaultCase /> },
+      { id: 'compact', title: '컴팩트 요약형', description: '줄무늬 배경과 compact 밀도를 적용한 요약 테이블 예제입니다.', preview: <TableCompactCase /> },
+    ],
+  },
+  textarea: {
+    summary: '기본 다중 행 입력과 상태 변형, 글자 수 표시를 확인할 수 있는 텍스트 영역 케이스 모음입니다.',
+    cases: [
+      { id: 'basic', title: '기본형', description: '여러 줄 텍스트를 입력하는 기본 Textarea 예제입니다.', preview: <TextareaBasicCase /> },
+      { id: 'states', title: '상태 변형', description: 'Filled, helper text, count, error 상태를 함께 보여주는 Textarea 예제입니다.', preview: <TextareaStatesCase /> },
+    ],
+  },
+  tabs: {
+    summary: '기본 탭 전환과 세로형 설정 레이아웃을 확인할 수 있는 Tabs 케이스 모음입니다.',
+    cases: [
+      { id: 'underline', title: '기본 탭', description: '관련 콘텐츠를 가볍게 전환하는 기본 underline 스타일 Tabs 예제입니다.', preview: <TabsUnderlineCase /> },
+      { id: 'vertical', title: '세로형 설정 탭', description: '설정 화면처럼 좌측 목록과 우측 패널을 함께 쓰는 vertical Tabs 예제입니다.', preview: <TabsVerticalCase /> },
     ],
   },
   'text-field': {

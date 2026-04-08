@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { ComponentCaseSections } from '../../component-cases';
 import { getComponentCards, getStorybookUrl } from '../../component-data';
 import { SiteFooter } from '../../site-footer';
-import { ThemeSwitcher } from '../../theme-switcher';
+import { ModeToggle } from '../../mode-toggle';
 
 export async function generateStaticParams() {
   const cards = await getComponentCards(getStorybookUrl());
@@ -25,8 +25,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <header className="hero-section">
         <div className="hero-top">
           <div className="hero-brand">
-            <h1>Wylie Design System</h1>
-            <ThemeSwitcher />
+            <h1>React Pub Storybook</h1>
+            <ModeToggle />
           </div>
         </div>
         <nav className="hero-nav" aria-label="Main navigation">
@@ -35,6 +35,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <Link href="/components" className="is-active">
               Component
             </Link>
+            <Link href="/screen-cases">Screen Cases</Link>
             <Link href={storybookUrl} target="_blank" rel="noopener noreferrer">
               Storybook
             </Link>

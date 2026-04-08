@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/radio-group.css';
+import '../../assets/css/component/radio-group.css';
 
 type Option = {
   value: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/accordion.css';
+import '../../assets/css/component/accordion.css';
 
 export type AccordionMode = 'single' | 'multiple';
 

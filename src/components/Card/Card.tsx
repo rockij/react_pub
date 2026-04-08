@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/card.css';
+import '../../assets/css/component/card.css';
 
 export interface CardProps {
   /**

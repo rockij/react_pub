@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/select.css';
+import '../../assets/css/component/select.css';
 
 interface SelectOption {
   /**

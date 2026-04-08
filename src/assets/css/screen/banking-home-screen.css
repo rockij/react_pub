@@ -1,0 +1,303 @@
+.banking-home-screen {
+  display: flex;
+  justify-content: center;
+}
+
+.banking-home-screen__device {
+  width: 100%;
+  padding: 1.2rem 1rem 1.6rem;
+  border-radius: 3.2rem;
+  background:
+    linear-gradient(180deg, #f8f7f4 0%, #efefee 100%);
+  box-shadow:
+    0 2.4rem 5.6rem rgba(33, 37, 41, 0.18),
+    inset 0 0 0 0.1rem rgba(255, 255, 255, 0.75);
+}
+
+.banking-home-screen__status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  color: #5b636f;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.banking-home-screen__status-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.banking-home-screen__signal,
+.banking-home-screen__wifi,
+.banking-home-screen__battery {
+  display: inline-flex;
+  border-radius: 999px;
+  background: #5b636f;
+}
+
+.banking-home-screen__signal {
+  width: 1rem;
+  height: 1rem;
+}
+
+.banking-home-screen__wifi {
+  width: 1.2rem;
+  height: 0.8rem;
+}
+
+.banking-home-screen__battery {
+  width: 1.8rem;
+  height: 1rem;
+}
+
+.banking-home-screen__chip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.banking-home-screen__chip-stack {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.banking-home-screen__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.6rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(102, 111, 123, 0.12);
+  color: #525b67;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.banking-home-screen__chip--active {
+  background: #535f70;
+  color: #fff2c9;
+}
+
+.banking-home-screen__banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 1.4rem;
+  background: #ffffff;
+  box-shadow: 0 0.8rem 2rem rgba(32, 35, 42, 0.08);
+}
+
+.banking-home-screen__banner-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #646d79;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.banking-home-screen__banner button,
+.banking-home-screen__account-head button,
+.banking-home-screen__pager button {
+  border: 0;
+  background: transparent;
+  color: #65707d;
+  cursor: pointer;
+}
+
+.banking-home-screen__account-card {
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 1.8rem;
+  background: #fffdfc;
+  box-shadow: 0 1.2rem 2.8rem rgba(39, 44, 50, 0.09);
+}
+
+.banking-home-screen__account-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.banking-home-screen__eyebrow {
+  margin: 0 0 0.3rem;
+  color: #b0a897;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.banking-home-screen__account-head h3 {
+  margin: 0;
+  color: #484139;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.banking-home-screen__account-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.4rem 0 0;
+  color: #8f979f;
+  font-size: 1.1rem;
+}
+
+.banking-home-screen__balance {
+  margin: 1rem 0 1.3rem;
+  color: #2d2f35;
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.banking-home-screen__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.banking-home-screen__actions .btn {
+  width: 100%;
+  min-height: 4rem;
+  padding: 0 1.2rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.banking-home-screen__actions .btn--secondary {
+  background: #e6f2ef;
+  color: #2c7468;
+}
+
+.banking-home-screen__actions .btn--primary {
+  background: #15b5a0;
+}
+
+.banking-home-screen__pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 auto 1.1rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #7d8591;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.banking-home-screen__list-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1.6rem;
+  border: 0;
+  border-radius: 1.6rem;
+  background: #fffdfc;
+  box-shadow: 0 0.8rem 2rem rgba(39, 44, 50, 0.06);
+  color: #484139;
+  font-size: 1.45rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.banking-home-screen__menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.banking-home-screen__menu-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 10.8rem;
+  padding: 1.3rem;
+  border-radius: 1.6rem;
+  background: #fffdfc;
+  box-shadow: 0 0.8rem 2rem rgba(39, 44, 50, 0.06);
+}
+
+.banking-home-screen__menu-card h4 {
+  margin: 0;
+  color: #47403b;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.banking-home-screen__menu-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 1rem;
+}
+
+.banking-home-screen__menu-icon--blue {
+  background: #e8f1ff;
+  color: #3b82f6;
+}
+
+.banking-home-screen__menu-icon--mint {
+  background: #dff7ef;
+  color: #14b88a;
+}
+
+.banking-home-screen__menu-icon--sky {
+  background: #e4efff;
+  color: #4f84ff;
+}
+
+.banking-home-screen__menu-icon--gold {
+  background: #fff3d7;
+  color: #d9a21b;
+}
+
+.banking-home-screen__menu-icon--indigo {
+  background: #e8ebff;
+  color: #5970ff;
+}
+
+.banking-home-screen__menu-icon--rose {
+  background: #ffe7ee;
+  color: #ff5d7d;
+}
+
+.banking-home-screen__menu-icon--orange {
+  background: #ffe9d8;
+  color: #ff8a34;
+}
+
+.banking-home-screen__shortcut-list {
+  margin-bottom: 1.2rem;
+}
+
+.banking-home-screen__shortcut-list .banking-home-screen__list-button:last-child {
+  margin-bottom: 0;
+}
+
+.banking-home-screen__footer-note {
+  margin: 0;
+  text-align: center;
+  color: #9ea5ad;
+  font-size: 1.1rem;
+  font-weight: 700;
+}

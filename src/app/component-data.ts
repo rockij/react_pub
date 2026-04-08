@@ -28,6 +28,10 @@ const componentMetaMap: Record<string, ComponentMeta> = {
     description: '콘텐츠를 하나의 묶음으로 정리해 정보의 우선순위를 쉽게 파악할 수 있게 돕습니다.',
     previewClassName: 'preview-card',
   },
+  DatePicker: {
+    description: '날짜를 직접 계산하지 않고 달력 인터랙션으로 선택하게 해 입력 실수를 줄이는 폼 컴포넌트입니다.',
+    previewClassName: 'preview-datepicker',
+  },
   Checkbox: {
     description: '여러 항목 중 복수 선택이 가능한 상황을 직관적으로 표현하는 입력 요소입니다.',
     previewClassName: 'preview-checkbox',
@@ -36,6 +40,11 @@ const componentMetaMap: Record<string, ComponentMeta> = {
     description:
       '사용자 흐름 위에 중요한 메시지나 확인 액션을 올려 보여주는 모달 인터페이스입니다.',
     previewClassName: 'preview-dialog',
+  },
+  Pagination: {
+    description:
+      '긴 목록이나 데이터 묶음을 여러 페이지로 나눌 때 현재 위치와 이동 흐름을 분명하게 보여주는 네비게이션 컴포넌트입니다.',
+    previewClassName: 'preview-pagination',
   },
   RadioGroup: {
     description: '단일 선택 옵션을 빠르게 비교하고 하나만 고를 수 있도록 구성한 입력 그룹입니다.',
@@ -56,6 +65,19 @@ const componentMetaMap: Record<string, ComponentMeta> = {
   Switch: {
     description: '설정의 켜짐과 꺼짐 상태를 즉시 이해하고 토글할 수 있는 전환형 컨트롤입니다.',
     previewClassName: 'preview-switch',
+  },
+  Table: {
+    description: '행과 열 구조로 목록, 상태, 수치를 안정적으로 비교해 보여주는 데이터 표시 컴포넌트입니다.',
+    previewClassName: 'preview-table',
+  },
+  Textarea: {
+    description: '여러 줄 텍스트 입력과 안내 문구, 상태 메시지를 함께 다루는 서술형 입력 컴포넌트입니다.',
+    previewClassName: 'preview-textarea',
+  },
+  Tabs: {
+    description:
+      '관련된 콘텐츠를 한 영역 안에서 전환해 보여주며 비교와 탐색을 자연스럽게 이어주는 컴포넌트입니다.',
+    previewClassName: 'preview-tabs',
   },
   TextField: {
     description: '텍스트 입력, 안내 문구, 상태 메시지를 한 흐름 안에서 제공하는 기본 입력 필드입니다.',

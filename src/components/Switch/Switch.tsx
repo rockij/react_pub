@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/switch.css';
+import '../../assets/css/component/switch.css';
 
 export interface SwitchProps {
   /** input id (label 연결/테스트 용도) */

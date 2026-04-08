@@ -1,0 +1,107 @@
+.screen-case-dialog-body {
+  display: grid;
+  gap: 2.4rem;
+}
+
+.screen-case-modal {
+  width: min(108rem, calc(100vw - 4rem));
+  max-width: min(108rem, calc(100vw - 4rem));
+  height: auto;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 2rem;
+  padding: 2.4rem;
+  overscroll-behavior: contain;
+}
+
+.screen-case-dialog-header {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.screen-case-dialog-header p {
+  color: #47627a;
+  font-size: 1.65rem;
+  line-height: 1.72;
+}
+
+.screen-case-dialog-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: start;
+
+  @media (max-width: 76.8rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.screen-case-dialog-panel {
+  padding: 2.4rem;
+  border: 0.1rem solid #d7e1ea;
+  border-radius: 2rem;
+  background: linear-gradient(180deg, #f9fbfd 0%, #f3f6f9 100%);
+  box-shadow: 0 1.6rem 3.4rem rgba(27, 59, 92, 0.05);
+}
+
+.screen-case-dialog-panel--placeholder {
+  min-height: 26rem;
+}
+
+.screen-case-dialog-panel--placeholder h3 {
+  margin-top: 0.8rem;
+  color: #122b40;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.screen-case-dialog-panel--placeholder p:last-child {
+  margin-top: 1rem;
+  color: #47627a;
+  font-size: 1.6rem;
+  line-height: 1.72;
+}
+
+.screen-case-dialog-live-preview {
+  margin-top: 2rem;
+  max-height: 70rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.8rem;
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.72);
+  overscroll-behavior: contain;
+}
+
+.screen-case-dialog-live-preview--only {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.screen-case-dialog-live-preview .banking-home-screen {
+  min-height: auto;
+  width: 100%;
+}
+
+.screen-case-dialog-live-preview .banking-home-screen__device {
+  width: 100%;
+  max-width: none;
+}
+
+.screen-case-dialog-empty-state {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.screen-case-dialog-empty-state strong {
+  color: #163149;
+  font-size: 1.6rem;
+  font-weight: 700;
+}

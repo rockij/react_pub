@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/checkbox.css';
+import '../../assets/css/component/checkbox.css';
 
 interface Props {
   /**

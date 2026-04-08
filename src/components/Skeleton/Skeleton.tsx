@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/skeleton.css';
+import '../../assets/css/component/skeleton.css';
 
 type SkeletonVariant = 'rect' | 'circle' | 'line';
 

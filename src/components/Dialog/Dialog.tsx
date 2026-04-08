@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
-import '../../assets/css/dialog.css';
+import '../../assets/css/component/dialog.css';
 
 export interface DialogProps {
   isOpen: boolean;
@@ -8,6 +8,7 @@ export interface DialogProps {
   title?: string;
   children?: React.ReactNode;
   variant?: 'dialog' | 'bottomsheet' | 'full';
+  contentClassName?: string;
 }
 
 export const Dialog: React.FC<DialogProps> = ({
@@ -16,6 +17,7 @@ export const Dialog: React.FC<DialogProps> = ({
   title,
   children,
   variant = 'dialog',
+  contentClassName,
 }) => {
   useEffect(() => {
     if (typeof document !== 'undefined') {
@@ -44,7 +46,7 @@ export const Dialog: React.FC<DialogProps> = ({
         beforeClose: 'modal-full-content--before-close',
       }
     : {
-        base: 'modal-content',
+        base: contentClassName ? `modal-content ${contentClassName}` : 'modal-content',
         afterOpen: 'modal-content--after-open',
         beforeClose: 'modal-content--before-close',
       };

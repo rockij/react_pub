@@ -1,0 +1,136 @@
+.textarea {
+  font-family: var(--font-sans);
+  width: 100%;
+}
+
+.textarea__control {
+  position: relative;
+}
+
+.textarea__input {
+  width: 100%;
+  min-height: 128px;
+  padding: 24px 14px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--theme-brand-soft-line);
+  background: #ffffff;
+  color: var(--theme-brand-ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  box-sizing: border-box;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.textarea__input:focus {
+  border-color: var(--theme-brand);
+  box-shadow: 0 0 0 4px rgba(47, 108, 163, 0.12);
+}
+
+.textarea__input:disabled {
+  background-color: var(--theme-brand-softest);
+  cursor: not-allowed;
+}
+
+.textarea__label {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  padding: 0 6px;
+  color: #6f7d8b;
+  font-size: 14px;
+  line-height: 1;
+  pointer-events: none;
+  background: #ffffff;
+  transform-origin: left top;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    top 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.textarea__input:focus + .textarea__label,
+.textarea__input:not(:placeholder-shown) + .textarea__label {
+  top: 0;
+  transform: translateY(-50%) scale(0.85);
+  color: var(--theme-brand);
+}
+
+.textarea__footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.textarea__helper,
+.textarea__count {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #607080;
+}
+
+.textarea__helper {
+  flex: 1;
+}
+
+.textarea__count {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.textarea--filled .textarea__input {
+  background: var(--theme-brand-softest);
+  border-color: transparent;
+  border-bottom-color: var(--theme-brand-soft-line);
+  border-radius: 12px 12px 6px 6px;
+}
+
+.textarea--filled .textarea__label {
+  background: transparent;
+}
+
+.textarea--filled .textarea__input:focus {
+  border-bottom-color: var(--theme-brand);
+}
+
+.textarea.has-error .textarea__input {
+  border-color: #d14343;
+}
+
+.textarea.has-error .textarea__input:focus {
+  box-shadow: 0 0 0 4px rgba(209, 67, 67, 0.12);
+}
+
+.textarea.has-error .textarea__label,
+.textarea.has-error .textarea__helper,
+.textarea.has-error .textarea__count {
+  color: #d14343;
+}
+
+.textarea.is-disabled {
+  opacity: 0.72;
+}
+
+.textarea--resize-none .textarea__input {
+  resize: none;
+}
+
+.textarea--resize-vertical .textarea__input {
+  resize: vertical;
+}
+
+.textarea--resize-horizontal .textarea__input {
+  resize: horizontal;
+}
+
+.textarea--resize-both .textarea__input {
+  resize: both;
+}

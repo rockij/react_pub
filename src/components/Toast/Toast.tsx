@@ -1,6 +1,6 @@
 // Toast.tsx
 import React from 'react';
-import '../../assets/css/toast.css';
+import '../../assets/css/component/toast.css';
 
 export type ToastVariant = 'default' | 'success' | 'error';
 
