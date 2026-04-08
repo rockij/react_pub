@@ -28,7 +28,7 @@
     width: 24px;
     height: 24px;
     border-radius: 6px;
-    border: 2px solid #c7c7c7;
+    border: 2px solid var(--theme-brand-soft-line);
     background-color: #fff;
     transform: translateY(-50%);
     box-sizing: border-box;
@@ -47,14 +47,14 @@
   }
   /* 체크 상태 */
   input[type='checkbox']:checked + label::before {
-    background-color: #1f7ae0;
-    border-color: #1f7ae0;
+    background-color: var(--theme-brand);
+    border-color: var(--theme-brand);
   }
   input[type='checkbox']:checked + label::after {
     opacity: 1;
   }
   input[type='checkbox']:focus-visible + label::before {
-    outline: 2px solid #1f7ae0;
+    outline: 2px solid var(--theme-brand);
     outline-offset: 2px;
   }
   input[type='checkbox']:disabled + label {

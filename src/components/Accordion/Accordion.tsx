@@ -84,7 +84,8 @@ export function Accordion({
                 disabled={item.disabled}
                 onClick={() => onToggle(item.id, item.disabled)}
               >
-                {item.title}
+                <span className="accordion-trigger-label">{item.title}</span>
+                <span className="accordion-trigger-chevron" aria-hidden="true" />
               </button>
             </h2>
 

@@ -1,9 +1,9 @@
 :root{
-  --card-border:#e0e0e0;
+  --card-border:var(--theme-brand-soft-line);
   --card-bg:#ffffff;
   --card-shadow:0 2px 4px rgba(0,0,0,0.1);
-  --card-shadow-hover:0 6px 18px rgba(0,0,0,0.12);
-  --text-primary:#333;
+  --card-shadow-hover:0 6px 18px var(--theme-shadow);
+  --text-primary:var(--theme-title);
   --text-secondary:#666;
 }
 

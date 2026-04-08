@@ -1,0 +1,294 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* 색상 변수 */
+  --color-bg-overlay: rgba(0, 0, 0, 0.3);
+  --color-title: #f9f1e7;
+  --color-subtitle: #fff;
+  --color-brand: #f5ede1;
+  --color-highlight: #f3cd81;
+  --color-cta-bg: #fff;
+  --color-cta-text: #333;
+
+  --container-max: 1100px;
+
+  /* 타이포(프로젝트에 맞게 교체) */
+  --font-display: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
+
+  --theme-brand: #005a9c;
+  --theme-brand-strong: #0c2e4e;
+  --theme-brand-mid: #1f5c8f;
+  --theme-brand-soft: #d3e0ec;
+  --theme-brand-soft-strong: #c2cfdd;
+  --theme-brand-soft-line: #b8c7d8;
+  --theme-brand-softest: #f1f6fb;
+  --theme-panel-soft: #edf4fa;
+  --theme-panel-soft-alt: #eaf3fa;
+  --theme-accent: #0c5a86;
+  --theme-title: #12385a;
+  --theme-shadow: rgba(12, 46, 78, 0.12);
+}
+
+html[data-theme='emerald'] {
+  --theme-brand: #0f766e;
+  --theme-brand-strong: #134e4a;
+  --theme-brand-mid: #2f8f87;
+  --theme-brand-soft: #d5ebe8;
+  --theme-brand-soft-strong: #bfd8d3;
+  --theme-brand-soft-line: #aaccc5;
+  --theme-brand-softest: #eef9f7;
+  --theme-panel-soft: #e6f4f1;
+  --theme-panel-soft-alt: #ddf1ed;
+  --theme-accent: #0f766e;
+  --theme-title: #134e4a;
+  --theme-shadow: rgba(19, 78, 74, 0.12);
+}
+
+html[data-theme='sand'] {
+  --theme-brand: #9a6b2f;
+  --theme-brand-strong: #5f421c;
+  --theme-brand-mid: #b1844c;
+  --theme-brand-soft: #eadbc6;
+  --theme-brand-soft-strong: #dcc9ad;
+  --theme-brand-soft-line: #cfb894;
+  --theme-brand-softest: #faf4ea;
+  --theme-panel-soft: #f4eadb;
+  --theme-panel-soft-alt: #efe3d1;
+  --theme-accent: #9a6b2f;
+  --theme-title: #6a4920;
+  --theme-shadow: rgba(95, 66, 28, 0.12);
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-font-smoothing: antialiased;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  font-size: 100%;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  font: 1.6rem/1.4 var(--font-sans);
+  letter-spacing: -0.05rem;
+  color: #222;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+img,
+video,
+audio,
+object,
+embed,
+iframe {
+  max-width: 100%;
+}
+img {
+  height: auto;
+  vertical-align: top;
+}
+i,
+address {
+  font-style: normal;
+}
+em {
+  font-style: italic;
+}
+a,
+s {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+strong,
+b,
+th {
+  font-weight: 500;
+}
+code,
+.wfos {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+pre {
+  font-family: var(--font-sans);
+  word-break: break-all;
+  white-space: pre-line;
+}
+legend,
+caption,
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+:focus {
+  outline: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+button {
+  cursor: pointer;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 52.5%;
+  }
+}

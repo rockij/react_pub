@@ -1,6 +1,6 @@
 :root {
-  --btn-primary-bg: #0070f3;
-  --btn-secondary-bg: #6c757d;
+  --btn-primary-bg: var(--theme-brand);
+  --btn-secondary-bg: var(--theme-brand-mid);
   --btn-danger-bg: #dc3545;
   --btn-color: #ffffff;
 }

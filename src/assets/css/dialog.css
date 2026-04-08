@@ -1,4 +1,4 @@
-.modal-overlay {
+﻿.modal-overlay {
   position: fixed;
   inset: 0;
   display: flex;
@@ -20,7 +20,7 @@
 
 .modal-content {
   background: #ffffff;
-  color: #111827;
+  color: var(--theme-brand-strong);
   padding: 20px;
   border-radius: 8px;
   max-width: 90%;
@@ -53,6 +53,7 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
+  color: var(--theme-brand-strong);
 }
 
 @media (max-width: 480px) {
@@ -107,6 +108,7 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
+  color: var(--theme-brand-strong);
 }
 
 /* Full screen dialog styles */
@@ -143,8 +145,11 @@
   border: none;
   font-size: 22px;
   cursor: pointer;
+  color: var(--theme-brand-strong);
 }
 
 .modal-full-body {
   margin-top: 12px;
 }
+
+

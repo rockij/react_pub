@@ -1,6 +1,6 @@
-/* Root */
+﻿/* Root */
 .textfield {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Control */
@@ -18,7 +18,7 @@
   font-size: 16px;
   line-height: 1;
   border-radius: 6px;
-  border: 1px solid #cfcfcf;
+  border: 1px solid var(--theme-brand-soft-line);
   background-color: transparent;
   outline: none;
   box-sizing: border-box;
@@ -26,12 +26,12 @@
 
 /* Focus */
 .textfield__input:focus {
-  border-color: #0b66d8;
+  border-color: var(--theme-brand);
 }
 
 /* Disabled */
 .textfield__input:disabled {
-  background-color: #f2f2f2;
+  background-color: var(--theme-brand-softest);
   cursor: not-allowed;
 }
 
@@ -54,7 +54,7 @@
   top: 0;
   transform: translateY(-50%) scale(0.85);
   padding: 0 4px;
-  color: #0b66d8;
+  color: var(--theme-brand);
 }
 
 /* Password toggle */
@@ -85,14 +85,14 @@
    Variant: Filled
 ========================= */
 .textfield--filled .textfield__input {
-  background-color: #f1f1f1;
+  background-color: var(--theme-brand-softest);
   border: none;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid var(--theme-brand-soft-line);
   border-radius: 4px 4px 0 0;
 }
 
 .textfield--filled .textfield__input:focus {
-  border-bottom-color: #0b66d8;
+  border-bottom-color: var(--theme-brand);
 }
 
 .textfield--filled .textfield__label {
@@ -117,3 +117,5 @@
 .textfield.is-disabled {
   opacity: 0.6;
 }
+
+

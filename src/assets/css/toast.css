@@ -1,4 +1,4 @@
-/* toast.css */
+﻿/* toast.css */
 .ui-toast-host {
   position: fixed;
   left: 0;
@@ -6,7 +6,7 @@
   z-index: 9999;
   display: flex;
   justify-content: center;
-  pointer-events: none; /* 바깥 클릭 방해 X */
+  pointer-events: none; /* 諛붽묑 ?대┃ 諛⑺빐 X */
   padding: 16px;
 }
 
@@ -17,7 +17,7 @@
   top: 0;
 }
 
-/* 애니메이션: 아래->위(enter), 위->아래(exit) */
+/* ?좊땲硫붿씠?? ?꾨옒->??enter), ??>?꾨옒(exit) */
 .ui-toast-host .ui-toast {
   transform: translateY(18px);
   opacity: 0;
@@ -36,7 +36,7 @@
 }
 
 .ui-toast {
-  pointer-events: auto; /* 토스트 내부 클릭 가능 */
+  pointer-events: auto; /* ?좎뒪???대? ?대┃ 媛??*/
   width: min(720px, calc(100vw - 32px));
   border-radius: 6px;
   background: #4a4a4a;
@@ -68,7 +68,7 @@
 .ui-toast__action {
   border: 0;
   background: transparent;
-  color: #b56cff; /* 이미지의 보라색 느낌 */
+  color: var(--theme-panel-soft); /* ?대?吏??蹂대씪???먮굦 */
   font-weight: 700;
   letter-spacing: 0.2px;
   cursor: pointer;
@@ -84,10 +84,11 @@
   cursor: pointer;
 }
 
-/* variant 확장(원하면 사용) */
+/* variant ?뺤옣(?먰븯硫??ъ슜) */
 .ui-toast--success {
-  background: #2f5f3a;
+  background: color-mix(in srgb, var(--theme-brand-strong) 82%, #1f2a22);
 }
 .ui-toast--error {
   background: #6a2a2a;
 }
+

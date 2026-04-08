@@ -1,16 +1,16 @@
-.switch {
+﻿.switch {
   --sw-w: 44px;
   --sw-h: 24px;
   --sw-pad: 3px;
 
   --track-off: #9a9a9a;
-  --track-on: #a9c9ef; /* 연한 파랑 트랙 */
+  --track-on: var(--theme-brand-soft); /* ?고븳 ?뚮옉 ?몃옓 */
   --thumb-off: #ffffff;
-  --thumb-on: #0b66d8; /* 진한 파랑 썸 */
+  --thumb-on: var(--theme-brand); /* 吏꾪븳 ?뚮옉 ??*/
 
   --track-off-disabled: #e6e6e6;
-  --track-on-disabled: #cfe0f6;
-  --thumb-disabled: #bcd2ee;
+  --track-on-disabled: var(--theme-brand-soft);
+  --thumb-disabled: var(--theme-brand-soft-line);
 
   display: inline-flex;
   align-items: center;
@@ -20,7 +20,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 접근성 유지: 화면에서만 숨김 */
+/* ?묎렐???좎?: ?붾㈃?먯꽌留??④? */
 .switch-input {
   position: absolute;
   width: 1px;
@@ -63,7 +63,7 @@
   line-height: 1;
 }
 
-/* checked 상태 */
+/* checked ?곹깭 */
 .switch-input:checked + .switch-track {
   background: var(--track-on);
 }
@@ -75,7 +75,7 @@
 
 /* focus ring */
 .switch-input:focus-visible + .switch-track {
-  outline: 3px solid rgba(11, 102, 216, 0.35);
+  outline: 3px solid color-mix(in srgb, var(--theme-brand) 35%, transparent);
   outline-offset: 2px;
 }
 
@@ -106,3 +106,4 @@
 .switch-input:disabled:checked + .switch-track .switch-thumb {
   background: var(--thumb-disabled);
 }
+

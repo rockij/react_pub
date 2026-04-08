@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+﻿import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { Accordion } from './Accordion';
 
 const meta: Meta<typeof Accordion> = {
@@ -17,6 +18,55 @@ type Story = StoryObj<typeof Accordion>;
 const Wrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <div style={{ width: 760, maxWidth: '100%' }}>{children}</div>
 );
+
+const CheckboxHeaderAccordion = () => {
+  const [checked, setChecked] = React.useState(false);
+  const titleId = 'storybook-accordion-checkbox-title';
+  const panelId = 'storybook-accordion-checkbox-panel';
+
+  return (
+    <div className="accordion">
+      <div className="accordion-panel accordion-checkbox-panel">
+        <div className="accordion-checkbox-header">
+          <Checkbox
+            className="accordion-header-checkbox"
+            id="storybook-accordion-checkbox"
+            size="medium"
+            label="Select shipping details"
+            checked={checked}
+            onChange={setChecked}
+          />
+
+          <h2 id={titleId} className="accordion-heading">
+            <button
+              type="button"
+              className="accordion-trigger"
+              aria-expanded={checked}
+              aria-controls={panelId}
+              onClick={() => setChecked(prev => !prev)}
+            >
+              <span className="accordion-trigger-label">Shipping details confirmation</span>
+              <span className="accordion-trigger-chevron" aria-hidden="true" />
+            </button>
+          </h2>
+        </div>
+
+        <div
+          id={panelId}
+          className="accordion-content"
+          role="region"
+          aria-labelledby={titleId}
+          aria-hidden={!checked}
+        >
+          <div>
+            <p>Check the header control to open the section and review the shipping notes.</p>
+            <p>This pattern works well when the user must explicitly acknowledge a section.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const SingleOpen: Story = {
   name: 'single',
@@ -76,15 +126,15 @@ export const MultipleToggle: Story = {
       {
         id: 'panel1',
         title: 'Grid is awesome',
-        content: <p>패널 1 컨텐츠</p>,
+        content: <p>Section 1 content</p>,
       },
       {
         id: 'panel2',
         title: "It's full of neat tricks",
         content: (
           <>
-            <p>패널 2 컨텐츠</p>
-            <p>여러 단락도 문제 없이 열림/닫힘 됩니다.</p>
+            <p>Section 2 content</p>
+            <p>You can keep several sections open at the same time.</p>
           </>
         ),
       },
@@ -92,7 +142,7 @@ export const MultipleToggle: Story = {
         id: 'panel3',
         title: 'Tell me more (disabled)',
         disabled: true,
-        content: <p>disabled 상태라 클릭해도 동작하지 않습니다.</p>,
+        content: <p>This section stays unavailable while disabled.</p>,
       },
     ],
   },
@@ -104,28 +154,36 @@ export const MultipleToggle: Story = {
 };
 
 export const LongTitle: Story = {
-  name: '긴 타이틀 케이스',
+  name: 'long title',
   args: {
     mode: 'single',
     items: [
       {
         id: 'panel1',
-        title:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Long title alignment check',
+        title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Long title alignment check',
         content: (
-          <p>긴 타이틀에서도 우측 아이콘 영역이 겹치지 않도록 padding-right가 적용되어 있습니다.</p>
+          <p>The chevron stays aligned even when the heading text wraps to multiple lines.</p>
         ),
       },
       {
         id: 'panel2',
         title: 'Consectetur adipisicing',
-        content: <p>패널 2 컨텐츠</p>,
+        content: <p>Section 2 content</p>,
       },
     ],
   },
   render: args => (
     <Wrapper>
       <Accordion {...args} />
+    </Wrapper>
+  ),
+};
+
+export const CheckboxHeader: Story = {
+  name: 'checkbox header',
+  render: () => (
+    <Wrapper>
+      <CheckboxHeaderAccordion />
     </Wrapper>
   ),
 };
