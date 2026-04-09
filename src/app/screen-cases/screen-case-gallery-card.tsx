@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import React from 'react';
 import { Dialog } from '../../components/Dialog/DialogIcon';
+import bankingHomeThumbnail from '../../assets/images/temp/001.png';
 import { BankingHomeScreenCase } from '../../screen/BankingHomeScreenCase/BankingHomeScreenCase';
 import type { ScreenCaseItem } from './data';
 
@@ -12,6 +14,13 @@ type ScreenCaseGalleryProps = {
 const previewMap: Record<string, () => React.ReactNode> = {
   'banking-home': () => <BankingHomeScreenCase />,
 };
+
+const thumbnailMap = {
+  'banking-home': {
+    src: bankingHomeThumbnail,
+    alt: 'Banking Home screen case thumbnail',
+  },
+} as const;
 
 export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
   const [activeSlug, setActiveSlug] = React.useState<string | null>(null);
@@ -34,7 +43,7 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
     <>
       <div className="screen-cases-grid">
         {items.map(item => {
-          const hasPreview = item.slug in previewMap;
+          const thumbnail = thumbnailMap[item.slug as keyof typeof thumbnailMap];
           const isReady = item.status === '완료';
 
           return (
@@ -48,8 +57,14 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
               aria-label={`${item.title} 미리보기 열기`}
             >
               <div className="screen-case-launcher-preview" aria-hidden="true">
-                {hasPreview ? (
-                  <div className="screen-case-launcher-preview-frame">{previewMap[item.slug]()}</div>
+                {thumbnail ? (
+                  <div className="screen-case-launcher-thumbnail">
+                    <Image
+                      src={thumbnail.src}
+                      alt={thumbnail.alt}
+                      className="screen-case-launcher-thumbnail-image"
+                    />
+                  </div>
                 ) : (
                   <div className="screen-case-launcher-preview-placeholder">
                     <strong>{isReady ? '미리보기 가능' : '미리보기 준비중'}</strong>

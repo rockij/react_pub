@@ -75,14 +75,13 @@ export default async function Page() {
       </header>
 
       <main className="content-wrapper">
-        <section id="component-section" className="component-gallery-section">
-          <div className="section-heading component-gallery-heading">
-            <p className="section-eyebrow">Component Library</p>
-            <h2>재사용 가능한 UI 컴포넌트 모음</h2>
-            <p className="section-description">
-              프로젝트에서 공통으로 사용하는 UI 컴포넌트를 한곳에 모아 정리한 페이지입니다. 각
-              항목에서 기본 사례를 확인하고, 상세 페이지와 Storybook Docs로 바로 이동할 수 있게
-              구성했습니다.
+        <section id="component-section" className="component-gallery-section" aria-labelledby="component-list-title">
+          <div className="screen-cases-hero">
+            <p className="screen-cases-kicker">Component Library</p>
+            <h2 id="component-list-title">재사용 가능한 UI 컴포넌트 모음</h2>
+            <p className="screen-cases-lead">
+              프로젝트에서 공통으로 사용하는 UI 컴포넌트를 한곳에 모아 정리한 페이지입니다. 각 항목에서
+              기본 사례를 확인하고, 상세 페이지와 Storybook Docs로 바로 이동할 수 있게 구성했습니다.
             </p>
           </div>
 

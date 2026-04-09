@@ -227,15 +227,28 @@
     linear-gradient(180deg, var(--app-surface-elevated) 0%, var(--app-surface-muted) 100%);
 }
 
+.screen-case-launcher-thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+.screen-case-launcher-thumbnail-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .screen-case-launcher-preview-frame {
   width: 100%;
-  transform: scale(0.32);
+  transform: scale(0.42);
   transform-origin: center center;
   pointer-events: none;
 }
 
 .screen-case-launcher-preview-frame .banking-home-screen {
-  margin: -20rem 0;
+  margin: -14rem 0;
 }
 
 .screen-case-launcher-preview-placeholder {

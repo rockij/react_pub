@@ -37,6 +37,9 @@ html {
   --app-shadow-strong: rgba(12, 46, 78, 0.12);
   --app-code-bg: #f7f9fb;
   --app-code-border: #d8e2ea;
+  --app-preview-bg-start: #cfe0f1;
+  --app-preview-bg-end: #bfd4e7;
+  --app-preview-inset-border: rgba(255, 255, 255, 0.4);
 
   --theme-brand: #005a9c;
   --theme-brand-strong: #0c2e4e;
@@ -68,6 +71,9 @@ html[data-color-mode='dark'] {
   --app-shadow-strong: rgba(0, 0, 0, 0.36);
   --app-code-bg: #0b1520;
   --app-code-border: #1c3347;
+  --app-preview-bg-start: #7c94aa;
+  --app-preview-bg-end: #667d93;
+  --app-preview-inset-border: rgba(255, 255, 255, 0.16);
 
   --theme-brand: #4ca4e8;
   --theme-brand-strong: #dceeff;

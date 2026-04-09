@@ -439,6 +439,10 @@
     padding-bottom: 7.2rem;
   }
 
+  .component-gallery-section .screen-cases-hero {
+    margin-bottom: 3.2rem;
+  }
+
   .component-gallery-heading {
     padding: 0 0 4rem;
     border-bottom: 0.1rem solid var(--app-border);
@@ -567,10 +571,10 @@
     width: 8.4rem;
     height: 8.4rem;
     border-radius: 0.4rem;
-    background: linear-gradient(180deg, #cfe0f1 0%, #bfd4e7 100%);
+    background: linear-gradient(180deg, var(--app-preview-bg-start) 0%, var(--app-preview-bg-end) 100%);
     overflow: hidden;
     color: var(--theme-accent);
-    box-shadow: inset 0 0 0 0.1rem rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 0 0.1rem var(--app-preview-inset-border);
 
     svg {
       display: block;
