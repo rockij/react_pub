@@ -239,9 +239,3 @@
 .date-picker__calendar .rdp-disabled .rdp-day_button {
   color: #a8b3bd;
 }
-
-@media (max-width: 640px) {
-  .date-picker__popover {
-    min-width: 100%;
-  }
-}

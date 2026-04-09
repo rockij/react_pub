@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { Clock3 } from 'lucide-react';
 import { TextField } from './TextField';
 
 const meta: Meta<typeof TextField> = {
@@ -83,4 +84,72 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: args => <TextField {...args} onChange={() => {}} />,
+};
+
+export const TimeSelect: Story = {
+  args: {
+    id: 'time-select',
+    label: '시간 선택',
+    value: '',
+    readOnly: true,
+  },
+  render: args => {
+    const [value, setValue] = useArgsState(args.value ?? '');
+    const timeInputRef = React.useRef<HTMLInputElement>(null);
+
+    const openTimePicker = () => {
+      const input = timeInputRef.current;
+
+      if (!input) {
+        return;
+      }
+
+      if (typeof input.showPicker === 'function') {
+        input.showPicker();
+        return;
+      }
+
+      input.focus();
+      input.click();
+    };
+
+    return (
+      <div
+        style={{ position: 'relative', width: 280 }}
+        role="button"
+        tabIndex={0}
+        aria-label="시간 선택 열기"
+        onClick={openTimePicker}
+        onKeyDown={event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openTimePicker();
+          }
+        }}
+      >
+        <TextField
+          {...args}
+          value={value}
+          onChange={setValue}
+          endAdornment={<Clock3 strokeWidth={2} />}
+          className="textfield-story-time-select"
+        />
+        <input
+          ref={timeInputRef}
+          type="time"
+          value={value}
+          aria-label="시간 선택"
+          onChange={event => setValue(event.target.value)}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            opacity: 0,
+            cursor: 'pointer',
+          }}
+        />
+      </div>
+    );
+  },
 };

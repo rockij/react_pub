@@ -3,6 +3,7 @@ import { Layers3, LayoutTemplate, MonitorSmartphone } from 'lucide-react';
 import { getStorybookUrl } from '../component-data';
 import { SiteFooter } from '../site-footer';
 import { ModeToggle } from '../mode-toggle';
+import { StorybookNavLinkBottom } from '../storybook-nav-link-bottom';
 import { screenCaseItems } from './data';
 import { ScreenCaseGallery } from './screen-case-gallery-card';
 
@@ -27,9 +28,7 @@ export default function Page() {
             <Link href="/screen-cases" className="is-active">
               Screen Cases
             </Link>
-            <Link href={storybookUrl} target="_blank" rel="noopener noreferrer">
-              Storybook
-            </Link>
+            <StorybookNavLinkBottom href={storybookUrl} tooltipId="global-storybook-nav-screen-cases" />
           </div>
         </nav>
       </header>

@@ -1,9 +1,12 @@
 ﻿'use client';
 
 import React from 'react';
+import { Clock3 } from 'lucide-react';
 import { Accordion } from '../components/Accordion/Accordion';
+import { Badge } from '../components/Badge/Badge';
 import { Button } from '../components/Button/Button';
 import { Card } from '../components/Card/Card';
+import { Chart } from '../components/Chart/Chart';
 import { Checkbox } from '../components/Checkbox/Checkbox';
 import { DatePicker } from '../components/DatePicker/DatePicker';
 import { Dialog } from '../components/Dialog/DialogIcon';
@@ -12,6 +15,7 @@ import { RadioGroup } from '../components/RadioGroup/RadioGroup';
 import { Select } from '../components/Select/Select';
 import { Skeleton } from '../components/Skeleton/Skeleton';
 import { Slider } from '../components/Slider/Slider';
+import { Swipe } from '../components/Swipe/Swipe';
 import { Switch } from '../components/Switch/Switch';
 import { Table } from '../components/Table/Table';
 import { Tabs } from '../components/Tabs/Tabs';
@@ -34,22 +38,6 @@ type ComponentCaseCollection = {
 
 type CaseTab = 'preview' | 'code';
 
-const panelStyle: React.CSSProperties = {
-  width: '100%',
-  border: '1px solid #d9e2ea',
-  borderRadius: 20,
-  background: '#fff',
-  padding: 24,
-};
-
-const centeredPanelStyle: React.CSSProperties = {
-  ...panelStyle,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  minHeight: 160,
-};
-
 const stackStyle: React.CSSProperties = {
   display: 'grid',
   gap: 16,
@@ -62,6 +50,44 @@ const rowStyle: React.CSSProperties = {
   alignItems: 'center',
   flexWrap: 'wrap',
 };
+
+const demoTitleStyle: React.CSSProperties = {
+  color: 'var(--theme-brand-strong)',
+};
+
+const demoBodyTextStyle: React.CSSProperties = {
+  color: 'var(--app-text-secondary)',
+};
+
+const demoMetaTextStyle: React.CSSProperties = {
+  color: 'var(--app-text-secondary)',
+};
+
+const demoSurfaceCardStyle: React.CSSProperties = {
+  background: 'var(--app-demo-surface)',
+  boxShadow: '0 18px 40px var(--app-demo-shadow)',
+};
+
+const demoMutedPanelStyle: React.CSSProperties = {
+  padding: 16,
+  borderRadius: 14,
+  background: 'var(--app-surface-muted)',
+  border: '1px solid var(--app-demo-border)',
+};
+
+function CasePanel({
+  children,
+  centered = false,
+}: {
+  children: React.ReactNode;
+  centered?: boolean;
+}) {
+  return (
+    <div className={centered ? 'component-case-demo-panel is-centered' : 'component-case-demo-panel'}>
+      {children}
+    </div>
+  );
+}
 
 const selectOptions = [
   { value: '10', label: '10 years' },
@@ -83,37 +109,285 @@ const teamTableRows = [
   { id: 'member-3', name: 'Joon Park', team: 'QA', status: 'Pending', score: '76' },
 ];
 
+const chartTrendData = [
+  { label: 'Jan', users: 8400 },
+  { label: 'Feb', users: 9100 },
+  { label: 'Mar', users: 10400 },
+  { label: 'Apr', users: 9800 },
+  { label: 'May', users: 12100 },
+  { label: 'Jun', users: 13400 },
+];
+
+const chartRevenueData = [
+  { label: 'Search', spend: 1200, revenue: 4200 },
+  { label: 'Display', spend: 860, revenue: 2780 },
+  { label: 'CRM', spend: 520, revenue: 2310 },
+  { label: 'Social', spend: 970, revenue: 3560 },
+];
+
+const chartShareData = [
+  { label: 'Organic', share: 38 },
+  { label: 'Paid', share: 27 },
+  { label: 'Referral', share: 18 },
+  { label: 'Direct', share: 17 },
+];
+
+const swipeHeroSlides = [
+  {
+    id: 'hero-editorial',
+    content: (
+      <div
+        style={{
+          minHeight: 220,
+          padding: 24,
+          borderRadius: 24,
+          background: 'var(--app-demo-hero-1)',
+          display: 'grid',
+          alignContent: 'space-between',
+          gap: 18,
+        }}
+      >
+        <div style={{ display: 'grid', gap: 10 }}>
+          <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            Main hero
+          </span>
+          <strong style={{ ...demoTitleStyle, fontSize: 28, lineHeight: 1.24 }}>Editorial campaign</strong>
+          <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.6 }}>
+            메인 비주얼 배너를 한 장씩 넘기며 핵심 메시지를 전달하는 기본형 스와이프 예제입니다.
+          </p>
+        </div>
+        <span style={{ ...demoTitleStyle, fontSize: 14, fontWeight: 700 }}>View campaign</span>
+      </div>
+    ),
+  },
+  {
+    id: 'hero-members',
+    content: (
+      <div
+        style={{
+          minHeight: 220,
+          padding: 24,
+          borderRadius: 24,
+          background: 'var(--app-demo-hero-2)',
+          display: 'grid',
+          alignContent: 'space-between',
+          gap: 18,
+        }}
+      >
+        <div style={{ display: 'grid', gap: 10 }}>
+          <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            Members only
+          </span>
+          <strong style={{ ...demoTitleStyle, fontSize: 28, lineHeight: 1.24 }}>Spring rewards</strong>
+          <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.6 }}>
+            프로모션 문구, 이미지 영역, CTA를 퍼블리셔가 직접 구성할 수 있습니다.
+          </p>
+        </div>
+        <span style={{ ...demoTitleStyle, fontSize: 14, fontWeight: 700 }}>See benefits</span>
+      </div>
+    ),
+  },
+  {
+    id: 'hero-drop',
+    content: (
+      <div
+        style={{
+          minHeight: 220,
+          padding: 24,
+          borderRadius: 24,
+          background: 'var(--app-demo-hero-3)',
+          display: 'grid',
+          alignContent: 'space-between',
+          gap: 18,
+        }}
+      >
+        <div style={{ display: 'grid', gap: 10 }}>
+          <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            Limited drop
+          </span>
+          <strong style={{ ...demoTitleStyle, fontSize: 28, lineHeight: 1.24 }}>Studio capsule</strong>
+          <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.6 }}>
+            터치 스와이프와 버튼 네비게이션을 함께 제공하는 배너 패턴입니다.
+          </p>
+        </div>
+        <span style={{ ...demoTitleStyle, fontSize: 14, fontWeight: 700 }}>Shop now</span>
+      </div>
+    ),
+  },
+];
+
+const swipeCardSlides = [
+  {
+    id: 'card-bag',
+    content: (
+      <article
+        style={{
+          minHeight: 252,
+          borderRadius: 24,
+          overflow: 'hidden',
+          ...demoSurfaceCardStyle,
+        }}
+      >
+        <div style={{ height: 148, background: 'var(--app-demo-card-1)' }} />
+        <div style={{ display: 'grid', gap: 8, padding: 20 }}>
+          <strong style={{ ...demoTitleStyle, fontSize: 18 }}>Weekend bag</strong>
+          <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 14, lineHeight: 1.6 }}>
+            카드가 살짝 다음 장을 미리 보여주는 커머스형 스와이프 레일 예제입니다.
+          </p>
+          <span style={{ ...demoTitleStyle, fontSize: 16, fontWeight: 700 }}>$148.00</span>
+        </div>
+      </article>
+    ),
+  },
+  {
+    id: 'card-hoodie',
+    content: (
+      <article
+        style={{
+          minHeight: 252,
+          borderRadius: 24,
+          overflow: 'hidden',
+          ...demoSurfaceCardStyle,
+        }}
+      >
+        <div style={{ height: 148, background: 'var(--app-demo-card-2)' }} />
+        <div style={{ display: 'grid', gap: 8, padding: 20 }}>
+          <strong style={{ ...demoTitleStyle, fontSize: 18 }}>Soft hoodie</strong>
+          <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 14, lineHeight: 1.6 }}>
+            배너보다 정보가 많은 카드형 콘텐츠 묶음에도 무리 없이 적용할 수 있습니다.
+          </p>
+          <span style={{ ...demoTitleStyle, fontSize: 16, fontWeight: 700 }}>$82.00</span>
+        </div>
+      </article>
+    ),
+  },
+  {
+    id: 'card-sneakers',
+    content: (
+      <article
+        style={{
+          minHeight: 252,
+          borderRadius: 24,
+          overflow: 'hidden',
+          ...demoSurfaceCardStyle,
+        }}
+      >
+        <div style={{ height: 148, background: 'var(--app-demo-card-3)' }} />
+        <div style={{ display: 'grid', gap: 8, padding: 20 }}>
+          <strong style={{ ...demoTitleStyle, fontSize: 18 }}>Canvas sneakers</strong>
+          <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 14, lineHeight: 1.6 }}>
+            align start 설정과 함께 사용하면 레일형 리스트를 쉽게 만들 수 있습니다.
+          </p>
+          <span style={{ ...demoTitleStyle, fontSize: 16, fontWeight: 700 }}>$96.00</span>
+        </div>
+      </article>
+    ),
+  },
+  {
+    id: 'card-tumbler',
+    content: (
+      <article
+        style={{
+          minHeight: 252,
+          borderRadius: 24,
+          overflow: 'hidden',
+          ...demoSurfaceCardStyle,
+        }}
+      >
+        <div style={{ height: 148, background: 'var(--app-demo-card-4)' }} />
+        <div style={{ display: 'grid', gap: 8, padding: 20 }}>
+          <strong style={{ ...demoTitleStyle, fontSize: 18 }}>Daily tumbler</strong>
+          <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 14, lineHeight: 1.6 }}>
+            여러 장의 카드가 이어지는 리스트에서도 여백과 폭을 직접 제어할 수 있습니다.
+          </p>
+          <span style={{ ...demoTitleStyle, fontSize: 16, fontWeight: 700 }}>$24.00</span>
+        </div>
+      </article>
+    ),
+  },
+];
+
 function ButtonPrimaryCase() {
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <Button label="기본 버튼 Button" />
-    </div>
+    </CasePanel>
+  );
+}
+
+function BadgeBasicCase() {
+  return (
+    <CasePanel centered>
+      <div style={rowStyle}>
+        <Badge label="신규" tone="brand" />
+        <Badge label="승인 완료" tone="success" />
+        <Badge label="검토 필요" tone="warning" />
+      </div>
+    </CasePanel>
+  );
+}
+
+function BadgeVariantCase() {
+  return (
+    <CasePanel centered>
+      <div style={rowStyle}>
+        <Badge label="Solid" tone="brand" variant="solid" />
+        <Badge label="Soft" tone="brand" variant="soft" />
+        <Badge label="Outline" tone="brand" variant="outline" leadingDot />
+      </div>
+    </CasePanel>
+  );
+}
+
+function BadgeFilterCase() {
+  const [items, setItems] = React.useState(['서울', '모바일', '실시간']);
+
+  return (
+    <CasePanel>
+      <div style={{ ...stackStyle, gap: 20 }}>
+        <div style={{ ...rowStyle, justifyContent: 'flex-start' }}>
+          {items.map(item => (
+            <Badge
+              key={item}
+              label={item}
+              tone="neutral"
+              variant="soft"
+              removable
+              onRemove={() => setItems(prev => prev.filter(value => value !== item))}
+            />
+          ))}
+        </div>
+        <p style={{ ...demoMetaTextStyle, margin: 0, fontSize: 14, lineHeight: 1.6 }}>
+          검색 필터, 태그 선택, 상태 라벨처럼 여러 값을 짧게 노출해야 할 때 사용하는 패턴입니다.
+        </p>
+      </div>
+    </CasePanel>
   );
 }
 
 function ButtonScaleCase() {
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={rowStyle}>
         <Button label="Small" size="small" />
         <Button label="Medium" size="medium" variant="secondary" />
         <Button label="Large" size="large" variant="danger" />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
 function ButtonDisabledCase() {
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <Button label="비활성화 Button" disabled />
-    </div>
+    </CasePanel>
   );
 }
 
 function AccordionSingleCase() {
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <Accordion
         mode="single"
         defaultOpenId="panel2"
@@ -127,13 +401,13 @@ function AccordionSingleCase() {
           { id: 'panel3', title: 'Member benefits', content: <p>Points, coupons, and member pricing are supported.</p> },
         ]}
       />
-    </div>
+    </CasePanel>
   );
 }
 
 function AccordionMultipleCase() {
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <Accordion
         mode="multiple"
         defaultOpenIds={['guide1']}
@@ -143,7 +417,7 @@ function AccordionMultipleCase() {
           { id: 'guide3', title: '비활성화 state', disabled: true, content: <p>비활성화 item</p> },
         ]}
       />
-    </div>
+    </CasePanel>
   );
 }
 
@@ -157,7 +431,7 @@ function AccordionCheckboxHeaderCase() {
   };
 
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <div className="accordion">
         <div className="accordion-panel accordion-checkbox-panel">
           <div className="accordion-checkbox-header">
@@ -204,29 +478,86 @@ function AccordionCheckboxHeaderCase() {
           </div>
         </div>
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
 function CardDefaultCase() {
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 320 }}>
         <Card title="Content card">Use this pattern to group summary information inside a clear surface.</Card>
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
 function CardImageCase() {
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 320 }}>
         <Card title="Image card" imageUrl="https://via.placeholder.com/400x200/dae7f2/33556f?text=Preview">
           This variation combines media and text content in one card layout.
         </Card>
       </div>
-    </div>
+    </CasePanel>
+  );
+}
+
+function ChartLineCase() {
+  return (
+    <CasePanel>
+      <Chart
+        variant="line"
+        title="Monthly traffic trend"
+        description="월별 방문자 추이를 기본 라인 차트로 보여주는 예제입니다."
+        data={chartTrendData}
+        xKey="label"
+        series={[{ key: 'users', label: 'Users', color: '#1f78b4' }]}
+        valueFormatter={value => `${Number(value).toLocaleString()} users`}
+      />
+    </CasePanel>
+  );
+}
+
+function ChartBarCase() {
+  return (
+    <CasePanel>
+      <Chart
+        variant="bar"
+        title="Campaign performance"
+        description="채널별 집행비와 매출을 비교하는 바 차트 예제입니다."
+        data={chartRevenueData}
+        xKey="label"
+        series={[
+          { key: 'spend', label: 'Spend', color: '#7ca6c8' },
+          { key: 'revenue', label: 'Revenue', color: '#0c5a86' },
+        ]}
+        valueFormatter={value => `$${Number(value).toLocaleString()}`}
+      />
+    </CasePanel>
+  );
+}
+
+function ChartDonutCase() {
+  return (
+    <CasePanel>
+      <Chart
+        variant="donut"
+        title="Traffic share"
+        description="유입 채널 비중을 한눈에 보여주는 도넛 차트 예제입니다."
+        data={chartShareData}
+        xKey="label"
+        series={[
+          { key: 'share', label: 'Organic', color: '#0c5a86' },
+          { key: 'share', label: 'Paid', color: '#5b8fb8' },
+          { key: 'share', label: 'Referral', color: '#99bdd8' },
+          { key: 'share', label: 'Direct', color: '#d6e6f2' },
+        ]}
+        valueFormatter={value => `${value}%`}
+        height={340}
+      />
+    </CasePanel>
   );
 }
 
@@ -234,7 +565,7 @@ function CheckboxBasicCase() {
   const [checked, setChecked] = React.useState(false);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <Checkbox
         id="case-checkbox-basic"
         size="medium"
@@ -242,7 +573,7 @@ function CheckboxBasicCase() {
         checked={checked}
         onChange={setChecked}
       />
-    </div>
+    </CasePanel>
   );
 }
 
@@ -250,7 +581,7 @@ function CheckboxSizeCase() {
   const [values, setValues] = React.useState({ small: false, medium: true, large: false });
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div className="checkbox-group">
         <Checkbox
           id="case-checkbox-small"
@@ -274,7 +605,7 @@ function CheckboxSizeCase() {
           onChange={next => setValues(prev => ({ ...prev, large: next }))}
         />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -282,7 +613,7 @@ function DatePickerDefaultCase() {
   const [value, setValue] = React.useState<Date | undefined>(new Date('2026-04-08'));
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 280 }}>
         <DatePicker
           id="case-datepicker-default"
@@ -292,7 +623,7 @@ function DatePickerDefaultCase() {
           helperText="기본 단일 날짜 선택 예제입니다."
         />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -300,7 +631,7 @@ function DatePickerBoundedCase() {
   const [value, setValue] = React.useState<Date | undefined>();
 
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <div style={{ ...stackStyle, maxWidth: 320 }}>
         <DatePicker
           id="case-datepicker-bounded"
@@ -313,7 +644,7 @@ function DatePickerBoundedCase() {
           disabledDays={{ dayOfWeek: [0, 6] }}
         />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -321,7 +652,7 @@ function DialogDefaultCase() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <Button label="Open dialog" onClick={() => setOpen(true)} />
       <Dialog isOpen={open} onRequestClose={() => setOpen(false)} title="기본형 dialog">
         <p>Use this dialog for short confirmation or guidance flows.</p>
@@ -329,7 +660,7 @@ function DialogDefaultCase() {
           <Button label="Close" onClick={() => setOpen(false)} />
         </div>
       </Dialog>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -337,7 +668,7 @@ function DialogVariantsCase() {
   const [variant, setVariant] = React.useState<'bottomsheet' | 'full' | null>(null);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={rowStyle}>
         <Button label="Bottom Sheet" variant="secondary" onClick={() => setVariant('bottomsheet')} />
         <Button label="Full Dialog" variant="danger" onClick={() => setVariant('full')} />
@@ -350,7 +681,7 @@ function DialogVariantsCase() {
       >
         <p>One component can support several layouts based on context.</p>
       </Dialog>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -358,14 +689,14 @@ function PaginationDefaultCase() {
   const [page, setPage] = React.useState(6);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ ...stackStyle, justifyItems: 'center' }}>
         <Pagination count={12} page={page} onChange={setPage} />
-        <div style={{ fontSize: 14, color: '#47627a' }}>
+        <div style={{ ...demoMetaTextStyle, fontSize: 14 }}>
           current page: <strong>{page}</strong>
         </div>
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -373,7 +704,7 @@ function PaginationEdgesCase() {
   const [page, setPage] = React.useState(9);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ ...stackStyle, justifyItems: 'center' }}>
         <Pagination
           count={24}
@@ -384,11 +715,11 @@ function PaginationEdgesCase() {
           showLastButton
           size="large"
         />
-        <div style={{ fontSize: 14, color: '#47627a' }}>
+        <div style={{ ...demoMetaTextStyle, fontSize: 14 }}>
           archive page <strong>{page}</strong> of 24
         </div>
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -396,7 +727,7 @@ function RadioGroupCase() {
   const [value, setValue] = React.useState('male');
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <RadioGroup
         name="gender-case"
         size="medium"
@@ -408,7 +739,7 @@ function RadioGroupCase() {
           { value: 'none', label: '비활성화 option', disabled: true },
         ]}
       />
-    </div>
+    </CasePanel>
   );
 }
 
@@ -416,11 +747,11 @@ function SelectDefaultCase() {
   const [value, setValue] = React.useState('');
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 280 }}>
         <Select id="case-select-default" value={value} onChange={setValue} options={selectOptions} placeholder="Age" />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -428,17 +759,17 @@ function SelectPreselectedCase() {
   const [value, setValue] = React.useState('30');
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 280 }}>
         <Select id="case-select-preselected" value={value} onChange={setValue} options={selectOptions} placeholder="Age" />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
 function SkeletonShowcaseCase() {
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <div style={{ display: 'grid', gap: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <Skeleton variant="circle" width={56} height={56} />
@@ -449,7 +780,7 @@ function SkeletonShowcaseCase() {
         </div>
         <Skeleton variant="rect" width="100%" height={120} />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -457,11 +788,11 @@ function SliderDefaultCase() {
   const [value, setValue] = React.useState(40);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 320 }}>
         <Slider id="case-slider-default" value={value} onChange={setValue} />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -469,14 +800,48 @@ function SliderRangeCase() {
   const [value, setValue] = React.useState(25);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 320, display: 'grid', gap: 12 }}>
         <Slider id="case-slider-range" min={10} max={50} step={5} value={value} onChange={setValue} />
-        <div style={{ fontSize: 14, color: '#47627a' }}>
+        <div style={{ ...demoMetaTextStyle, fontSize: 14 }}>
           current value: <strong>{value}</strong>
         </div>
       </div>
-    </div>
+    </CasePanel>
+  );
+}
+
+function SwipeDefaultCase() {
+  return (
+    <CasePanel>
+      <Swipe ariaLabel="메인 배너 스와이프" slides={swipeHeroSlides} />
+    </CasePanel>
+  );
+}
+
+function SwipeCardRailCase() {
+  return (
+    <CasePanel>
+      <Swipe
+        ariaLabel="카드 레일 스와이프"
+        slides={swipeCardSlides}
+        slideSize="78%"
+        slideGap="20px"
+        options={{ align: 'start', containScroll: 'trimSnaps' }}
+      />
+    </CasePanel>
+  );
+}
+
+function SwipeLoopCase() {
+  return (
+    <CasePanel>
+      <Swipe
+        ariaLabel="루프형 프로모션 스와이프"
+        slides={swipeHeroSlides}
+        options={{ loop: true }}
+      />
+    </CasePanel>
   );
 }
 
@@ -484,9 +849,9 @@ function SwitchDefaultCase() {
   const [checked, setChecked] = React.useState(false);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <Switch id="case-switch-default" checked={checked} onChange={setChecked} label="Marketing emails" />
-    </div>
+    </CasePanel>
   );
 }
 
@@ -494,18 +859,18 @@ function SwitchSettingsCase() {
   const [darkMode, setDarkMode] = React.useState(false);
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={rowStyle}>
         <Switch id="case-switch-settings" checked={darkMode} onChange={setDarkMode} label="Dark mode" />
-        <span style={{ fontSize: 14, color: '#47627a' }}>{darkMode ? 'ON' : 'OFF'}</span>
+        <span style={{ ...demoMetaTextStyle, fontSize: 14 }}>{darkMode ? 'ON' : 'OFF'}</span>
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
 function TabsUnderlineCase() {
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <Tabs
         defaultActiveId="overview"
         items={[
@@ -514,10 +879,10 @@ function TabsUnderlineCase() {
             label: 'Overview',
             content: (
               <div style={{ display: 'grid', gap: 12 }}>
-                <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+                <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 16, lineHeight: 1.75 }}>
                   Tabs let you switch between related content without moving away from the current page.
                 </p>
-                <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+                <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 16, lineHeight: 1.75 }}>
                   This example uses the default underline style for product or summary sections.
                 </p>
               </div>
@@ -527,7 +892,7 @@ function TabsUnderlineCase() {
             id: 'details',
             label: 'Details',
             content: (
-              <ul style={{ margin: 0, paddingLeft: 20, color: '#47627a', fontSize: 16, lineHeight: 1.8 }}>
+              <ul style={{ ...demoBodyTextStyle, margin: 0, paddingLeft: 20, fontSize: 16, lineHeight: 1.8 }}>
                 <li>Supports controlled and uncontrolled active tab state</li>
                 <li>Includes arrow-key, Home, and End keyboard navigation</li>
                 <li>Disabled tabs remain visible but cannot be selected</li>
@@ -538,20 +903,20 @@ function TabsUnderlineCase() {
             id: 'history',
             label: 'History',
             content: (
-              <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 16, lineHeight: 1.75 }}>
                 Recent changes, audit notes, or secondary records can be grouped into separate tab panels.
               </p>
             ),
           },
         ]}
       />
-    </div>
+    </CasePanel>
   );
 }
 
 function TabsVerticalCase() {
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <Tabs
         orientation="vertical"
         defaultActiveId="billing"
@@ -560,7 +925,7 @@ function TabsVerticalCase() {
             id: 'profile',
             label: 'Profile settings',
             content: (
-              <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 16, lineHeight: 1.75 }}>
                 Manage account basics, notification defaults, and member profile information.
               </p>
             ),
@@ -570,13 +935,13 @@ function TabsVerticalCase() {
             label: 'Billing',
             content: (
               <div style={{ display: 'grid', gap: 12 }}>
-                <div style={{ padding: 16, borderRadius: 14, background: '#f5f8fb' }}>
+                <div style={demoMutedPanelStyle}>
                   <strong style={{ display: 'block', marginBottom: 6 }}>Current plan</strong>
-                  <span style={{ color: '#5c6c7a', fontSize: 15 }}>Team Pro Annual</span>
+                  <span style={{ ...demoMetaTextStyle, fontSize: 15 }}>Team Pro Annual</span>
                 </div>
-                <div style={{ padding: 16, borderRadius: 14, background: '#f5f8fb' }}>
+                <div style={demoMutedPanelStyle}>
                   <strong style={{ display: 'block', marginBottom: 6 }}>Next invoice</strong>
-                  <span style={{ color: '#5c6c7a', fontSize: 15 }}>May 01, 2026</span>
+                  <span style={{ ...demoMetaTextStyle, fontSize: 15 }}>May 01, 2026</span>
                 </div>
               </div>
             ),
@@ -585,7 +950,7 @@ function TabsVerticalCase() {
             id: 'security',
             label: 'Security',
             content: (
-              <p style={{ margin: 0, color: '#47627a', fontSize: 16, lineHeight: 1.75 }}>
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 16, lineHeight: 1.75 }}>
                 Keep session controls, 2FA policies, and access approvals in a separate settings area.
               </p>
             ),
@@ -598,26 +963,111 @@ function TabsVerticalCase() {
           },
         ]}
       />
-    </div>
+    </CasePanel>
+  );
+}
+
+function TabsImageDesignCase() {
+  return (
+    <CasePanel>
+      <Tabs
+        variant="pill"
+        className="tabs--category-pill"
+        ariaLabel="투자 카테고리 탭"
+        defaultActiveId="holding"
+        items={[
+          {
+            id: 'etf',
+            label: 'ETF',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                상장지수펀드 상품군을 빠르게 전환할 때 쓰기 좋은 카테고리 탭 예제입니다.
+              </p>
+            ),
+          },
+          {
+            id: 'fund',
+            label: '펀드',
+            content: (
+              <div style={demoMutedPanelStyle}>
+                <strong style={{ display: 'block', marginBottom: 6 }}>추천 펀드</strong>
+                <span style={{ ...demoMetaTextStyle, fontSize: 15 }}>
+                  테마형, 채권형, 글로벌 분산 상품을 한 영역에 정리할 때 자연스럽게 붙는 칩 탭 패턴입니다.
+                </span>
+              </div>
+            ),
+          },
+          {
+            id: 'deposit',
+            label: '예금',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                금리형 상품 탭으로 연결해 만기, 우대금리, 자동이체 혜택 같은 정보를 안정적으로 구분할 수 있습니다.
+              </p>
+            ),
+          },
+          {
+            id: 'cash',
+            label: '현금성',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                MMF나 CMA처럼 현금성 자산군을 별도로 노출할 때도 버튼형 필터보다 덜 무겁게 사용할 수 있습니다.
+              </p>
+            ),
+          },
+          {
+            id: 'holding',
+            label: '보유',
+            content: (
+              <div
+                style={{
+                  display: 'grid',
+                  gap: 12,
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                }}
+              >
+                <div style={demoMutedPanelStyle}>
+                  <strong style={{ display: 'block', marginBottom: 6 }}>총 보유 자산</strong>
+                  <span style={{ ...demoTitleStyle, fontSize: 20, fontWeight: 700 }}>128,420,000원</span>
+                </div>
+                <div style={demoMutedPanelStyle}>
+                  <strong style={{ display: 'block', marginBottom: 6 }}>오늘 변동</strong>
+                  <span style={{ ...demoTitleStyle, fontSize: 20, fontWeight: 700 }}>+2.14%</span>
+                </div>
+              </div>
+            ),
+          },
+          {
+            id: 'interest',
+            label: '관심',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                관심 종목, 즐겨찾기, 추적 중인 상품을 따로 묶는 상단 필터형 탭 패턴으로 그대로 확장할 수 있습니다.
+              </p>
+            ),
+          },
+        ]}
+      />
+    </CasePanel>
   );
 }
 
 function TableDefaultCase() {
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <Table
         caption="Team performance"
         columns={teamTableColumns}
         data={teamTableRows}
         hoverable
       />
-    </div>
+    </CasePanel>
   );
 }
 
 function TableCompactCase() {
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <Table
         caption="Recent invoices"
         columns={[
@@ -633,7 +1083,7 @@ function TableCompactCase() {
         striped
         compact
       />
-    </div>
+    </CasePanel>
   );
 }
 
@@ -641,11 +1091,11 @@ function TextFieldOutlinedCase() {
   const [value, setValue] = React.useState('');
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 280 }}>
         <TextField id="case-textfield-outlined" label="아웃라인" value={value} onChange={setValue} />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -653,7 +1103,7 @@ function TextFieldStatesCase() {
   const [password, setPassword] = React.useState('');
 
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <div style={{ ...stackStyle, maxWidth: 320 }}>
         <TextField id="case-textfield-filled" label="Filled" variant="filled" value="" onChange={() => {}} />
         <TextField id="case-textfield-password" label="Password" type="password" value={password} onChange={setPassword} />
@@ -666,7 +1116,71 @@ function TextFieldStatesCase() {
           helperText="Please review the input value."
         />
       </div>
-    </div>
+    </CasePanel>
+  );
+}
+
+function TextFieldTimeSelectCase() {
+  const [value, setValue] = React.useState('');
+  const timeInputRef = React.useRef<HTMLInputElement>(null);
+
+  const openTimePicker = () => {
+    const input = timeInputRef.current;
+
+    if (!input) {
+      return;
+    }
+
+    if (typeof input.showPicker === 'function') {
+      input.showPicker();
+      return;
+    }
+
+    input.focus();
+    input.click();
+  };
+
+  return (
+    <CasePanel centered>
+      <div
+        style={{ position: 'relative', width: 280 }}
+        role="button"
+        tabIndex={0}
+        aria-label="시간 선택 열기"
+        onClick={openTimePicker}
+        onKeyDown={event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openTimePicker();
+          }
+        }}
+      >
+        <TextField
+          id="case-textfield-time-select"
+          label="시간 선택"
+          value={value}
+          onChange={setValue}
+          readOnly
+          endAdornment={<Clock3 strokeWidth={2} />}
+          className="textfield-case-time-select"
+        />
+        <input
+          ref={timeInputRef}
+          type="time"
+          value={value}
+          aria-label="시간 선택"
+          onChange={event => setValue(event.target.value)}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            opacity: 0,
+            cursor: 'pointer',
+          }}
+        />
+      </div>
+    </CasePanel>
   );
 }
 
@@ -674,7 +1188,7 @@ function TextareaBasicCase() {
   const [value, setValue] = React.useState('');
 
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={{ width: 320 }}>
         <Textarea
           id="case-textarea-basic"
@@ -685,7 +1199,7 @@ function TextareaBasicCase() {
           rows={5}
         />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -693,7 +1207,7 @@ function TextareaStatesCase() {
   const [feedback, setFeedback] = React.useState('이번 릴리스에서 확인한 이슈와 개선 포인트를 정리합니다.');
 
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <div style={{ ...stackStyle, maxWidth: 360 }}>
         <Textarea
           id="case-textarea-filled"
@@ -724,7 +1238,7 @@ function TextareaStatesCase() {
           rows={4}
         />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -732,7 +1246,7 @@ function ToastDefaultCase() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <div style={{ minHeight: 180 }}>
         <div style={rowStyle}>
           <Button label="Show Toast" onClick={() => setOpen(true)} />
@@ -746,7 +1260,7 @@ function ToastDefaultCase() {
           onClose={() => setOpen(false)}
         />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
@@ -754,7 +1268,7 @@ function ToastVariantsCase() {
   const [variant, setVariant] = React.useState<'success' | 'error' | null>(null);
 
   return (
-    <div style={panelStyle}>
+    <CasePanel>
       <div style={{ minHeight: 180 }}>
         <div style={rowStyle}>
           <Button label="Success" onClick={() => setVariant('success')} />
@@ -769,27 +1283,27 @@ function ToastVariantsCase() {
           onClose={() => setVariant(null)}
         />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
 function TooltipPlacementsCase() {
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <div style={rowStyle}>
         <TooltipDemo id="tooltip-top-case" content="Top tooltip" buttonLabel="Top" />
         <TooltipDemo id="tooltip-right-case" content="Right tooltip" place="right" buttonLabel="Right" />
         <TooltipDemo id="tooltip-bottom-case" content="Bottom tooltip" place="bottom" buttonLabel="Bottom" />
       </div>
-    </div>
+    </CasePanel>
   );
 }
 
 function TooltipClickCase() {
   return (
-    <div style={centeredPanelStyle}>
+    <CasePanel centered>
       <TooltipDemo id="tooltip-click-case" content="Tooltip opened on click" openOnClick buttonLabel="Click me" />
-    </div>
+    </CasePanel>
   );
 }
 
@@ -840,6 +1354,30 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   </div>
 </div>`,
   },
+  badge: {
+    basic: `<div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+  <Badge label="신규" tone="brand" />
+  <Badge label="승인 완료" tone="success" />
+  <Badge label="검토 필요" tone="warning" />
+</div>`,
+    variants: `<div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+  <Badge label="Solid" tone="brand" variant="solid" />
+  <Badge label="Soft" tone="brand" variant="soft" />
+  <Badge label="Outline" tone="brand" variant="outline" leadingDot />
+</div>`,
+    removable: `const [items, setItems] = useState(['서울', '모바일', '실시간']);
+
+<div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+  {items.map(item => (
+    <Badge
+      key={item}
+      label={item}
+      removable
+      onRemove={() => setItems(prev => prev.filter(value => value !== item))}
+    />
+  ))}
+</div>`,
+  },
   button: {
     primary: `<Button label="기본 버튼 Button" />`,
     scale: `<div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -859,6 +1397,58 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
 >
   This variation combines media and text content in one card layout.
 </Card>`,
+  },
+  chart: {
+    line: `<Chart
+  variant="line"
+  title="Monthly traffic trend"
+  data={[
+    { label: 'Jan', users: 8400 },
+    { label: 'Feb', users: 9100 },
+    { label: 'Mar', users: 10400 },
+    { label: 'Apr', users: 9800 },
+    { label: 'May', users: 12100 },
+    { label: 'Jun', users: 13400 },
+  ]}
+  xKey="label"
+  series={[{ key: 'users', label: 'Users', color: '#1f78b4' }]}
+  valueFormatter={value => \`\${Number(value).toLocaleString()} users\`}
+/>`,
+    bar: `<Chart
+  variant="bar"
+  title="Campaign performance"
+  data={[
+    { label: 'Search', spend: 1200, revenue: 4200 },
+    { label: 'Display', spend: 860, revenue: 2780 },
+    { label: 'CRM', spend: 520, revenue: 2310 },
+    { label: 'Social', spend: 970, revenue: 3560 },
+  ]}
+  xKey="label"
+  series={[
+    { key: 'spend', label: 'Spend', color: '#7ca6c8' },
+    { key: 'revenue', label: 'Revenue', color: '#0c5a86' },
+  ]}
+  valueFormatter={value => \`$\${Number(value).toLocaleString()}\`}
+/>`,
+    donut: `<Chart
+  variant="donut"
+  title="Traffic share"
+  data={[
+    { label: 'Organic', share: 38 },
+    { label: 'Paid', share: 27 },
+    { label: 'Referral', share: 18 },
+    { label: 'Direct', share: 17 },
+  ]}
+  xKey="label"
+  series={[
+    { key: 'share', label: 'Organic', color: '#0c5a86' },
+    { key: 'share', label: 'Paid', color: '#5b8fb8' },
+    { key: 'share', label: 'Referral', color: '#99bdd8' },
+    { key: 'share', label: 'Direct', color: '#d6e6f2' },
+  ]}
+  valueFormatter={value => \`\${value}%\`}
+  height={340}
+/>`,
   },
   'date-picker': {
     default: `const [value, setValue] = useState<Date | undefined>(new Date('2026-04-08'));
@@ -1025,6 +1615,39 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   <div>current value: {value}</div>
 </>`,
   },
+  swipe: {
+    default: `const slides = [
+  { id: 'hero-1', content: <BannerCard title="Editorial campaign" /> },
+  { id: 'hero-2', content: <BannerCard title="Spring rewards" /> },
+  { id: 'hero-3', content: <BannerCard title="Studio capsule" /> },
+];
+
+<Swipe ariaLabel="메인 배너 스와이프" slides={slides} />`,
+    cardRail: `const slides = [
+  { id: 'card-1', content: <ProductCard title="Weekend bag" price="$148.00" /> },
+  { id: 'card-2', content: <ProductCard title="Soft hoodie" price="$82.00" /> },
+  { id: 'card-3', content: <ProductCard title="Canvas sneakers" price="$96.00" /> },
+];
+
+<Swipe
+  ariaLabel="카드 레일 스와이프"
+  slides={slides}
+  slideSize="78%"
+  slideGap="20px"
+  options={{ align: 'start', containScroll: 'trimSnaps' }}
+/>`,
+    loop: `const slides = [
+  { id: 'hero-1', content: <BannerCard title="Loop enabled" /> },
+  { id: 'hero-2', content: <BannerCard title="Always in motion" /> },
+  { id: 'hero-3', content: <BannerCard title="Three-step flow" /> },
+];
+
+<Swipe
+  ariaLabel="루프형 프로모션 스와이프"
+  slides={slides}
+  options={{ loop: true }}
+/>`,
+  },
   switch: {
     default: `const [checked, setChecked] = useState(false);
 
@@ -1154,6 +1777,22 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   defaultActiveId="billing"
   items={items}
 />`,
+    imageDesign: `const items = [
+  { id: 'etf', label: 'ETF', content: <p>ETF category content</p> },
+  { id: 'fund', label: '펀드', content: <p>Fund category content</p> },
+  { id: 'deposit', label: '예금', content: <p>Deposit category content</p> },
+  { id: 'cash', label: '현금성', content: <p>Cash-like product content</p> },
+  { id: 'holding', label: '보유', content: <HoldingSummary /> },
+  { id: 'interest', label: '관심', content: <p>Interest list content</p> },
+];
+
+<Tabs
+  variant="pill"
+  className="tabs--category-pill"
+  defaultActiveId="holding"
+  ariaLabel="투자 카테고리 탭"
+  items={items}
+/>`,
   },
   'text-field': {
     outlined: `const [value, setValue] = useState('');
@@ -1176,6 +1815,32 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
     onChange={() => {}}
     error
     helperText="Please review the input value."
+  />
+</div>`,
+    timeSelect: `const [value, setValue] = useState('');
+
+<div style={{ position: 'relative', width: 280 }}>
+  <TextField
+    id="case-textfield-time-select"
+    label="시간 선택"
+    value={value}
+    onChange={setValue}
+    readOnly
+    endAdornment={<Clock3 strokeWidth={2} />}
+  />
+  <input
+    type="time"
+    value={value}
+    aria-label="시간 선택"
+    onChange={event => setValue(event.target.value)}
+    style={{
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      opacity: 0,
+      cursor: 'pointer',
+    }}
   />
 </div>`,
   },
@@ -1232,6 +1897,14 @@ const componentCases: Record<string, ComponentCaseCollection> = {
       { id: 'checkboxHeader', title: '체크박스 헤더', description: '헤더에 공용 Checkbox 컴포넌트를 배치하고, 체크하면 섹션이 열리도록 구성한 예제입니다.', preview: <AccordionCheckboxHeaderCase /> },
     ],
   },
+  badge: {
+    summary: '상태 라벨, 톤 변형, 제거 가능한 필터 태그 패턴을 함께 확인할 수 있는 배지 케이스 모음입니다.',
+    cases: [
+      { id: 'basic', title: '기본 상태 라벨', description: '목록, 카드, 테이블에서 짧은 상태를 강조할 때 쓰는 기본 Badge 예제입니다.', preview: <BadgeBasicCase /> },
+      { id: 'variants', title: '톤과 스타일 변형', description: 'solid, soft, outline과 leading dot 조합을 비교할 수 있는 Badge 예제입니다.', preview: <BadgeVariantCase /> },
+      { id: 'removable', title: '제거 가능한 필터 태그', description: '검색 조건이나 선택된 속성을 해제 가능한 태그로 노출하는 Badge 예제입니다.', preview: <BadgeFilterCase /> },
+    ],
+  },
   button: {
     summary: '기본 버튼, 크기 변화, 비활성화 상태를 한 번에 비교할 수 있는 버튼 케이스 모음입니다.',
     cases: [
@@ -1245,6 +1918,14 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     cases: [
       { id: 'default', title: '기본형', description: '간단한 정보를 하나의 묶음으로 정리하는 기본 카드 예제입니다.', preview: <CardDefaultCase /> },
       { id: 'image', title: '이미지 포함', description: '이미지와 텍스트를 하나의 카드 안에서 함께 보여주는 예제입니다.', preview: <CardImageCase /> },
+    ],
+  },
+  chart: {
+    summary: '라인, 바, 도넛 패턴으로 수치 흐름과 비교, 비중을 확인할 수 있는 차트 케이스 모음입니다.',
+    cases: [
+      { id: 'line', title: '라인 차트', description: '기간별 추이를 부드러운 선으로 보여주는 기본 라인 차트 예제입니다.', preview: <ChartLineCase /> },
+      { id: 'bar', title: '바 차트', description: '채널별 수치를 나란히 비교하는 막대 차트 예제입니다.', preview: <ChartBarCase /> },
+      { id: 'donut', title: '도넛 차트', description: '비중 데이터를 요약형으로 표현하는 도넛 차트 예제입니다.', preview: <ChartDonutCase /> },
     ],
   },
   'date-picker': {
@@ -1297,6 +1978,14 @@ const componentCases: Record<string, ComponentCaseCollection> = {
       { id: 'range', title: '범위 예제', description: '최소값, 최대값, step 값을 함께 보여주는 슬라이더 예제입니다.', preview: <SliderRangeCase /> },
     ],
   },
+  swipe: {
+    summary: '메인 배너형, 카드 레일형, 루프형 구성을 함께 확인할 수 있는 스와이프 케이스 모음입니다.',
+    cases: [
+      { id: 'default', title: '기본 배너형', description: '한 장씩 넘기는 메인 비주얼 배너용 스와이프 예제입니다.', preview: <SwipeDefaultCase /> },
+      { id: 'cardRail', title: '카드 레일형', description: '다음 카드가 살짝 보이는 레일형 리스트 스와이프 예제입니다.', preview: <SwipeCardRailCase /> },
+      { id: 'loop', title: '루프형 프로모션', description: '양 끝에서 끊기지 않고 반복 순환하는 배너 스와이프 예제입니다.', preview: <SwipeLoopCase /> },
+    ],
+  },
   switch: {
     summary: '기본 토글과 설정형 사용 예시를 확인할 수 있는 스위치 케이스 모음입니다.',
     cases: [
@@ -1319,9 +2008,10 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     ],
   },
   tabs: {
-    summary: '기본 탭 전환과 세로형 설정 레이아웃을 확인할 수 있는 Tabs 케이스 모음입니다.',
+    summary: '기본 탭 전환, 이미지 시안형 칩 탭, 세로형 설정 레이아웃을 확인할 수 있는 Tabs 케이스 모음입니다.',
     cases: [
       { id: 'underline', title: '기본 탭', description: '관련 콘텐츠를 가볍게 전환하는 기본 underline 스타일 Tabs 예제입니다.', preview: <TabsUnderlineCase /> },
+      { id: 'imageDesign', title: '이미지 시안형 칩 탭', description: '첨부 시안처럼 연한 회색 칩과 진한 활성 상태를 사용하는 투자 카테고리 Tabs 예제입니다.', preview: <TabsImageDesignCase /> },
       { id: 'vertical', title: '세로형 설정 탭', description: '설정 화면처럼 좌측 목록과 우측 패널을 함께 쓰는 vertical Tabs 예제입니다.', preview: <TabsVerticalCase /> },
     ],
   },
@@ -1330,6 +2020,7 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     cases: [
       { id: 'outlined', title: '아웃라인', description: '아웃라인 스타일의 기본 입력 필드 예제입니다.', preview: <TextFieldOutlinedCase /> },
       { id: 'states', title: '상태 변형', description: 'Filled, Password, Error 상태를 한 번에 보여주는 입력 필드 예제입니다.', preview: <TextFieldStatesCase /> },
+      { id: 'timeSelect', title: '시간 선택', description: '시안처럼 시계 아이콘을 포함하고 native time picker를 여는 입력 필드 예제입니다.', preview: <TextFieldTimeSelectCase /> },
     ],
   },
   toast: {

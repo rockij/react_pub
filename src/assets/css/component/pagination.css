@@ -82,16 +82,3 @@
 .pagination--disabled {
   opacity: 0.72;
 }
-
-@media (max-width: 76.8rem) {
-  .pagination__list {
-    gap: 0.6rem;
-  }
-
-  .pagination__button,
-  .pagination__ellipsis {
-    min-width: 4rem;
-    height: 4rem;
-    border-radius: 1.2rem;
-  }
-}

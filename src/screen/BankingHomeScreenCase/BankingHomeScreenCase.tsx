@@ -1,3 +1,4 @@
+﻿import React from 'react';
 import {
   Bell,
   ChevronLeft,
@@ -10,6 +11,7 @@ import {
   X,
 } from 'lucide-react';
 import { Button } from '../../components/Button/Button';
+import { Swipe } from '../../components/Swipe/Swipe';
 import '../../assets/css/screen/banking-home-screen.css';
 
 const quickMenus = [
@@ -22,7 +24,39 @@ const quickMenus = [
   { title: '충전하기', icon: Bell, accent: 'orange' },
 ] as const;
 
+const accountSlides = [
+  {
+    id: 'account-salary',
+    eyebrow: '입출금',
+    title: '급여하나 통장',
+    accountNumber: '하나은행 198-0502739-10042',
+    balance: '15,800,300원',
+  },
+  {
+    id: 'account-living',
+    eyebrow: '생활비',
+    title: '세이프 생활 통장',
+    accountNumber: '하나은행 312-1028471-99311',
+    balance: '2,430,000원',
+  },
+  {
+    id: 'account-saving',
+    eyebrow: '저축',
+    title: '하이 세이브 적금',
+    accountNumber: '하나은행 512-8842013-22019',
+    balance: '28,900,000원',
+  },
+] as const;
+
 export function BankingHomeScreenCase() {
+  const [selectedAccountIndex, setSelectedAccountIndex] = React.useState(0);
+  const [swipeApi, setSwipeApi] = React.useState<{
+    scrollPrev: () => void;
+    scrollNext: () => void;
+    canScrollPrev: () => boolean;
+    canScrollNext: () => boolean;
+  } | null>(null);
+
   return (
     <section className="banking-home-screen" aria-label="모바일 뱅킹 홈 화면">
       <div className="banking-home-screen__device">
@@ -38,41 +72,82 @@ export function BankingHomeScreenCase() {
         <div className="banking-home-screen__banner">
           <div className="banking-home-screen__banner-copy">
             <Bell size={16} />
-            <span>VIP 쿠폰팩이 도착했어요.</span>
+            <span>VIP 쿠폰함이 열려 있어요</span>
           </div>
           <button type="button" aria-label="Close banner">
             <X size={14} strokeWidth={2.2} />
           </button>
         </div>
 
-        <article className="banking-home-screen__account-card">
-          <div className="banking-home-screen__account-head">
-            <div>
-              <p className="banking-home-screen__eyebrow">입출금</p>
-              <h3>급여하나 통장</h3>
-              <p className="banking-home-screen__account-meta">
-                하나은행 198-0502739-10042 <Copy size={13} />
-              </p>
-            </div>
-            <button type="button" aria-label="Account menu">
-              <EllipsisVertical size={18} />
-            </button>
-          </div>
+        <div className="banking-home-screen__account-swipe">
+          <Swipe
+            ariaLabel="계좌 카드 스와이프"
+            className="banking-home-screen__account-carousel"
+            slides={accountSlides.map(account => ({
+              id: account.id,
+              content: (
+                <article className="banking-home-screen__account-card">
+                  <div className="banking-home-screen__account-head">
+                    <div>
+                      <p className="banking-home-screen__eyebrow">{account.eyebrow}</p>
+                      <h3>{account.title}</h3>
+                      <p className="banking-home-screen__account-meta">
+                        {account.accountNumber} <Copy size={13} />
+                      </p>
+                    </div>
+                    <button type="button" aria-label="Account menu">
+                      <EllipsisVertical size={18} />
+                    </button>
+                  </div>
 
-          <p className="banking-home-screen__balance">15,800,300원</p>
+                  <p className="banking-home-screen__balance">{account.balance}</p>
 
-          <div className="banking-home-screen__actions">
-            <Button label="받기" size="medium" variant="secondary" />
-            <Button label="보내기" size="medium" variant="primary" />
-          </div>
-        </article>
+                  <div className="banking-home-screen__actions">
+                    <Button label="받기" size="medium" variant="secondary" />
+                    <Button label="보내기" size="medium" variant="primary" />
+                  </div>
+                </article>
+              ),
+            }))}
+            slideGap="0px"
+            showControls={false}
+            showDots={false}
+            options={{ align: 'start', containScroll: 'trimSnaps' }}
+            onSelect={setSelectedAccountIndex}
+            onApiReady={api => {
+              if (!api) {
+                setSwipeApi(null);
+                return;
+              }
+
+              setSwipeApi({
+                scrollPrev: () => api.scrollPrev(),
+                scrollNext: () => api.scrollNext(),
+                canScrollPrev: () => api.canScrollPrev(),
+                canScrollNext: () => api.canScrollNext(),
+              });
+            }}
+          />
+        </div>
 
         <div className="banking-home-screen__pager" aria-label="Page status">
-          <button type="button" aria-label="Previous">
+          <button
+            type="button"
+            aria-label="Previous"
+            onClick={() => swipeApi?.scrollPrev()}
+            disabled={!swipeApi?.canScrollPrev()}
+          >
             <ChevronLeft size={16} />
           </button>
-          <span>4 / 5</span>
-          <button type="button" aria-label="Next">
+          <span>
+            {selectedAccountIndex + 1} / {accountSlides.length}
+          </span>
+          <button
+            type="button"
+            aria-label="Next"
+            onClick={() => swipeApi?.scrollNext()}
+            disabled={!swipeApi?.canScrollNext()}
+          >
             <ChevronRight size={16} />
           </button>
         </div>

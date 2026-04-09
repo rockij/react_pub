@@ -4,6 +4,7 @@ import { ComponentCaseSections } from '../../component-cases';
 import { getComponentCards, getStorybookUrl } from '../../component-data';
 import { SiteFooter } from '../../site-footer';
 import { ModeToggle } from '../../mode-toggle';
+import { StorybookNavLinkBottom } from '../../storybook-nav-link-bottom';
 
 export async function generateStaticParams() {
   const cards = await getComponentCards(getStorybookUrl());
@@ -36,9 +37,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               Component
             </Link>
             <Link href="/screen-cases">Screen Cases</Link>
-            <Link href={storybookUrl} target="_blank" rel="noopener noreferrer">
-              Storybook
-            </Link>
+            <StorybookNavLinkBottom href={storybookUrl} tooltipId="global-storybook-nav-component-detail" />
           </div>
         </nav>
       </header>

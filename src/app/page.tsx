@@ -1,16 +1,19 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { getComponentCards, getStorybookUrl } from './component-data';
 import { ModeToggle } from './mode-toggle';
 import { SiteFooter } from './site-footer';
+import { StorybookNavLinkBottom } from './storybook-nav-link-bottom';
 
 const stackItems = ['Next.js 14', 'React 18', 'TypeScript', 'Storybook 7', 'Netlify 정적 배포'];
 
 const libraryItems = [
   { name: 'lucide-react', description: '아이콘 렌더링' },
-  { name: 'react-modal', description: 'Dialog 컴포넌트 모달 처리' },
-  { name: 'react-tooltip', description: 'Tooltip 컴포넌트 및 툴팁 UI' },
-  { name: 'react-day-picker', description: 'DatePicker 달력 인터랙션' },
-  { name: 'date-fns', description: '날짜 포맷팅 및 계산' },
+  { name: 'react-modal', description: 'Dialog 모달 처리' },
+  { name: 'react-tooltip', description: 'Tooltip 인터랙션' },
+  { name: 'react-day-picker', description: 'DatePicker 달력 UI' },
+  { name: 'date-fns', description: '날짜 포맷 및 계산' },
+  { name: 'embla-carousel-react', description: 'Swipe 슬라이드 인터랙션' },
+  { name: 'recharts', description: 'Chart 시각화' },
 ];
 
 const scriptItems = [
@@ -21,19 +24,20 @@ const scriptItems = [
   { name: 'npm run storybook', description: 'Storybook 개발 서버 실행' },
   { name: 'npm run build-storybook', description: 'Storybook 정적 빌드' },
   { name: 'npm run build-storybook:static', description: 'Storybook 결과물을 out/storybook으로 출력' },
-  { name: 'npm run build:netlify', description: 'Next.js 빌드 후 Storybook 정적 결과물을 out/storybook에 생성' },
+  { name: 'npm run build:netlify', description: 'Next.js 빌드와 Storybook 정적 결과물을 함께 생성' },
 ];
 
 const sectionLinks = [
   { href: '#overview', label: '개요' },
   { href: '#stack', label: '기술 스택' },
-  { href: '#libraries', label: '사용 라이브러리' },
+  { href: '#libraries', label: '주요 라이브러리' },
   { href: '#getting-started', label: '시작 방법' },
   { href: '#environment', label: '환경 설정' },
   { href: '#scripts', label: '스크립트' },
   { href: '#structure', label: '프로젝트 구조' },
   { href: '#components', label: '컴포넌트' },
-  { href: '#workflow', label: '개발 규칙과 빌드' },
+  { href: '#screen-cases', label: '화면 케이스' },
+  { href: '#workflow', label: '작업 원칙' },
 ];
 
 export default async function Page() {
@@ -56,9 +60,7 @@ export default async function Page() {
             </Link>
             <Link href="/components">Component</Link>
             <Link href="/screen-cases">Screen Cases</Link>
-            <Link href={storybookUrl} target="_blank" rel="noopener noreferrer">
-              Storybook
-            </Link>
+            <StorybookNavLinkBottom href={storybookUrl} tooltipId="global-storybook-nav-home" />
           </div>
         </nav>
       </header>
@@ -81,10 +83,10 @@ export default async function Page() {
           <article className="home-docs-article">
             <section className="home-docs-hero" id="overview">
               <p className="home-docs-kicker">README</p>
-              <h2>Next.js 14 기반의 컴포넌트 문서화 및 화면 사례 아카이브</h2>
+              <h2>Next.js 14 기반 컴포넌트 문서와 화면 케이스 아카이브</h2>
               <p className="home-docs-lead">
-                홈 화면에서 프로젝트 개요와 실행 방법을 확인할 수 있고, 컴포넌트 문서는 Next.js 페이지와
-                Storybook에서 함께 탐색할 수 있습니다.
+                홈 화면에서 프로젝트 개요와 실행 방법을 확인할 수 있고, 컴포넌트 문서와 화면 케이스는
+                Next.js 페이지와 Storybook에서 함께 탐색할 수 있습니다.
               </p>
               <div className="home-docs-actions">
                 <Link href="/components" className="home-docs-primary-link">
@@ -101,7 +103,7 @@ export default async function Page() {
               </div>
               <dl className="home-docs-meta">
                 <div>
-                  <dt>앱 주소</dt>
+                  <dt>홈 주소</dt>
                   <dd>http://localhost:3000</dd>
                 </div>
                 <div>
@@ -125,8 +127,8 @@ export default async function Page() {
             </section>
 
             <section className="home-docs-section" id="libraries">
-              <h3>사용 라이브러리</h3>
-              <div className="home-docs-script-table" role="table" aria-label="사용 라이브러리">
+              <h3>주요 라이브러리</h3>
+              <div className="home-docs-script-table" role="table" aria-label="주요 라이브러리">
                 {libraryItems.map(item => (
                   <div key={item.name} className="home-docs-script-row" role="row">
                     <div className="home-docs-script-command" role="cell">
@@ -157,7 +159,8 @@ export default async function Page() {
                 <p>기본 Storybook 주소는 `http://localhost:6006`입니다.</p>
               </div>
               <p className="home-docs-note">
-                앱과 Storybook을 함께 확인하려면 `npm run dev`와 `npm run storybook`을 각각 실행하면 됩니다.
+                홈과 Storybook을 함께 확인하려면 `npm run dev`와 `npm run storybook`을 각각 실행하면
+                됩니다.
               </p>
             </section>
 
@@ -165,7 +168,7 @@ export default async function Page() {
               <h3>환경 설정</h3>
               <p>
                 기본 실행에는 필수 환경 변수가 없습니다. Storybook 연결 주소를 바꾸려면 루트에
-                `.env.local` 파일을 만들고 아래 값을 설정하면 됩니다.
+                `.env.local` 파일을 만들고 아래 값을 설정합니다.
               </p>
               <pre>{'NEXT_PUBLIC_STORYBOOK_URL=http://localhost:6006'}</pre>
               <ul className="home-docs-bullet-list">
@@ -198,21 +201,26 @@ export default async function Page() {
 ├─ public/                     # 정적 에셋
 ├─ src/
 │  ├─ app/                     # Next.js App Router 페이지
+│  │  ├─ components/           # 컴포넌트 목록 및 상세 페이지
+│  │  ├─ pubsheet/             # 퍼블리싱 문서 페이지
+│  │  └─ screen-cases/         # 화면 케이스 목록 및 데이터
 │  ├─ assets/
-│  │  └─ css/
-│  │     ├─ component/         # 컴포넌트 전용 스타일
-│  │     ├─ screen/            # 스크린 케이스 전용 스타일
-│  │     ├─ base.css           # 공통 토큰/기본 스타일
-│  │     ├─ global.css         # 전역 import 진입점
-│  │     └─ home-docs.css      # 홈/README 화면 스타일
-│  ├─ components/              # UI 컴포넌트 및 스토리
-│  └─ screen/                  # 화면 사례 컴포넌트
+│  │  ├─ css/
+│  │  │  ├─ component/         # 컴포넌트 전용 스타일
+│  │  │  ├─ screen/            # 화면 케이스 전용 스타일
+│  │  │  ├─ base.css           # 공통 토큰/기본 스타일
+│  │  │  ├─ global.css         # 전역 import 진입점
+│  │  │  └─ home-docs.css      # 홈 README 섹션 스타일
+│  │  └─ images/               # 화면/홈 비주얼 에셋
+│  ├─ components/              # UI 컴포넌트와 Storybook 스토리
+│  └─ screen/                  # 화면 케이스 구현 컴포넌트
 ├─ netlify.toml                # Netlify 배포 설정
 └─ STORYBOOK_GUIDE.md          # Storybook 가이드`}</pre>
             </section>
 
             <section className="home-docs-section" id="components">
-              <h3>현재 등록된 주요 컴포넌트</h3>
+              <h3>현재 등록된 컴포넌트</h3>
+              <p className="home-docs-note">총 {componentCards.length}종이 등록되어 있습니다.</p>
               <ul className="home-docs-plain-list">
                 {componentCards.map(component => (
                   <li key={component.slug}>{component.name}</li>
@@ -220,13 +228,26 @@ export default async function Page() {
               </ul>
             </section>
 
-            <section className="home-docs-section" id="workflow">
-              <h3>개발 규칙과 빌드</h3>
+            <section className="home-docs-section" id="screen-cases">
+              <h3>Screen Cases</h3>
               <ul className="home-docs-bullet-list">
-                <li>컴포넌트 케이스를 추가할 때는 Storybook 스토리도 함께 추가합니다.</li>
-                <li>README를 수정할 때는 홈 화면의 README 섹션도 함께 업데이트합니다.</li>
-                <li>공통 스타일 변수는 `src/assets/css/base.css`에서 관리합니다.</li>
-                <li>컴포넌트 스타일은 `src/assets/css/component`, 스크린 케이스 스타일은 `src/assets/css/screen`에서 관리합니다.</li>
+                <li>문의 접수: Select, TextField, Textarea, Checkbox, DatePicker 사용</li>
+                <li>모바일 뱅킹 홈: Button, Swipe 사용</li>
+                <li>아이디 로그인: TextField, Button 사용</li>
+                <li>아이디 찾기: TextField, Button 사용</li>
+              </ul>
+            </section>
+
+            <section className="home-docs-section" id="workflow">
+              <h3>작업 원칙</h3>
+              <ul className="home-docs-bullet-list">
+                <li>컴포넌트 케이스 추가 시 Storybook 스토리도 함께 추가합니다.</li>
+                <li>README 수정 시 홈 화면의 README 섹션도 함께 업데이트합니다.</li>
+                <li>퍼블리셔 관점에서 재사용 구조와 마크업 일관성을 유지합니다.</li>
+                <li>Screen Case 추가 또는 수정 시 사용 컴포넌트 목록을 함께 업데이트합니다.</li>
+                <li>Screen Case 작업 시 프로젝트 내 공통 컴포넌트를 우선 사용합니다.</li>
+                <li>공통 스타일 변경은 `src/assets/css/base.css`에서 관리합니다.</li>
+                <li>컴포넌트 스타일은 `src/assets/css/component`, 화면 케이스 스타일은 `src/assets/css/screen`에서 관리합니다.</li>
                 <li>`next.config.js`의 `output: 'export'` 설정으로 정적 사이트를 빌드합니다.</li>
                 <li>Netlify는 `netlify.toml` 기준으로 `out` 디렉터리를 배포합니다.</li>
               </ul>

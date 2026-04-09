@@ -10,16 +10,18 @@ export interface TextFieldProps {
   value: string;
   onChange: (value: string) => void;
 
-  type?: 'text' | 'password';
+  type?: 'text' | 'password' | 'time';
   variant?: TextFieldVariant;
 
   placeholder?: string;
   disabled?: boolean;
   required?: boolean;
   error?: boolean;
+  readOnly?: boolean;
 
   helperText?: string;
   className?: string;
+  endAdornment?: React.ReactNode;
 }
 
 export const TextField: React.FC<TextFieldProps> = ({
@@ -35,29 +37,42 @@ export const TextField: React.FC<TextFieldProps> = ({
   disabled = false,
   required = false,
   error = false,
+  readOnly = false,
 
   helperText,
   className,
+  endAdornment,
 }) => {
   const [showPassword, setShowPassword] = React.useState(false);
   const isPassword = type === 'password';
+  const helperId = helperText ? `${id}-helper` : undefined;
+  const inputType = isPassword && !showPassword ? 'password' : type;
 
   return (
     <div
-      className={`textfield ${`textfield--${variant}`} ${disabled ? 'is-disabled' : ''} ${
-        error && 'has-error'
-      } ${className}`.trim()}
+      className={[
+        'textfield',
+        `textfield--${variant}`,
+        disabled ? 'is-disabled' : '',
+        error ? 'has-error' : '',
+        endAdornment && !isPassword ? 'has-adornment' : '',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
       <div className="textfield__control">
         <input
           id={id}
           className="textfield__input"
-          type={isPassword && !showPassword ? 'password' : 'text'}
+          type={inputType}
           value={value}
           placeholder={placeholder ?? ' '}
           disabled={disabled}
           required={required}
+          readOnly={readOnly}
           aria-invalid={error || undefined}
+          aria-describedby={helperId}
           onChange={e => onChange(e.target.value)}
         />
 
@@ -76,9 +91,19 @@ export const TextField: React.FC<TextFieldProps> = ({
             👁
           </button>
         )}
+
+        {!isPassword && endAdornment && (
+          <span className="textfield__adornment" aria-hidden="true">
+            {endAdornment}
+          </span>
+        )}
       </div>
 
-      {helperText && <p className="textfield__helper">{helperText}</p>}
+      {helperText && (
+        <p id={helperId} className="textfield__helper">
+          {helperText}
+        </p>
+      )}
     </div>
   );
 };

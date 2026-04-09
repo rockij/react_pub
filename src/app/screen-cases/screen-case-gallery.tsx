@@ -1,9 +1,11 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Dialog } from '../../components/Dialog/Dialog';
 import { Card } from '../../components/Card/Card';
 import { BankingHomeScreenCase } from '../../screen/BankingHomeScreenCase/BankingHomeScreenCase';
+import { FindIdScreenCase } from '../../screen/FindIdScreenCase/FindIdScreenCase';
+import { IdLoginScreenCase } from '../../screen/IdLoginScreenCase/IdLoginScreenCase';
 import type { ScreenCaseItem } from './data';
 
 type ScreenCaseGalleryProps = {
@@ -12,10 +14,13 @@ type ScreenCaseGalleryProps = {
 
 const previewMap: Record<string, () => React.ReactNode> = {
   'banking-home': () => <BankingHomeScreenCase />,
+  'id-login': () => <IdLoginScreenCase />,
+  'find-id': () => <FindIdScreenCase />,
 };
 
 const referenceImageMap: Record<string, string> = {
   'banking-home': '/images/screen-cases/banking-home-reference.png',
+  'id-login': '/images/screen-cases/id-login-thumbnail.svg',
 };
 
 export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
@@ -40,9 +45,7 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
             >
               <div className="screen-case-top">
                 <span className="screen-case-category">{item.category}</span>
-                <span
-                  className={item.status === '완료' ? 'screen-case-status is-ready' : 'screen-case-status'}
-                >
+                <span className={item.status === '완료' ? 'screen-case-status is-ready' : 'screen-case-status'}>
                   {item.status}
                 </span>
               </div>
@@ -87,9 +90,7 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
               <div className="screen-case-top">
                 <span className="screen-case-category">{activeItem.category}</span>
                 <span
-                  className={
-                    activeItem.status === '완료' ? 'screen-case-status is-ready' : 'screen-case-status'
-                  }
+                  className={activeItem.status === '완료' ? 'screen-case-status is-ready' : 'screen-case-status'}
                 >
                   {activeItem.status}
                 </span>
@@ -100,13 +101,13 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
             <div className="screen-case-dialog-grid">
               {activeReferenceImage ? (
                 <Card title="레퍼런스 이미지" imageUrl={activeReferenceImage}>
-                  이 화면 케이스에 연결된 기준 이미지입니다.
+                  이 화면 케이스와 연결된 기준 이미지입니다.
                 </Card>
               ) : (
                 <div className="screen-case-dialog-panel screen-case-dialog-panel--placeholder">
                   <p className="section-eyebrow">Reference</p>
                   <h3>레퍼런스 이미지가 아직 없습니다</h3>
-                  <p>케이스는 먼저 등록해 두고, 기준 이미지는 나중에 연결할 수 있습니다.</p>
+                  <p>케이스를 먼저 등록했고, 기준 이미지는 추후 연결할 수 있습니다.</p>
                 </div>
               )}
 
@@ -116,7 +117,7 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
                   <h3>{activePreview ? '실제 조합 미리보기' : '미리보기 준비중'}</h3>
                   <p>
                     {activePreview
-                      ? '이 화면은 재사용 가능한 UI 조각으로 구성되어 있으며, 팝업 안에서 실제 형태를 확인할 수 있습니다.'
+                      ? '이 화면은 재사용 가능한 UI 조각으로 구성되어 있으며 팝업 안에서 실제 형태를 확인할 수 있습니다.'
                       : '화면 정의는 등록되어 있지만 실제 조합 미리보기는 아직 구현되지 않았습니다.'}
                   </p>
                 </div>

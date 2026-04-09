@@ -76,7 +76,7 @@
   border-radius: 999px;
   background: rgba(102, 111, 123, 0.12);
   color: #525b67;
-  font-size: 1.1rem;
+  font-size: 1.325rem;
   font-weight: 700;
 }
 
@@ -102,7 +102,7 @@
   align-items: center;
   gap: 0.6rem;
   color: #646d79;
-  font-size: 1.15rem;
+  font-size: 1.375rem;
   font-weight: 700;
 }
 
@@ -115,8 +115,32 @@
   cursor: pointer;
 }
 
-.banking-home-screen__account-card {
+.banking-home-screen__pager button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.banking-home-screen__account-swipe {
   margin-bottom: 1rem;
+}
+
+.banking-home-screen__account-carousel {
+  gap: 0;
+}
+
+.banking-home-screen__account-carousel .swipe__viewport {
+  overflow: hidden;
+}
+
+.banking-home-screen__account-carousel .swipe__container {
+  margin-left: 0;
+}
+
+.banking-home-screen__account-carousel .swipe__slide {
+  padding-left: 0;
+}
+
+.banking-home-screen__account-card {
   padding: 1.5rem;
   border-radius: 1.8rem;
   background: #fffdfc;
@@ -133,14 +157,14 @@
 .banking-home-screen__eyebrow {
   margin: 0 0 0.3rem;
   color: #b0a897;
-  font-size: 1.1rem;
+  font-size: 1.325rem;
   font-weight: 700;
 }
 
 .banking-home-screen__account-head h3 {
   margin: 0;
   color: #484139;
-  font-size: 1.4rem;
+  font-size: 1.675rem;
   font-weight: 700;
 }
 
@@ -150,13 +174,13 @@
   gap: 0.4rem;
   margin: 0.4rem 0 0;
   color: #8f979f;
-  font-size: 1.1rem;
+  font-size: 1.325rem;
 }
 
 .banking-home-screen__balance {
   margin: 1rem 0 1.3rem;
   color: #2d2f35;
-  font-size: 3.2rem;
+  font-size: 3.525rem;
   font-weight: 800;
   letter-spacing: -0.04em;
 }
@@ -172,7 +196,7 @@
   min-height: 4rem;
   padding: 0 1.2rem;
   border-radius: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.725rem;
   font-weight: 700;
 }
 
@@ -186,15 +210,17 @@
 }
 
 .banking-home-screen__pager {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.8rem;
+  justify-content: center;
+  width: fit-content;
   margin: 0 auto 1.1rem;
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.85);
   color: #7d8591;
-  font-size: 1.2rem;
+  font-size: 1.425rem;
   font-weight: 700;
 }
 
@@ -210,7 +236,7 @@
   background: #fffdfc;
   box-shadow: 0 0.8rem 2rem rgba(39, 44, 50, 0.06);
   color: #484139;
-  font-size: 1.45rem;
+  font-size: 1.675rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -233,10 +259,14 @@
   box-shadow: 0 0.8rem 2rem rgba(39, 44, 50, 0.06);
 }
 
+.banking-home-screen__menu-grid > .banking-home-screen__menu-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .banking-home-screen__menu-card h4 {
   margin: 0;
   color: #47403b;
-  font-size: 1.35rem;
+  font-size: 1.575rem;
   font-weight: 700;
   line-height: 1.35;
 }
@@ -298,6 +328,6 @@
   margin: 0;
   text-align: center;
   color: #9ea5ad;
-  font-size: 1.1rem;
+  font-size: 1.325rem;
   font-weight: 700;
 }

@@ -1,8 +1,10 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Dialog } from '../../components/Dialog/DialogIcon';
 import { BankingHomeScreenCase } from '../../screen/BankingHomeScreenCase/BankingHomeScreenCase';
+import { FindIdScreenCase } from '../../screen/FindIdScreenCase/FindIdScreenCase';
+import { IdLoginScreenCase } from '../../screen/IdLoginScreenCase/IdLoginScreenCase';
 import type { ScreenCaseItem } from './data';
 
 type ScreenCaseGalleryProps = {
@@ -11,6 +13,8 @@ type ScreenCaseGalleryProps = {
 
 const previewMap: Record<string, () => React.ReactNode> = {
   'banking-home': () => <BankingHomeScreenCase />,
+  'id-login': () => <IdLoginScreenCase />,
+  'find-id': () => <FindIdScreenCase />,
 };
 
 export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {

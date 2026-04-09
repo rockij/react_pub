@@ -15,6 +15,12 @@
   overscroll-behavior: contain;
 }
 
+html[data-color-mode='dark'] .modal-content.screen-case-modal.modal-content--after-open {
+  background: #0d1823;
+  border: 0.1rem solid var(--app-border);
+  box-shadow: 0 2rem 4.4rem rgba(0, 0, 0, 0.42);
+}
+
 .screen-case-dialog-header {
   display: grid;
   gap: 1.2rem;
@@ -31,10 +37,6 @@
   grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
   gap: 2.4rem;
   align-items: start;
-
-  @media (max-width: 76.8rem) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .screen-case-dialog-panel {
@@ -70,7 +72,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0.8rem;
-  border-radius: 1.8rem;
   background: rgba(255, 255, 255, 0.72);
   overscroll-behavior: contain;
 }
@@ -82,6 +83,7 @@
 }
 
 .screen-case-dialog-live-preview .banking-home-screen {
+  height: 100%;
   min-height: auto;
   width: 100%;
 }
@@ -89,6 +91,14 @@
 .screen-case-dialog-live-preview .banking-home-screen__device {
   width: 100%;
   max-width: none;
+}
+
+.screen-case-dialog-live-preview .id-login-screen {
+  width: 100%;
+}
+
+.screen-case-dialog-live-preview .id-login-screen__device {
+  margin-inline: auto;
 }
 
 .screen-case-dialog-empty-state {

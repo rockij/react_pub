@@ -2,6 +2,8 @@
 import {
   AppWindow,
   BadgeInfo,
+  Tag,
+  ChartColumn,
   BellRing,
   CalendarDays,
   ChevronsUpDown,
@@ -25,11 +27,14 @@ import {
 import { getComponentCards, getStorybookUrl } from '../component-data';
 import { SiteFooter } from '../site-footer';
 import { ModeToggle } from '../mode-toggle';
+import { StorybookNavLinkComponents } from '../storybook-nav-link-components';
 
 const componentIcons: Record<string, LucideIcon> = {
   Accordion: ChevronsUpDown,
+  Badge: Tag,
   Button: MousePointerClick,
   Card: SquareStack,
+  Chart: ChartColumn,
   DatePicker: CalendarDays,
   Checkbox: SquareCheck,
   Dialog: MessageSquareWarning,
@@ -67,9 +72,7 @@ export default async function Page() {
               Component
             </Link>
             <Link href="/screen-cases">Screen Cases</Link>
-            <Link href={storybookUrl} target="_blank" rel="noopener noreferrer">
-              Storybook
-            </Link>
+            <StorybookNavLinkComponents href={storybookUrl} />
           </div>
         </nav>
       </header>
@@ -107,7 +110,7 @@ export default async function Page() {
                       <ExternalLink size={16} strokeWidth={2} aria-hidden="true" />
                     </Link>
                     <div className="showcase-preview-group">
-                      <div className="component-preview" aria-hidden="true">
+                      <div className={`component-preview ${component.meta.previewClassName}`} aria-hidden="true">
                         <PreviewIcon size={34} strokeWidth={1.9} />
                       </div>
                     </div>

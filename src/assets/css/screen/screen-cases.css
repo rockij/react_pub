@@ -25,7 +25,6 @@
 }
 
 .screen-cases-lead {
-  max-width: 82rem;
   margin-top: 1.8rem;
   color: var(--app-text-secondary);
   font-size: 1.8rem;
@@ -37,10 +36,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.6rem;
   margin-top: 2.8rem;
-
-  @media (max-width: 76.8rem) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .screen-cases-stats article {
@@ -77,10 +72,6 @@
   grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
   gap: 2.4rem;
   align-items: start;
-
-  @media (max-width: 76.8rem) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .screen-cases-featured-grid .card {
@@ -118,14 +109,6 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
-
-  @media (max-width: 76.8rem) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @media (max-width: 56rem) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .screen-case-card {
@@ -249,6 +232,10 @@
 
 .screen-case-launcher-preview-frame .banking-home-screen {
   margin: -14rem 0;
+}
+
+.screen-case-launcher-preview-frame .consult-inquiry-screen {
+  margin: -11rem 0;
 }
 
 .screen-case-launcher-preview-placeholder {

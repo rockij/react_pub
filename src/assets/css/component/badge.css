@@ -1,0 +1,130 @@
+.badge {
+  --badge-bg: #eaf1f7;
+  --badge-color: #24445f;
+  --badge-border: transparent;
+  --badge-dot: currentColor;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 3.2rem;
+  padding: 0 1.2rem;
+  border: 0.1rem solid var(--badge-border);
+  border-radius: 999px;
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.badge--small {
+  min-height: 2.6rem;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.badge--medium {
+  min-height: 3.2rem;
+}
+
+.badge--solid {
+  --badge-border: transparent;
+}
+
+.badge--soft {
+  --badge-border: transparent;
+}
+
+.badge--outline {
+  --badge-bg: transparent;
+}
+
+.badge--neutral {
+  --badge-bg: #eaf1f7;
+  --badge-color: #36526b;
+  --badge-border: #cbd7e2;
+}
+
+.badge--brand {
+  --badge-bg: #d9eaf8;
+  --badge-color: #0c5a86;
+  --badge-border: #9ec6e2;
+}
+
+.badge--success {
+  --badge-bg: #dff1e6;
+  --badge-color: #1f7a4b;
+  --badge-border: #a8d2b8;
+}
+
+.badge--warning {
+  --badge-bg: #fff1d8;
+  --badge-color: #9a6200;
+  --badge-border: #e7c98a;
+}
+
+.badge--danger {
+  --badge-bg: #fde5e2;
+  --badge-color: #b04638;
+  --badge-border: #efb2a9;
+}
+
+.badge--solid.badge--neutral {
+  --badge-bg: #36526b;
+  --badge-color: #ffffff;
+}
+
+.badge--solid.badge--brand {
+  --badge-bg: #0c5a86;
+  --badge-color: #ffffff;
+}
+
+.badge--solid.badge--success {
+  --badge-bg: #1f7a4b;
+  --badge-color: #ffffff;
+}
+
+.badge--solid.badge--warning {
+  --badge-bg: #9a6200;
+  --badge-color: #ffffff;
+}
+
+.badge--solid.badge--danger {
+  --badge-bg: #b04638;
+  --badge-color: #ffffff;
+}
+
+.badge__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge__dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--badge-dot);
+  flex-shrink: 0;
+}
+
+.badge__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: -0.2rem;
+  border-radius: 50%;
+  color: inherit;
+}
+
+.badge__remove:hover {
+  background: rgba(12, 46, 78, 0.08);
+}
+
+.badge__remove span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}

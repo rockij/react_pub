@@ -1,0 +1,165 @@
+.id-login-screen {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.id-login-screen__device {
+  width: min(100%, 39.2rem);
+  min-height: 73rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.2rem 1.8rem 1.4rem;
+  background: #ffffff;
+}
+
+.id-login-screen__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.id-login-screen__header {
+  display: grid;
+  justify-items: center;
+  gap: 1.6rem;
+  padding-top: 0.2rem;
+  text-align: center;
+}
+
+.id-login-screen__header h2 {
+  margin: 0;
+  color: #25282d;
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.id-login-screen__header p {
+  margin: 0;
+  color: #616a74;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.id-login-screen__form {
+  display: grid;
+  gap: 1.6rem;
+  margin-top: 4rem;
+}
+
+.id-login-screen__textfield .textfield__label {
+  display: none;
+}
+
+.id-login-screen__textfield .textfield__control {
+  display: block;
+}
+
+.id-login-screen__textfield .textfield__input {
+  width: 100%;
+  height: 5.8rem;
+  padding: 0 1.6rem;
+  border: 0.1rem solid #cfd6dd;
+  border-radius: 1.4rem;
+  background: #ffffff;
+  color: #24282d;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.id-login-screen__textfield .textfield__input::placeholder {
+  color: #98a1ab;
+}
+
+.id-login-screen__textfield .textfield__input:focus {
+  border-color: #14a798;
+}
+
+.id-login-screen__textfield .textfield__toggle,
+.id-login-screen__textfield .textfield__helper {
+  display: none;
+}
+
+.id-login-screen__assist-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 4.2rem;
+}
+
+.id-login-screen__text-link {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: #21252b;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}
+
+.id-login-screen__divider {
+  width: 0.1rem;
+  height: 1.4rem;
+  background: #d3d7dc;
+}
+
+.id-login-screen__guide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  align-self: center;
+  margin-top: 3.2rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: #69737d;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}
+
+.id-login-screen__guide svg {
+  color: #8d98a4;
+}
+
+.id-login-screen__footer {
+  display: grid;
+  gap: 1.8rem;
+  margin-top: 10rem;
+}
+
+.id-login-screen__footer .btn {
+  width: 100%;
+  min-height: 5.8rem;
+  border-radius: 1.4rem;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.id-login-screen__footer .btn--primary {
+  background: #12aa9a;
+}
+
+.id-login-screen__alt-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 0;
+  background: transparent;
+  color: #5a6470;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}

@@ -19,6 +19,20 @@ const Wrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <div style={{ width: 780, maxWidth: '100%' }}>{children}</div>
 );
 
+const panelTextStyle = {
+  margin: 0,
+  fontSize: 15,
+  lineHeight: 1.7,
+  color: '#506273',
+} satisfies React.CSSProperties;
+
+const panelCardStyle = {
+  padding: 16,
+  borderRadius: 16,
+  border: '1px solid #e3e9f0',
+  background: '#f5f8fb',
+} satisfies React.CSSProperties;
+
 const overviewItems = [
   {
     id: 'overview',
@@ -63,6 +77,79 @@ const overviewItems = [
   },
 ];
 
+const imageDesignItems = [
+  {
+    id: 'etf',
+    label: 'ETF',
+    content: (
+      <p style={panelTextStyle}>
+        Use this layout when ETF categories need to stay visible as a compact top filter.
+      </p>
+    ),
+  },
+  {
+    id: 'fund',
+    label: '펀드',
+    content: (
+      <div style={panelCardStyle}>
+        <strong style={{ display: 'block', marginBottom: 6 }}>Recommended fund group</strong>
+        <span style={{ fontSize: 15, lineHeight: 1.7, color: '#5c6c7a' }}>
+          Theme, bond, and global allocation products can stay under one chip-based entry point.
+        </span>
+      </div>
+    ),
+  },
+  {
+    id: 'deposit',
+    label: '예금',
+    content: (
+      <p style={panelTextStyle}>
+        Fixed-rate products work well with this pattern when the tab row sits above summary cards.
+      </p>
+    ),
+  },
+  {
+    id: 'cash',
+    label: '현금성',
+    content: (
+      <p style={panelTextStyle}>
+        Cash-like assets such as CMA or MMF can be separated without making the header feel too heavy.
+      </p>
+    ),
+  },
+  {
+    id: 'holding',
+    label: '보유',
+    content: (
+      <div
+        style={{
+          display: 'grid',
+          gap: 12,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+        }}
+      >
+        <div style={panelCardStyle}>
+          <strong style={{ display: 'block', marginBottom: 6 }}>Total holdings</strong>
+          <span style={{ fontSize: 20, fontWeight: 700, color: '#2f3f56' }}>128,420,000원</span>
+        </div>
+        <div style={panelCardStyle}>
+          <strong style={{ display: 'block', marginBottom: 6 }}>Today</strong>
+          <span style={{ fontSize: 20, fontWeight: 700, color: '#2f3f56' }}>+2.14%</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 'interest',
+    label: '관심',
+    content: (
+      <p style={panelTextStyle}>
+        Favorites or watchlisted products can reuse the same visual treatment without extra component work.
+      </p>
+    ),
+  },
+] satisfies React.ComponentProps<typeof Tabs>['items'];
+
 export const Underline: Story = {
   name: 'underline',
   args: {
@@ -105,6 +192,22 @@ export const Pill: Story = {
         ),
       },
     ],
+  },
+  render: args => (
+    <Wrapper>
+      <Tabs {...args} />
+    </Wrapper>
+  ),
+};
+
+export const ImageDesign: Story = {
+  name: 'image-design',
+  args: {
+    variant: 'pill',
+    className: 'tabs--category-pill',
+    defaultActiveId: 'holding',
+    ariaLabel: '투자 카테고리 탭',
+    items: imageDesignItems,
   },
   render: args => (
     <Wrapper>

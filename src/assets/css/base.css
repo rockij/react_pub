@@ -40,6 +40,17 @@ html {
   --app-preview-bg-start: #cfe0f1;
   --app-preview-bg-end: #bfd4e7;
   --app-preview-inset-border: rgba(255, 255, 255, 0.4);
+  --app-demo-surface: #ffffff;
+  --app-demo-surface-strong: #f7fbff;
+  --app-demo-border: #d9e2ea;
+  --app-demo-shadow: rgba(12, 46, 78, 0.08);
+  --app-demo-hero-1: linear-gradient(135deg, #e4f1ff 0%, #f7fbff 100%);
+  --app-demo-hero-2: linear-gradient(135deg, #fce7d6 0%, #fff7ef 100%);
+  --app-demo-hero-3: linear-gradient(135deg, #e0f0e5 0%, #f6fcf8 100%);
+  --app-demo-card-1: linear-gradient(135deg, #cfe2f5 0%, #eef5fb 100%);
+  --app-demo-card-2: linear-gradient(135deg, #f0dbc9 0%, #fbf2eb 100%);
+  --app-demo-card-3: linear-gradient(135deg, #d8ead8 0%, #f3faf3 100%);
+  --app-demo-card-4: linear-gradient(135deg, #e4dff7 0%, #f7f5fd 100%);
 
   --theme-brand: #005a9c;
   --theme-brand-strong: #0c2e4e;
@@ -52,6 +63,7 @@ html {
   --theme-panel-soft-alt: #eaf3fa;
   --theme-accent: #0c5a86;
   --theme-title: #12385a;
+  --theme-title-fill: #12385a;
   --theme-shadow: rgba(12, 46, 78, 0.12);
 }
 
@@ -74,6 +86,17 @@ html[data-color-mode='dark'] {
   --app-preview-bg-start: #7c94aa;
   --app-preview-bg-end: #667d93;
   --app-preview-inset-border: rgba(255, 255, 255, 0.16);
+  --app-demo-surface: #f4f7fb;
+  --app-demo-surface-strong: #dce8f5;
+  --app-demo-border: #23394d;
+  --app-demo-shadow: rgba(0, 0, 0, 0.22);
+  --app-demo-hero-1: linear-gradient(135deg, #d7e5f5 0%, #edf3f9 100%);
+  --app-demo-hero-2: linear-gradient(135deg, #ead9cb 0%, #f6eee9 100%);
+  --app-demo-hero-3: linear-gradient(135deg, #d6e5da 0%, #edf5ef 100%);
+  --app-demo-card-1: linear-gradient(135deg, #c8daec 0%, #e8f0f7 100%);
+  --app-demo-card-2: linear-gradient(135deg, #e7d5c8 0%, #f5ece5 100%);
+  --app-demo-card-3: linear-gradient(135deg, #d4e4d4 0%, #edf5ed 100%);
+  --app-demo-card-4: linear-gradient(135deg, #ddd8ef 0%, #f0edf9 100%);
 
   --theme-brand: #4ca4e8;
   --theme-brand-strong: #dceeff;
@@ -86,6 +109,7 @@ html[data-color-mode='dark'] {
   --theme-panel-soft-alt: #122a3d;
   --theme-accent: #68b8ff;
   --theme-title: #e8f0f7;
+  --theme-title-fill: #1b3248;
   --theme-shadow: rgba(0, 0, 0, 0.34);
 }
 
@@ -309,10 +333,4 @@ textarea {
 
 html {
   font-size: 62.5%;
-}
-
-@media (max-width: 1024px) {
-  html {
-    font-size: 52.5%;
-  }
 }

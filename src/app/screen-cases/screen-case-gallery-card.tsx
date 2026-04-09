@@ -1,10 +1,15 @@
-'use client';
+﻿'use client';
 
 import Image from 'next/image';
 import React from 'react';
 import { Dialog } from '../../components/Dialog/DialogIcon';
 import bankingHomeThumbnail from '../../assets/images/temp/001.png';
+import findIdThumbnail from '../../assets/images/temp/002.png';
+import consultInquiryThumbnail from '../../assets/images/temp/003.png';
 import { BankingHomeScreenCase } from '../../screen/BankingHomeScreenCase/BankingHomeScreenCase';
+import { ConsultInquiryScreenCase } from '../../screen/ConsultInquiryScreenCase/ConsultInquiryScreenCase';
+import { FindIdScreenCase } from '../../screen/FindIdScreenCase/FindIdScreenCase';
+import { IdLoginScreenCase } from '../../screen/IdLoginScreenCase/IdLoginScreenCase';
 import type { ScreenCaseItem } from './data';
 
 type ScreenCaseGalleryProps = {
@@ -13,12 +18,35 @@ type ScreenCaseGalleryProps = {
 
 const previewMap: Record<string, () => React.ReactNode> = {
   'banking-home': () => <BankingHomeScreenCase />,
+  'consult-inquiry': () => <ConsultInquiryScreenCase />,
+  'id-login': () => <IdLoginScreenCase />,
+  'find-id': () => <FindIdScreenCase />,
 };
 
 const thumbnailMap = {
   'banking-home': {
     src: bankingHomeThumbnail,
     alt: 'Banking Home screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'consult-inquiry': {
+    src: consultInquiryThumbnail,
+    alt: 'Consult inquiry screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'id-login': {
+    src: '/images/screen-cases/id-login-thumbnail.svg',
+    alt: 'ID login screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'find-id': {
+    src: findIdThumbnail,
+    alt: 'Find ID screen case thumbnail',
+    width: 392,
+    height: 730,
   },
 } as const;
 
@@ -62,9 +90,13 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
                     <Image
                       src={thumbnail.src}
                       alt={thumbnail.alt}
+                      width={thumbnail.width}
+                      height={thumbnail.height}
                       className="screen-case-launcher-thumbnail-image"
                     />
                   </div>
+                ) : item.slug in previewMap ? (
+                  <div className="screen-case-launcher-preview-frame">{previewMap[item.slug]()}</div>
                 ) : (
                   <div className="screen-case-launcher-preview-placeholder">
                     <strong>{isReady ? '미리보기 가능' : '미리보기 준비중'}</strong>

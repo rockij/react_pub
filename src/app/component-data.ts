@@ -20,6 +20,10 @@ const componentMetaMap: Record<string, ComponentMeta> = {
       '여러 섹션을 접고 펼치며 많은 정보를 간결하게 정리할 수 있는 인터랙션 컴포넌트입니다.',
     previewClassName: 'preview-accordion',
   },
+  Badge: {
+    description: '상태, 카테고리, 속성 값을 짧고 선명하게 구분해 보여주는 라벨형 컴포넌트입니다.',
+    previewClassName: 'preview-badge',
+  },
   Button: {
     description: '주요 액션과 보조 액션을 명확하게 구분해 전달하는 기본 클릭 인터페이스입니다.',
     previewClassName: 'preview-button',
@@ -27,6 +31,10 @@ const componentMetaMap: Record<string, ComponentMeta> = {
   Card: {
     description: '콘텐츠를 하나의 묶음으로 정리해 정보의 우선순위를 쉽게 파악할 수 있게 돕습니다.',
     previewClassName: 'preview-card',
+  },
+  Chart: {
+    description: '수치 흐름, 비교, 비중 데이터를 라인, 바, 도넛 형태로 시각화하는 차트 컴포넌트입니다.',
+    previewClassName: 'preview-chart',
   },
   DatePicker: {
     description: '날짜를 직접 계산하지 않고 달력 인터랙션으로 선택하게 해 입력 실수를 줄이는 폼 컴포넌트입니다.',
@@ -61,6 +69,10 @@ const componentMetaMap: Record<string, ComponentMeta> = {
   Slider: {
     description: '범위 값이나 강도를 드래그로 조절할 수 있게 해주는 연속형 입력 컴포넌트입니다.',
     previewClassName: 'preview-slider',
+  },
+  Swipe: {
+    description: '배너, 카드 묶음, 프로모션 레일처럼 가로 콘텐츠를 터치와 드래그로 넘겨보는 스와이프 컴포넌트입니다.',
+    previewClassName: 'preview-swipe',
   },
   Switch: {
     description: '설정의 켜짐과 꺼짐 상태를 즉시 이해하고 토글할 수 있는 전환형 컨트롤입니다.',

@@ -1,74 +1,49 @@
+﻿export type ScreenCaseStatus = '준비중' | '완료';
+
 export type ScreenCaseItem = {
   slug: string;
   title: string;
   summary: string;
-  status: '준비중' | '완료';
+  status: ScreenCaseStatus;
   components: string[];
   category: string;
 };
 
 export const screenCaseItems: ScreenCaseItem[] = [
   {
+    slug: 'consult-inquiry',
+    title: '문의 접수',
+    summary:
+      '문의 유형 선택, 제목/내용 입력, 개인정보 동의, 전화상담 예약까지 한 흐름으로 구성한 모바일 문의 접수 화면 케이스입니다.',
+    status: '완료',
+    category: '고객지원',
+    components: ['Select', 'TextField', 'Textarea', 'Checkbox', 'DatePicker'],
+  },
+  {
     slug: 'banking-home',
     title: '모바일 뱅킹 홈',
     summary:
-      '알림 배너, 계좌 요약, 주요 액션 버튼, 빠른 메뉴 타일로 구성된 홈 화면 케이스입니다. 가능한 범위에서 기존 Button, Card 컴포넌트를 재사용했습니다.',
+      '알림 배너, 계좌 요약, 주요 액션 버튼, 빠른 메뉴 타일로 구성한 모바일 뱅킹 홈 화면 케이스입니다.',
     status: '완료',
     category: '금융',
-    components: ['Button', 'Card'],
+    components: ['Button', 'Swipe'],
   },
   {
-    slug: 'signup-flow',
-    title: '회원가입 플로우',
+    slug: 'id-login',
+    title: '아이디 로그인',
     summary:
-      '약관 동의, 본인 인증, 프로필 입력까지 포함하는 다단계 가입 흐름용 화면 케이스입니다.',
-    status: '준비중',
-    category: '폼 플로우',
-    components: ['Checkbox', 'TextField', 'Select', 'Button', 'Dialog'],
-  },
-  {
-    slug: 'login-assistance',
-    title: '로그인 지원',
-    summary:
-      '로그인, 비밀번호 찾기, 오류 피드백 상태를 함께 다루는 인증 지원 화면 케이스입니다.',
-    status: '준비중',
+      '아이디와 비밀번호 입력, 계정 찾기 링크, 로그인 안내, 다른 로그인 진입 버튼까지 담은 모바일 로그인 화면 케이스입니다.',
+    status: '완료',
     category: '인증',
-    components: ['TextField', 'Button', 'Toast', 'Dialog'],
+    components: ['TextField', 'Button'],
   },
   {
-    slug: 'product-filter',
-    title: '상품 필터 탐색',
+    slug: 'find-id',
+    title: '아이디 찾기',
     summary:
-      '상품 카드, 정렬 컨트롤, 범위 선택을 포함한 검색 및 필터 레이아웃 케이스입니다.',
-    status: '준비중',
-    category: '탐색',
-    components: ['Card', 'Select', 'Checkbox', 'Slider', 'Button'],
-  },
-  {
-    slug: 'settings-panel',
-    title: '설정 패널',
-    summary:
-      '알림, 개인정보 옵션, 환경설정을 하나의 흐름으로 묶은 설정 중심 화면 케이스입니다.',
+      '계좌번호, 계좌비밀번호, 생년월일을 입력해 아이디를 확인하는 모바일 본인확인 폼 화면 케이스입니다.',
     status: '완료',
-    category: '설정',
-    components: ['Switch', 'RadioGroup', 'Accordion', 'Button'],
-  },
-  {
-    slug: 'checkout-summary',
-    title: '결제 요약',
-    summary:
-      '주문 상품, 결제 정보, 확인 액션을 결제 직전 단계에서 묶어 보여주는 화면 케이스입니다.',
-    status: '준비중',
-    category: '커머스',
-    components: ['Card', 'Accordion', 'Checkbox', 'Button'],
-  },
-  {
-    slug: 'dashboard-feedback',
-    title: '대시보드 피드백',
-    summary:
-      '운영 대시보드에서 스켈레톤, 토스트, 툴팁을 조합해 피드백을 주는 화면 케이스입니다.',
-    status: '완료',
-    category: '피드백',
-    components: ['Skeleton', 'Toast', 'Tooltip', 'Card'],
+    category: '인증',
+    components: ['TextField', 'Button'],
   },
 ];
