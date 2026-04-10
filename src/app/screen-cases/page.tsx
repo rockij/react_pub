@@ -28,6 +28,7 @@ export default function Page() {
             <Link href="/screen-cases" className="is-active">
               Screen Cases
             </Link>
+            <Link href="/pubsheet">Pub Sheet</Link>
             <StorybookNavLinkBottom href={storybookUrl} tooltipId="global-storybook-nav-screen-cases" />
           </div>
         </nav>

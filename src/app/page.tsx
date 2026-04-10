@@ -36,7 +36,6 @@ const sectionLinks = [
   { href: '#scripts', label: '스크립트' },
   { href: '#structure', label: '프로젝트 구조' },
   { href: '#components', label: '컴포넌트' },
-  { href: '#screen-cases', label: '화면 케이스' },
   { href: '#workflow', label: '작업 원칙' },
 ];
 
@@ -60,6 +59,7 @@ export default async function Page() {
             </Link>
             <Link href="/components">Component</Link>
             <Link href="/screen-cases">Screen Cases</Link>
+            <Link href="/pubsheet">Pub Sheet</Link>
             <StorybookNavLinkBottom href={storybookUrl} tooltipId="global-storybook-nav-home" />
           </div>
         </nav>
@@ -225,16 +225,6 @@ export default async function Page() {
                 {componentCards.map(component => (
                   <li key={component.slug}>{component.name}</li>
                 ))}
-              </ul>
-            </section>
-
-            <section className="home-docs-section" id="screen-cases">
-              <h3>Screen Cases</h3>
-              <ul className="home-docs-bullet-list">
-                <li>문의 접수: Select, TextField, Textarea, Checkbox, DatePicker 사용</li>
-                <li>모바일 뱅킹 홈: Button, Swipe 사용</li>
-                <li>아이디 로그인: TextField, Button 사용</li>
-                <li>아이디 찾기: TextField, Button 사용</li>
               </ul>
             </section>
 

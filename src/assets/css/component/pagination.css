@@ -16,15 +16,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 4.4rem;
-  height: 4.4rem;
-  padding: 0 1.2rem;
+  min-width: 3.2rem;
+  height: 3.2rem;
+  padding: 0 1rem;
   border: 0.1rem solid var(--theme-brand-soft-line);
-  border-radius: 1.4rem;
-  background: #ffffff;
-  color: #4f6679;
+  border-radius: 0.6rem;
+  background: var(--app-surface);
+  color: var(--app-text-secondary);
   font: inherit;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   line-height: 1;
   transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease,
@@ -32,7 +32,7 @@
 }
 
 .pagination__button:hover:not(:disabled) {
-  border-color: #8aa7c3;
+  border-color: var(--app-border-strong);
   background: var(--theme-brand-softest);
   color: var(--theme-brand-strong);
   transform: translateY(-0.1rem);
@@ -40,14 +40,20 @@
 
 .pagination__button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 0.3rem rgba(47, 108, 163, 0.18);
+  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--theme-brand) 22%, transparent);
 }
 
 .pagination__button[aria-current='page'] {
   border-color: var(--theme-accent);
   background: var(--theme-brand-strong);
-  color: #ffffff;
-  box-shadow: 0 1rem 2rem rgba(12, 46, 78, 0.18);
+  color: var(--app-text-inverse);
+  box-shadow: 0 1rem 2rem var(--theme-shadow);
+}
+
+html[data-color-mode='dark'] .pagination__button[aria-current='page'] {
+  border-color: var(--theme-brand-soft-line);
+  background: var(--theme-title-fill);
+  color: var(--theme-title);
 }
 
 .pagination__button:disabled {
@@ -59,6 +65,11 @@
 .pagination__button--edge {
   color: var(--theme-brand-strong);
   font-size: 1.8rem;
+}
+
+.pagination__icon {
+  display: block;
+  flex-shrink: 0;
 }
 
 .pagination__ellipsis {

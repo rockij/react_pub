@@ -80,3 +80,21 @@ export const Preselected: Story = {
     return <Select {...args} value={value} onChange={setValue} />;
   },
 };
+
+export const TextOnly: Story = {
+  args: {
+    id: 'age-text',
+    value: '20',
+    placeholder: 'Age',
+    options: ageOptions,
+    disabled: false,
+    required: false,
+    variant: 'text',
+    onChange: () => {},
+  },
+  render: args => {
+    const [value, setValue] = React.useState<string>(args.value ?? '');
+
+    return <Select {...args} value={value} onChange={setValue} />;
+  },
+};

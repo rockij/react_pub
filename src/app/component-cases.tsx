@@ -648,6 +648,27 @@ function DatePickerBoundedCase() {
   );
 }
 
+function DatePickerInlineCase() {
+  const [value, setValue] = React.useState<Date | undefined>(new Date('2026-04-21'));
+
+  return (
+    <CasePanel>
+      <div style={{ ...stackStyle, maxWidth: 340 }}>
+        <DatePicker
+          id="case-datepicker-inline"
+          label="선택날짜"
+          value={value}
+          onChange={setValue}
+          placeholder="방문 날짜를 선택해 주세요."
+          formatString="yyyy년 M월 d일"
+          inline
+          defaultMonth={new Date('2026-04-01')}
+        />
+      </div>
+    </CasePanel>
+  );
+}
+
 function DialogDefaultCase() {
   const [open, setOpen] = React.useState(false);
 
@@ -1472,6 +1493,18 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   toDate={new Date('2026-05-08')}
   disabledDays={{ dayOfWeek: [0, 6] }}
 />`,
+    inline: `const [value, setValue] = useState<Date | undefined>(new Date('2026-04-21'));
+
+<DatePicker
+  id="case-datepicker-inline"
+  label="선택날짜"
+  value={value}
+  onChange={setValue}
+  placeholder="방문 날짜를 선택해 주세요."
+  formatString="yyyy년 M월 d일"
+  inline
+  defaultMonth={new Date('2026-04-01')}
+/>`,
   },
   checkbox: {
     basic: `const [checked, setChecked] = useState(false);
@@ -1929,10 +1962,11 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     ],
   },
   'date-picker': {
-    summary: '기본 날짜 선택과 선택 가능한 범위를 제한한 예약형 예제를 함께 확인할 수 있는 데이트피커 케이스 모음입니다.',
+    summary: '기본 날짜 선택, 예약 범위 제한, 인라인 달력 노출 패턴을 함께 확인할 수 있는 데이트피커 케이스 모음입니다.',
     cases: [
       { id: 'default', title: '기본형', description: '폼 입력에 바로 연결할 수 있는 기본 단일 날짜 선택 예제입니다.', preview: <DatePickerDefaultCase /> },
       { id: 'bounded', title: '예약 가능 범위 제한', description: '선택 가능한 기간과 요일을 제한한 예약형 데이트피커 예제입니다.', preview: <DatePickerBoundedCase /> },
+      { id: 'inline', title: '인라인 달력', description: '필드를 누르지 않아도 달력이 화면에 바로 노출되는 인라인 데이트피커 예제입니다.', preview: <DatePickerInlineCase /> },
     ],
   },
   checkbox: {

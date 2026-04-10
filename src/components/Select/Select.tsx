@@ -56,6 +56,7 @@ interface Props {
    * 스타일 확장 className
    */
   className?: string;
+  variant?: 'default' | 'text';
 }
 
 export const Select: React.FC<Props> = ({
@@ -67,9 +68,10 @@ export const Select: React.FC<Props> = ({
   disabled,
   required,
   className,
+  variant = 'default',
 }) => {
   return (
-    <div className={`select ${className}`.trim()}>
+    <div className={`select select--${variant} ${className}`.trim()}>
       <select
         id={id}
         value={value}

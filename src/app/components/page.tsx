@@ -72,6 +72,7 @@ export default async function Page() {
               Component
             </Link>
             <Link href="/screen-cases">Screen Cases</Link>
+            <Link href="/pubsheet">Pub Sheet</Link>
             <StorybookNavLinkComponents href={storybookUrl} />
           </div>
         </nav>

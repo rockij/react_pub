@@ -37,6 +37,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               Component
             </Link>
             <Link href="/screen-cases">Screen Cases</Link>
+            <Link href="/pubsheet">Pub Sheet</Link>
             <StorybookNavLinkBottom href={storybookUrl} tooltipId="global-storybook-nav-component-detail" />
           </div>
         </nav>

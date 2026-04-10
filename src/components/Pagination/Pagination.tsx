@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, MoreHorizontal } from 'lucide-react';
 import '../../assets/css/component/pagination.css';
 
 export interface PaginationProps {
@@ -140,6 +141,8 @@ export function Pagination({
 
   const isPreviousDisabled = disabled || currentPage <= 1;
   const isNextDisabled = disabled || currentPage >= safeCount;
+  const iconStrokeWidth = size === 'large' ? 2.2 : 2;
+  const iconSize = size === 'large' ? 18 : 16;
 
   return (
     <nav
@@ -158,7 +161,7 @@ export function Pagination({
               disabled={isPreviousDisabled}
               aria-label="Go to first page"
             >
-              <span aria-hidden="true">«</span>
+              <ChevronsLeft className="pagination__icon" size={iconSize} strokeWidth={iconStrokeWidth} aria-hidden="true" />
             </button>
           </li>
         )}
@@ -171,7 +174,7 @@ export function Pagination({
             disabled={isPreviousDisabled}
             aria-label="Go to previous page"
           >
-            <span aria-hidden="true">‹</span>
+            <ChevronLeft className="pagination__icon" size={iconSize} strokeWidth={iconStrokeWidth} aria-hidden="true" />
           </button>
         </li>
 
@@ -190,7 +193,7 @@ export function Pagination({
               </button>
             ) : (
               <span className="pagination__ellipsis" aria-hidden="true">
-                …
+                <MoreHorizontal className="pagination__icon" size={iconSize} strokeWidth={iconStrokeWidth} />
               </span>
             )}
           </li>
@@ -204,7 +207,7 @@ export function Pagination({
             disabled={isNextDisabled}
             aria-label="Go to next page"
           >
-            <span aria-hidden="true">›</span>
+            <ChevronRight className="pagination__icon" size={iconSize} strokeWidth={iconStrokeWidth} aria-hidden="true" />
           </button>
         </li>
 
@@ -217,7 +220,7 @@ export function Pagination({
               disabled={isNextDisabled}
               aria-label="Go to last page"
             >
-              <span aria-hidden="true">»</span>
+              <ChevronsRight className="pagination__icon" size={iconSize} strokeWidth={iconStrokeWidth} aria-hidden="true" />
             </button>
           </li>
         )}

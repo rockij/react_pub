@@ -190,23 +190,28 @@
 
 .consult-inquiry-screen__datepicker .date-picker__trigger {
   min-height: 5.8rem;
-  padding: 0 4.6rem 0 1.5rem;
+  padding: 2.4rem 4.6rem 1rem 1.5rem;
   border-color: #d1d8e0;
   border-radius: 1.5rem;
 }
 
 .consult-inquiry-screen__datepicker .date-picker__label {
-  display: none;
+  left: 1.1rem;
+  top: 50%;
+  padding: 0 0.4rem;
+  font-size: 1.2rem;
+  background: #ffffff;
+  transform: translateY(-50%);
 }
 
-.consult-inquiry-screen__datepicker .date-picker__value,
-.consult-inquiry-screen__datepicker .date-picker__placeholder {
+.consult-inquiry-screen__datepicker .date-picker__label.is-floating {
+  top: 1.2rem;
+  transform: scale(0.85);
+}
+
+.consult-inquiry-screen__datepicker .date-picker__value {
   font-size: 1.6rem;
   font-weight: 600;
-}
-
-.consult-inquiry-screen__datepicker .date-picker__placeholder {
-  color: #98a1ab;
 }
 
 .consult-inquiry-screen__datepicker .date-picker__icon {
