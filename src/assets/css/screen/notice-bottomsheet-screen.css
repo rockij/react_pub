@@ -1,0 +1,128 @@
+.notice-bottomsheet-screen {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.notice-bottomsheet-screen__device {
+  position: relative;
+  width: min(100%, 39.2rem);
+  min-height: 73rem;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.notice-bottomsheet-screen__dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 22, 27, 0.58);
+}
+
+.notice-bottomsheet-sheet {
+  padding-bottom: 0.4rem;
+}
+
+.modal-bottom-content.notice-bottomsheet-modal {
+  left: 50%;
+  right: auto;
+  width: min(100%, 39.2rem);
+  transform: translateX(-50%) translateY(100%);
+  border-radius: 2.2rem 2.2rem 0 0;
+  padding: 2.4rem 1.8rem 2rem;
+}
+
+.modal-bottom-content.notice-bottomsheet-modal.modal-bottom-content--after-open {
+  transform: translateX(-50%) translateY(0);
+}
+
+.modal-bottom-content.notice-bottomsheet-modal .modal-bottom-inner {
+  max-width: none;
+}
+
+.modal-bottom-content.notice-bottomsheet-modal .modal-bottom-header {
+  justify-content: flex-start;
+}
+
+.modal-bottom-content.notice-bottomsheet-modal .modal-bottom-header h3 {
+  color: #252b31;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.modal-bottom-content.notice-bottomsheet-modal .modal-bottom-close {
+  display: none;
+}
+
+.notice-bottomsheet-sheet__list {
+  display: grid;
+  gap: 1rem;
+}
+
+.notice-bottomsheet-sheet__checkbox.checkbox {
+  width: 100%;
+}
+
+.notice-bottomsheet-sheet__checkbox.checkbox label {
+  display: block;
+  padding-left: 3.2rem;
+  color: #3d4349;
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.notice-bottomsheet-sheet__checkbox.checkbox label::before {
+  top: 0.35rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.4rem;
+  border: 0.2rem solid #9ca4ab;
+  background: #ffffff;
+  transform: none;
+}
+
+.notice-bottomsheet-sheet__checkbox.checkbox label::after {
+  top: 0.9rem;
+  left: 0.9rem;
+  width: 0.6rem;
+  height: 1.1rem;
+  border-right: 0.2rem solid #ffffff;
+  border-bottom: 0.2rem solid #ffffff;
+  transform: rotate(45deg);
+}
+
+.notice-bottomsheet-sheet__checkbox.checkbox input[type='checkbox']:checked + label::before {
+  background-color: #005a9c;
+  border-color: #005a9c;
+}
+
+.notice-bottomsheet-sheet__actions {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: 1.2rem;
+  margin-top: 2.2rem;
+}
+
+.notice-bottomsheet-sheet__actions .btn {
+  width: 100%;
+  min-height: 5.2rem;
+  border-radius: 1.2rem;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.notice-bottomsheet-sheet__actions .btn--secondary {
+  background: #cfe0df;
+  color: #16a093;
+}
+
+.notice-bottomsheet-sheet__actions .btn--primary {
+  background: #16a093;
+  color: #ffffff;
+}
+
+.modal-bottom-content--after-open .notice-bottomsheet-sheet + * {
+  margin-top: 0;
+}

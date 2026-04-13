@@ -216,6 +216,60 @@ export const ImageDesign: Story = {
   ),
 };
 
+export const SlidingPill: Story = {
+  name: 'sliding-pill',
+  args: {
+    variant: 'pill',
+    fullWidth: true,
+    className: 'tabs--sliding-pill tabs--sliding-pill-4',
+    defaultActiveId: '1y',
+    ariaLabel: '기간 수익률 탭',
+    items: [
+      {
+        id: '1m',
+        label: '1개월',
+        content: (
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: '#506273' }}>
+            단기 수익률 추이를 빠르게 비교할 때 사용하는 1개월 구간 예시입니다.
+          </p>
+        ),
+      },
+      {
+        id: '3m',
+        label: '3개월',
+        content: (
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: '#506273' }}>
+            분기 단위로 변동성을 점검하는 3개월 구간 예시입니다.
+          </p>
+        ),
+      },
+      {
+        id: '6m',
+        label: '6개월',
+        content: (
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: '#506273' }}>
+            반기 추세를 확인하며 전략을 조정할 때 사용하는 6개월 구간 예시입니다.
+          </p>
+        ),
+      },
+      {
+        id: '1y',
+        label: '1년',
+        content: (
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: '#506273' }}>
+            연간 성과를 벤치마크와 비교해 판단하는 1년 구간 예시입니다.
+          </p>
+        ),
+      },
+    ],
+  },
+  render: args => (
+    <Wrapper>
+      <Tabs {...args} />
+    </Wrapper>
+  ),
+};
+
 export const Vertical: Story = {
   name: 'vertical',
   args: {

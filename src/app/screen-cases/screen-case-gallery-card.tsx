@@ -6,10 +6,22 @@ import { Dialog } from '../../components/Dialog/DialogIcon';
 import bankingHomeThumbnail from '../../assets/images/temp/001.png';
 import findIdThumbnail from '../../assets/images/temp/002.png';
 import consultInquiryThumbnail from '../../assets/images/temp/003.png';
+import signupAgreementThumbnail from '../../assets/images/temp/004.png';
+import noticeBottomsheetThumbnail from '../../assets/images/temp/005.png';
+import insuranceSignupCompleteThumbnail from '../../assets/images/temp/006.png';
+import signupPeriodBottomsheetThumbnail from '../../assets/images/temp/008.png';
+import portfolioReturnThumbnail from '../../assets/images/temp/009.png';
+import firstTradeSavingThumbnail from '../../assets/images/temp/010.png';
 import { BankingHomeScreenCase } from '../../screen/BankingHomeScreenCase/BankingHomeScreenCase';
 import { ConsultInquiryScreenCase } from '../../screen/ConsultInquiryScreenCase/ConsultInquiryScreenCase';
 import { FindIdScreenCase } from '../../screen/FindIdScreenCase/FindIdScreenCase';
+import { FirstTradeSavingScreenCase } from '../../screen/FirstTradeSavingScreenCase/FirstTradeSavingScreenCase';
 import { IdLoginScreenCase } from '../../screen/IdLoginScreenCase/IdLoginScreenCase';
+import { InsuranceSignupCompleteScreenCase } from '../../screen/InsuranceSignupCompleteScreenCase/InsuranceSignupCompleteScreenCase';
+import { NoticeBottomsheetScreenCase } from '../../screen/NoticeBottomsheetScreenCase/NoticeBottomsheetScreenCase';
+import { PortfolioReturnScreenCase } from '../../screen/PortfolioReturnScreenCase/PortfolioReturnScreenCase';
+import { SignupPeriodBottomsheetScreenCase } from '../../screen/SignupPeriodBottomsheetScreenCase/SignupPeriodBottomsheetScreenCase';
+import { SignupAgreementScreenCase } from '../../screen/SignupAgreementScreenCase/SignupAgreementScreenCase';
 import type { ScreenCaseItem } from './data';
 
 type ScreenCaseGalleryProps = {
@@ -21,6 +33,10 @@ const previewMap: Record<string, () => React.ReactNode> = {
   'consult-inquiry': () => <ConsultInquiryScreenCase />,
   'id-login': () => <IdLoginScreenCase />,
   'find-id': () => <FindIdScreenCase />,
+  'first-trade-saving': () => <FirstTradeSavingScreenCase />,
+  'signup-agreement': () => <SignupAgreementScreenCase />,
+  'insurance-signup-complete': () => <InsuranceSignupCompleteScreenCase />,
+  'portfolio-return': () => <PortfolioReturnScreenCase />,
 };
 
 const thumbnailMap = {
@@ -48,13 +64,59 @@ const thumbnailMap = {
     width: 392,
     height: 730,
   },
+  'signup-agreement': {
+    src: signupAgreementThumbnail,
+    alt: 'Signup agreement screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'notice-bottomsheet': {
+    src: noticeBottomsheetThumbnail,
+    alt: 'Notice bottomsheet screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'insurance-signup-complete': {
+    src: insuranceSignupCompleteThumbnail,
+    alt: 'Insurance signup complete screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'signup-period-bottomsheet': {
+    src: signupPeriodBottomsheetThumbnail,
+    alt: 'Signup period bottomsheet screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'portfolio-return': {
+    src: portfolioReturnThumbnail,
+    alt: 'Portfolio return screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
+  'first-trade-saving': {
+    src: firstTradeSavingThumbnail,
+    alt: 'First trade saving screen case thumbnail',
+    width: 392,
+    height: 730,
+  },
 } as const;
 
 export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
   const [activeSlug, setActiveSlug] = React.useState<string | null>(null);
 
   const activeItem = items.find(item => item.slug === activeSlug) ?? null;
-  const activePreview = activeItem && previewMap[activeItem.slug] ? previewMap[activeItem.slug]() : null;
+  const isDirectBottomsheetCase =
+    activeItem?.slug === 'notice-bottomsheet' || activeItem?.slug === 'signup-period-bottomsheet';
+
+  const activePreview =
+    activeItem?.slug === 'notice-bottomsheet' ? (
+      <NoticeBottomsheetScreenCase onDismiss={() => setActiveSlug(null)} />
+    ) : activeItem?.slug === 'signup-period-bottomsheet' ? (
+      <SignupPeriodBottomsheetScreenCase onDismiss={() => setActiveSlug(null)} />
+    ) : activeItem && previewMap[activeItem.slug] ? (
+      previewMap[activeItem.slug]()
+    ) : null;
 
   const openPreview = (slug: string) => {
     setActiveSlug(slug);
@@ -86,13 +148,29 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
             >
               <div className="screen-case-launcher-preview" aria-hidden="true">
                 {thumbnail ? (
-                  <div className="screen-case-launcher-thumbnail">
+                  <div
+                    className={[
+                      'screen-case-launcher-thumbnail',
+                      item.slug === 'first-trade-saving'
+                        ? 'screen-case-launcher-thumbnail--centered'
+                        : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                  >
                     <Image
                       src={thumbnail.src}
                       alt={thumbnail.alt}
                       width={thumbnail.width}
                       height={thumbnail.height}
-                      className="screen-case-launcher-thumbnail-image"
+                      className={[
+                        'screen-case-launcher-thumbnail-image',
+                        item.slug === 'first-trade-saving'
+                          ? 'screen-case-launcher-thumbnail-image--no-fit'
+                          : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
                     />
                   </div>
                 ) : item.slug in previewMap ? (
@@ -121,19 +199,23 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
         })}
       </div>
 
-      <Dialog
-        isOpen={activeItem !== null}
-        onRequestClose={() => setActiveSlug(null)}
-        title={activeItem?.title}
-        variant="dialog"
-        contentClassName="screen-case-modal"
-      >
-        {activeItem ? (
-          <div className="screen-case-dialog-live-preview screen-case-dialog-live-preview--only">
-            {activePreview}
-          </div>
-        ) : null}
-      </Dialog>
+      {isDirectBottomsheetCase ? (
+        activePreview
+      ) : (
+        <Dialog
+          isOpen={activeItem !== null}
+          onRequestClose={() => setActiveSlug(null)}
+          title="미리보기 상세"
+          variant="dialog"
+          contentClassName="screen-case-modal"
+        >
+          {activeItem ? (
+            <div className="screen-case-dialog-live-preview screen-case-dialog-live-preview--only">
+              {activePreview}
+            </div>
+          ) : null}
+        </Dialog>
+      )}
     </>
   );
 }

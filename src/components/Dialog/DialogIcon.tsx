@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { X } from 'lucide-react';
+import { lockBodyScroll, unlockBodyScroll } from './body-scroll-lock';
 import '../../assets/css/component/dialog.css';
 
 export interface DialogProps {
@@ -26,6 +27,18 @@ export const Dialog: React.FC<DialogProps> = ({
     }
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    lockBodyScroll();
+
+    return () => {
+      unlockBodyScroll();
+    };
+  }, [isOpen]);
+
   const isBottom = variant === 'bottomsheet';
   const isFull = variant === 'full';
 
@@ -37,13 +50,13 @@ export const Dialog: React.FC<DialogProps> = ({
 
   const contentClass = isBottom
     ? {
-        base: 'modal-bottom-content',
+        base: contentClassName ? `modal-bottom-content ${contentClassName}` : 'modal-bottom-content',
         afterOpen: 'modal-bottom-content--after-open',
         beforeClose: 'modal-bottom-content--before-close',
       }
     : isFull
     ? {
-        base: 'modal-full-content',
+        base: contentClassName ? `modal-full-content ${contentClassName}` : 'modal-full-content',
         afterOpen: 'modal-full-content--after-open',
         beforeClose: 'modal-full-content--before-close',
       }
@@ -58,6 +71,9 @@ export const Dialog: React.FC<DialogProps> = ({
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel={title || (isBottom ? 'BottomSheet' : 'Dialog')}
+      shouldFocusAfterRender={false}
+      shouldReturnFocusAfterClose={false}
+      preventScroll={true}
       overlayClassName={overlayClass}
       className={contentClass}
       closeTimeoutMS={200}
@@ -98,3 +114,4 @@ export const Dialog: React.FC<DialogProps> = ({
     </ReactModal>
   );
 };
+

@@ -1,0 +1,137 @@
+.signup-agreement-screen {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.signup-agreement-screen__device {
+  width: 100%;
+  min-height: 73rem;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.signup-agreement-screen__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-agreement-screen__header p {
+  margin: 0;
+  color: #5f6973;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.signup-agreement-screen__header h2 {
+  margin: 1rem 0 0;
+  color: #1e2329;
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.33;
+  letter-spacing: -0.03em;
+}
+
+.signup-agreement-screen__summary {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 2.2rem;
+  padding: 1.4rem 1.5rem;
+  border: 0.1rem solid #d9e2eb;
+  border-radius: 1.2rem;
+  background: #f8fbfd;
+}
+
+.signup-agreement-screen__summary strong {
+  color: #16212d;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.signup-agreement-screen__summary span {
+  color: #687482;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.signup-agreement-screen__form {
+  margin-top: 2rem;
+}
+
+.signup-agreement-screen__all-row {
+  padding-bottom: 1.3rem;
+  border-bottom: 0.1rem solid #e3e9ef;
+}
+
+.signup-agreement-screen__checkbox.checkbox {
+  width: 100%;
+}
+
+.signup-agreement-screen__checkbox.checkbox label {
+  display: flex;
+  align-items: center;
+  min-height: 2.6rem;
+  color: #20252b;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.signup-agreement-screen__checkbox--all.checkbox label {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.signup-agreement-screen__agreement-list {
+  display: grid;
+  gap: 0.2rem;
+  margin-top: 1.3rem;
+}
+
+.signup-agreement-screen__agreement-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 5.2rem;
+}
+
+.signup-agreement-screen__detail-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #8a95a1;
+  cursor: pointer;
+}
+
+.signup-agreement-screen__footer {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+
+.signup-agreement-screen__footer .btn {
+  width: 100%;
+  min-height: 5.8rem;
+  border-radius: 1.4rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.signup-agreement-screen__footer p {
+  margin: 0;
+  text-align: center;
+  color: #6c7782;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.5;
+}

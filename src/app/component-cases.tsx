@@ -1073,6 +1073,58 @@ function TabsImageDesignCase() {
   );
 }
 
+function TabsSlidingPillCase() {
+  return (
+    <CasePanel>
+      <Tabs
+        variant="pill"
+        fullWidth
+        className="tabs--sliding-pill tabs--sliding-pill-4"
+        ariaLabel="기간 수익률 탭"
+        defaultActiveId="1y"
+        items={[
+          {
+            id: '1m',
+            label: '1개월',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                단기 수익률 추이를 빠르게 비교할 때 사용하는 1개월 구간 예시입니다.
+              </p>
+            ),
+          },
+          {
+            id: '3m',
+            label: '3개월',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                분기 단위로 변동성을 점검하는 3개월 구간 예시입니다.
+              </p>
+            ),
+          },
+          {
+            id: '6m',
+            label: '6개월',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                반기 추세를 확인하며 전략을 조정할 때 사용하는 6개월 구간 예시입니다.
+              </p>
+            ),
+          },
+          {
+            id: '1y',
+            label: '1년',
+            content: (
+              <p style={{ ...demoBodyTextStyle, margin: 0, fontSize: 15, lineHeight: 1.7 }}>
+                연간 성과를 벤치마크와 비교해 판단하는 1년 구간 예시입니다.
+              </p>
+            ),
+          },
+        ]}
+      />
+    </CasePanel>
+  );
+}
+
 function TableDefaultCase() {
   return (
     <CasePanel>
@@ -1826,6 +1878,21 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   ariaLabel="투자 카테고리 탭"
   items={items}
 />`,
+    slidingPill: `const items = [
+  { id: '1m', label: '1개월', content: <p>1개월 구간 콘텐츠</p> },
+  { id: '3m', label: '3개월', content: <p>3개월 구간 콘텐츠</p> },
+  { id: '6m', label: '6개월', content: <p>6개월 구간 콘텐츠</p> },
+  { id: '1y', label: '1년', content: <p>1년 구간 콘텐츠</p> },
+];
+
+<Tabs
+  variant="pill"
+  fullWidth
+  className="tabs--sliding-pill tabs--sliding-pill-4"
+  ariaLabel="기간 수익률 탭"
+  defaultActiveId="1y"
+  items={items}
+/>`,
   },
   'text-field': {
     outlined: `const [value, setValue] = useState('');
@@ -2042,10 +2109,11 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     ],
   },
   tabs: {
-    summary: '기본 탭 전환, 이미지 시안형 칩 탭, 세로형 설정 레이아웃을 확인할 수 있는 Tabs 케이스 모음입니다.',
+    summary: '기본 탭, 이미지 시안형 칩 탭, 선택 배경 슬라이딩 탭, 세로형 설정 탭을 함께 확인할 수 있는 Tabs 케이스 모음입니다.',
     cases: [
       { id: 'underline', title: '기본 탭', description: '관련 콘텐츠를 가볍게 전환하는 기본 underline 스타일 Tabs 예제입니다.', preview: <TabsUnderlineCase /> },
       { id: 'imageDesign', title: '이미지 시안형 칩 탭', description: '첨부 시안처럼 연한 회색 칩과 진한 활성 상태를 사용하는 투자 카테고리 Tabs 예제입니다.', preview: <TabsImageDesignCase /> },
+      { id: 'slidingPill', title: '선택 배경 슬라이딩 탭', description: '선택된 탭의 배경 원이 좌우로 따라다니는 4분할 기간 탭 예제입니다.', preview: <TabsSlidingPillCase /> },
       { id: 'vertical', title: '세로형 설정 탭', description: '설정 화면처럼 좌측 목록과 우측 패널을 함께 쓰는 vertical Tabs 예제입니다.', preview: <TabsVerticalCase /> },
     ],
   },

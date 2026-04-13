@@ -1,0 +1,220 @@
+.first-trade-saving-screen {
+  display: flex;
+  justify-content: center;
+}
+
+.first-trade-saving-screen__device {
+  width: 100%;
+  position: relative;
+}
+
+.first-trade-saving-screen__carousel {
+  margin: 0;
+}
+
+.first-trade-saving-screen__carousel .swipe__viewport {
+  overflow: hidden;
+}
+
+.first-trade-saving-screen__carousel .swipe__container {
+  margin-left: 0;
+}
+
+.first-trade-saving-screen__carousel .swipe__slide {
+  padding-left: 0;
+}
+
+.first-trade-saving-screen__slide {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 14rem;
+  padding: 1.2rem 2rem 2.2rem;
+  border-radius: 2rem;
+  background: #cad8dc;
+}
+
+.first-trade-saving-screen__slide--mint {
+  background: #c8d8d9;
+}
+
+.first-trade-saving-screen__slide--sky {
+  background: #cadce5;
+}
+
+.first-trade-saving-screen__slide--peach {
+  background: #dfd7d2;
+}
+
+.first-trade-saving-screen__slide--lavender {
+  background: #d6d2df;
+}
+
+.first-trade-saving-screen__copy {
+  flex: 1;
+}
+
+.first-trade-saving-screen__copy p {
+  margin: 0;
+  color: #5f6a6d;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.first-trade-saving-screen__copy h3 {
+  margin: 0.6rem 0 0;
+  color: #1f2426;
+  font-size: 2.4rem;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.first-trade-saving-screen__cake {
+  position: relative;
+  width: 11.4rem;
+  height: 9.2rem;
+  flex-shrink: 0;
+}
+
+.first-trade-saving-screen__plate {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 50%;
+  width: 10.5rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  background: #2aa79a;
+  transform: translateX(-50%);
+  box-shadow: inset 0 -0.3rem 0 rgba(8, 82, 76, 0.2);
+}
+
+.first-trade-saving-screen__cake-body {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 8rem;
+  height: 5.8rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 28%, #ffffff 0%, #e9ebea 68%, #d2d6d7 100%);
+  transform: translateX(-50%);
+  box-shadow: 0 0.5rem 0.8rem rgba(74, 85, 92, 0.14);
+}
+
+.first-trade-saving-screen__cream-dot {
+  position: absolute;
+  top: 2.7rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: #f4f7f8;
+}
+
+.first-trade-saving-screen__cream-dot--1 {
+  left: 4.4rem;
+}
+
+.first-trade-saving-screen__cream-dot--2 {
+  left: 5.5rem;
+}
+
+.first-trade-saving-screen__cream-dot--3 {
+  left: 6.6rem;
+}
+
+.first-trade-saving-screen__cherry {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 28% 28%, #ff8e8e 0%, #e63f3f 66%, #bf2626 100%);
+  box-shadow: 0 0.2rem 0.3rem rgba(137, 36, 36, 0.22);
+}
+
+.first-trade-saving-screen__cherry--1 {
+  top: 2.8rem;
+  left: 2.9rem;
+}
+
+.first-trade-saving-screen__cherry--2 {
+  top: 3.5rem;
+  left: 4rem;
+}
+
+.first-trade-saving-screen__cherry--3 {
+  top: 2.8rem;
+  left: 5.2rem;
+}
+
+.first-trade-saving-screen__candle {
+  position: absolute;
+  top: 1.4rem;
+  left: 6rem;
+  width: 0.5rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  background: #4aa89a;
+}
+
+.first-trade-saving-screen__candle::before {
+  content: '';
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 60% 40% 70% 30%;
+  background: #ffbb39;
+  transform: translateX(-50%) rotate(16deg);
+}
+
+.first-trade-saving-screen__pager {
+  position: absolute;
+  left: 2rem;
+  bottom: 1.2rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.first-trade-saving-screen__pager-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 2.6rem;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  background: rgba(212, 224, 227, 0.68);
+}
+
+.first-trade-saving-screen__pager-main button,
+.first-trade-saving-screen__pause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  color: #516267;
+  background: transparent;
+  cursor: pointer;
+}
+
+.first-trade-saving-screen__pager-main button:hover,
+.first-trade-saving-screen__pause:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.first-trade-saving-screen__pager-main span {
+  min-width: 4.4rem;
+  text-align: center;
+  color: #49565b;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.first-trade-saving-screen__pause {
+  background: rgba(212, 224, 227, 0.68);
+}

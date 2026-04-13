@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from 'next';
 import '../assets/css/global.css';
+import RouteLoadingOverlay from './route-loading-overlay';
 
 export const metadata: Metadata = {
   title: 'React Pub Storybook',
@@ -27,7 +28,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: colorModeScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <RouteLoadingOverlay />
+        {children}
+      </body>
     </html>
   );
 }
