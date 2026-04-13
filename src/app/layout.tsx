@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from 'next';
 import '../assets/css/global.css';
+import { Suspense } from 'react';
 import RouteLoadingOverlay from './route-loading-overlay';
 
 export const metadata: Metadata = {
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: colorModeScript }} />
       </head>
       <body>
-        <RouteLoadingOverlay />
+        <Suspense fallback={null}>
+          <RouteLoadingOverlay />
+        </Suspense>
         {children}
       </body>
     </html>

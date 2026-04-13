@@ -3,6 +3,7 @@
 @import './pubsheet.css';
 @import './screen/screen-cases.css';
 @import './screen/screen-case-popup.css';
+@import './screen/screen-theme-lock.css';
 
 .wylie-container {
   font-family: 'Pretendard', sans-serif;
