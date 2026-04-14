@@ -9,6 +9,7 @@ import consultInquiryThumbnail from '../../assets/images/temp/003.png';
 import signupAgreementThumbnail from '../../assets/images/temp/004.png';
 import noticeBottomsheetThumbnail from '../../assets/images/temp/005.png';
 import insuranceSignupCompleteThumbnail from '../../assets/images/temp/006.png';
+import transactionFilterBottomsheetThumbnail from '../../assets/images/temp/011.png';
 import signupPeriodBottomsheetThumbnail from '../../assets/images/temp/008.png';
 import portfolioReturnThumbnail from '../../assets/images/temp/009.png';
 import firstTradeSavingThumbnail from '../../assets/images/temp/010.png';
@@ -22,6 +23,7 @@ import { NoticeBottomsheetScreenCase } from '../../screen/NoticeBottomsheetScree
 import { PortfolioReturnScreenCase } from '../../screen/PortfolioReturnScreenCase/PortfolioReturnScreenCase';
 import { SignupPeriodBottomsheetScreenCase } from '../../screen/SignupPeriodBottomsheetScreenCase/SignupPeriodBottomsheetScreenCase';
 import { SignupAgreementScreenCase } from '../../screen/SignupAgreementScreenCase/SignupAgreementScreenCase';
+import { TransactionFilterBottomsheetScreenCase } from '../../screen/TransactionFilterBottomsheetScreenCase/TransactionFilterBottomsheetScreenCase';
 import type { ScreenCaseItem } from './data';
 
 type ScreenCaseGalleryProps = {
@@ -76,6 +78,12 @@ const thumbnailMap = {
     width: 392,
     height: 730,
   },
+  'transaction-filter-bottomsheet': {
+    src: transactionFilterBottomsheetThumbnail,
+    alt: 'Transaction filter bottomsheet screen case thumbnail',
+    width: 384,
+    height: 768,
+  },
   'insurance-signup-complete': {
     src: insuranceSignupCompleteThumbnail,
     alt: 'Insurance signup complete screen case thumbnail',
@@ -107,13 +115,17 @@ export function ScreenCaseGallery({ items }: ScreenCaseGalleryProps) {
 
   const activeItem = items.find(item => item.slug === activeSlug) ?? null;
   const isDirectBottomsheetCase =
-    activeItem?.slug === 'notice-bottomsheet' || activeItem?.slug === 'signup-period-bottomsheet';
+    activeItem?.slug === 'notice-bottomsheet' ||
+    activeItem?.slug === 'signup-period-bottomsheet' ||
+    activeItem?.slug === 'transaction-filter-bottomsheet';
 
   const activePreview =
     activeItem?.slug === 'notice-bottomsheet' ? (
       <NoticeBottomsheetScreenCase onDismiss={() => setActiveSlug(null)} />
     ) : activeItem?.slug === 'signup-period-bottomsheet' ? (
       <SignupPeriodBottomsheetScreenCase onDismiss={() => setActiveSlug(null)} />
+    ) : activeItem?.slug === 'transaction-filter-bottomsheet' ? (
+      <TransactionFilterBottomsheetScreenCase onDismiss={() => setActiveSlug(null)} />
     ) : activeItem && previewMap[activeItem.slug] ? (
       previewMap[activeItem.slug]()
     ) : null;

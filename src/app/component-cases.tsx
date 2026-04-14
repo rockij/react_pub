@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Clock3 } from 'lucide-react';
+import type { DateRange } from 'react-day-picker';
 import { Accordion } from '../components/Accordion/Accordion';
 import { Badge } from '../components/Badge/Badge';
 import { Button } from '../components/Button/Button';
@@ -9,6 +10,7 @@ import { Card } from '../components/Card/Card';
 import { Chart } from '../components/Chart/Chart';
 import { Checkbox } from '../components/Checkbox/Checkbox';
 import { DatePicker } from '../components/DatePicker/DatePicker';
+import { DateRangeFieldDemo } from '../components/DatePicker/DateRangeFieldDemo';
 import { Dialog } from '../components/Dialog/DialogIcon';
 import { Pagination } from '../components/Pagination/Pagination';
 import { RadioGroup } from '../components/RadioGroup/RadioGroup';
@@ -663,6 +665,27 @@ function DatePickerInlineCase() {
           formatString="yyyy년 M월 d일"
           inline
           defaultMonth={new Date('2026-04-01')}
+        />
+      </div>
+    </CasePanel>
+  );
+}
+
+function DatePickerRangeFieldCase() {
+  const [value, setValue] = React.useState<DateRange | undefined>({
+    from: new Date('2025-03-05'),
+    to: new Date('2025-06-05'),
+  });
+
+  return (
+    <CasePanel centered>
+      <div style={{ width: 340 }}>
+        <DateRangeFieldDemo
+          id="case-datepicker-range-field"
+          label="조회 기간"
+          value={value}
+          onChange={setValue}
+          defaultMonth={new Date('2025-03-01')}
         />
       </div>
     </CasePanel>
@@ -1557,6 +1580,18 @@ const componentCaseCodeMap: Record<string, Record<string, string>> = {
   inline
   defaultMonth={new Date('2026-04-01')}
 />`,
+    rangeField: `const [value, setValue] = useState({
+  from: new Date('2025-03-05'),
+  to: new Date('2025-06-05'),
+});
+
+<DateRangeFieldDemo
+  id="case-datepicker-range-field"
+  label="조회 기간"
+  value={value}
+  onChange={setValue}
+  defaultMonth={new Date('2025-03-01')}
+/>`,
   },
   checkbox: {
     basic: `const [checked, setChecked] = useState(false);
@@ -2029,11 +2064,12 @@ const componentCases: Record<string, ComponentCaseCollection> = {
     ],
   },
   'date-picker': {
-    summary: '기본 날짜 선택, 예약 범위 제한, 인라인 달력 노출 패턴을 함께 확인할 수 있는 데이트피커 케이스 모음입니다.',
+    summary: '기본 날짜 선택, 예약 범위 제한, 인라인 달력, 조회 기간 범위 선택 패턴을 함께 확인할 수 있는 데이트피커 케이스 모음입니다.',
     cases: [
       { id: 'default', title: '기본형', description: '폼 입력에 바로 연결할 수 있는 기본 단일 날짜 선택 예제입니다.', preview: <DatePickerDefaultCase /> },
       { id: 'bounded', title: '예약 가능 범위 제한', description: '선택 가능한 기간과 요일을 제한한 예약형 데이트피커 예제입니다.', preview: <DatePickerBoundedCase /> },
       { id: 'inline', title: '인라인 달력', description: '필드를 누르지 않아도 달력이 화면에 바로 노출되는 인라인 데이트피커 예제입니다.', preview: <DatePickerInlineCase /> },
+      { id: 'rangeField', title: '기간 범위 선택', description: '조회 시작일과 종료일을 하나의 필드에서 선택하는 범위형 데이트피커 예제입니다.', preview: <DatePickerRangeFieldCase /> },
     ],
   },
   checkbox: {

@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { addDays } from 'date-fns';
+import type { DateRange } from 'react-day-picker';
 import { ko } from 'date-fns/locale';
 import { DatePicker } from './DatePicker';
+import { DateRangeFieldDemo } from './DateRangeFieldDemo';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'Components/DatePicker',
@@ -18,6 +20,16 @@ type Story = StoryObj<typeof DatePicker>;
 
 function useArgsDate(initialValue?: Date) {
   const [value, setValue] = React.useState<Date | undefined>(initialValue);
+
+  React.useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
+
+  return [value, setValue] as const;
+}
+
+function useArgsRange(initialValue?: DateRange) {
+  const [value, setValue] = React.useState<DateRange | undefined>(initialValue);
 
   React.useEffect(() => {
     setValue(initialValue);
@@ -87,4 +99,28 @@ export const Disabled: Story = {
     locale: ko,
   },
   render: args => <DatePicker {...args} onChange={() => {}} />,
+};
+
+export const RangeField: Story = {
+  args: {
+    id: 'storybook-datepicker-range-field',
+  },
+  render: args => {
+    const [value, setValue] = useArgsRange({
+      from: new Date('2025-03-05'),
+      to: new Date('2025-06-05'),
+    });
+
+    return (
+      <div style={{ width: 340 }}>
+        <DateRangeFieldDemo
+          {...args}
+          value={value}
+          onChange={setValue}
+          label="조회 기간"
+          defaultMonth={new Date('2025-03-01')}
+        />
+      </div>
+    );
+  },
 };

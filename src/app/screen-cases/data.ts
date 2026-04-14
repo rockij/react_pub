@@ -99,4 +99,13 @@ export const screenCaseItems: ScreenCaseItem[] = [
     category: '투자',
     components: ['Tabs', 'Chart', 'Table'],
   },
+  {
+    slug: 'transaction-filter-bottomsheet',
+    title: '조회조건 선택 바텀시트',
+    summary:
+      '조회기간 퀵 버튼, 직접입력 날짜 범위, 거래구분, 정렬순서를 한 번에 조정하는 모바일 조회조건 바텀시트 화면 케이스입니다.',
+    status: '완료',
+    category: '뱅킹',
+    components: ['Dialog', 'Button', 'DatePicker'],
+  },
 ];

@@ -4,6 +4,79 @@
   font-family: var(--font-sans);
 }
 
+.date-picker-range {
+  position: relative;
+  width: 100%;
+  font-family: var(--font-sans);
+}
+
+.date-picker-range__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid #cfd8e2;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--theme-brand-strong);
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.date-picker-range__trigger:hover:not(:disabled) {
+  border-color: var(--theme-brand);
+}
+
+.date-picker-range__trigger:focus-visible {
+  border-color: var(--theme-brand);
+  box-shadow: 0 0 0 4px rgba(45, 94, 132, 0.12);
+  outline: none;
+}
+
+.date-picker-range__trigger:disabled {
+  background: var(--theme-brand-softest);
+  cursor: not-allowed;
+}
+
+.date-picker-range__segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-picker-range__separator {
+  color: #7a8794;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.date-picker-range__icon {
+  width: 20px;
+  height: 20px;
+  color: #111;
+  flex: 0 0 auto;
+}
+
+.date-picker-range__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.date-picker-range__value,
+.date-picker-range__placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.date-picker-range__placeholder {
+  color: #9aa7b4;
+}
+
 .date-picker__control {
   position: relative;
 }
@@ -365,6 +438,22 @@
   border-color: var(--theme-brand);
   color: #fff;
   box-shadow: none;
+}
+
+.date-picker__calendar .rdp-range_start .rdp-day_button,
+.date-picker__calendar .rdp-range_end .rdp-day_button {
+  background: #2c7cd6;
+  border-color: var(--theme-brand);
+  color: #fff;
+}
+
+.date-picker__calendar .rdp-range_middle {
+  background: rgba(44, 124, 214, 0.12);
+}
+
+.date-picker__calendar .rdp-range_middle .rdp-day_button {
+  background: transparent;
+  color: var(--theme-brand-strong);
 }
 
 .date-picker__calendar .rdp-today:not(.rdp-selected) .rdp-day_button {
