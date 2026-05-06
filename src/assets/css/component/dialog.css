@@ -33,6 +33,23 @@
   opacity: 0;
   transform: translateY(-6px) scale(0.98);
   transition: opacity 200ms ease, transform 200ms ease;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  button[aria-label='Close'] {
+    background: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--theme-brand-strong);
+  }
 }
 
 .modal-content--after-open {
@@ -43,25 +60,6 @@
 .modal-content--before-close {
   opacity: 0;
   transform: translateY(-6px) scale(0.98);
-}
-
-.modal-content header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-content button[aria-label='Close'] {
-  background: transparent;
-  border: none;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--theme-brand-strong);
 }
 
 /* Bottom sheet styles */

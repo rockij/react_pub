@@ -10,18 +10,15 @@
 
 .first-trade-saving-screen__carousel {
   margin: 0;
-}
-
-.first-trade-saving-screen__carousel .swipe__viewport {
+  .swipe__viewport {
   overflow: hidden;
-}
-
-.first-trade-saving-screen__carousel .swipe__container {
+  }
+  .swipe__container {
   margin-left: 0;
-}
-
-.first-trade-saving-screen__carousel .swipe__slide {
+  }
+  .swipe__slide {
   padding-left: 0;
+  }
 }
 
 .first-trade-saving-screen__slide {
@@ -52,22 +49,20 @@
 
 .first-trade-saving-screen__copy {
   flex: 1;
-}
-
-.first-trade-saving-screen__copy p {
+  p {
   margin: 0;
   color: #5f6a6d;
   font-size: 1rem;
   font-weight: 700;
-}
-
-.first-trade-saving-screen__copy h3 {
+  }
+  h3 {
   margin: 0.6rem 0 0;
   color: #1f2426;
   font-size: 2.4rem;
   line-height: 1.28;
   letter-spacing: -0.02em;
   font-weight: 800;
+  }
 }
 
 .first-trade-saving-screen__cake {
@@ -186,6 +181,13 @@
   padding: 0 0.7rem;
   border-radius: 999px;
   background: rgba(212, 224, 227, 0.68);
+  span {
+  min-width: 4.4rem;
+  text-align: center;
+  color: #49565b;
+  font-size: 1rem;
+  font-weight: 700;
+  }
 }
 
 .first-trade-saving-screen__pager-main button,
@@ -205,14 +207,6 @@
 .first-trade-saving-screen__pager-main button:hover,
 .first-trade-saving-screen__pause:hover {
   background: rgba(255, 255, 255, 0.55);
-}
-
-.first-trade-saving-screen__pager-main span {
-  min-width: 4.4rem;
-  text-align: center;
-  color: #49565b;
-  font-size: 1rem;
-  font-weight: 700;
 }
 
 .first-trade-saving-screen__pause {

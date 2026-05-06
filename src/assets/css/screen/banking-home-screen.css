@@ -115,29 +115,21 @@
   cursor: pointer;
 }
 
-.banking-home-screen__pager button:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
 .banking-home-screen__account-swipe {
   margin-bottom: 1rem;
 }
 
 .banking-home-screen__account-carousel {
   gap: 0;
-}
-
-.banking-home-screen__account-carousel .swipe__viewport {
+  .swipe__viewport {
   overflow: hidden;
-}
-
-.banking-home-screen__account-carousel .swipe__container {
+  }
+  .swipe__container {
   margin-left: 0;
-}
-
-.banking-home-screen__account-carousel .swipe__slide {
+  }
+  .swipe__slide {
   padding-left: 0;
+  }
 }
 
 .banking-home-screen__account-card {
@@ -152,19 +144,18 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.8rem;
+  h3 {
+  margin: 0;
+  color: #484139;
+  font-size: 1.675rem;
+  font-weight: 700;
+  }
 }
 
 .banking-home-screen__eyebrow {
   margin: 0 0 0.3rem;
   color: #b0a897;
   font-size: 1.325rem;
-  font-weight: 700;
-}
-
-.banking-home-screen__account-head h3 {
-  margin: 0;
-  color: #484139;
-  font-size: 1.675rem;
   font-weight: 700;
 }
 
@@ -189,24 +180,21 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
-}
-
-.banking-home-screen__actions .btn {
+  .btn {
   width: 100%;
   min-height: 4rem;
   padding: 0 1.2rem;
   border-radius: 1rem;
   font-size: 1.725rem;
   font-weight: 700;
-}
-
-.banking-home-screen__actions .btn--secondary {
+  }
+  .btn--secondary {
   background: #e6f2ef;
   color: #2c7468;
-}
-
-.banking-home-screen__actions .btn--primary {
+  }
+  .btn--primary {
   background: #15b5a0;
+  }
 }
 
 .banking-home-screen__pager {
@@ -222,6 +210,10 @@
   color: #7d8591;
   font-size: 1.425rem;
   font-weight: 700;
+  button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  }
 }
 
 .banking-home-screen__list-button {
@@ -246,6 +238,9 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-bottom: 1.2rem;
+  > .banking-home-screen__menu-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  }
 }
 
 .banking-home-screen__menu-card {
@@ -257,18 +252,13 @@
   border-radius: 1.6rem;
   background: #fffdfc;
   box-shadow: 0 0.8rem 2rem rgba(39, 44, 50, 0.06);
-}
-
-.banking-home-screen__menu-grid > .banking-home-screen__menu-card:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-}
-
-.banking-home-screen__menu-card h4 {
+  h4 {
   margin: 0;
   color: #47403b;
   font-size: 1.575rem;
   font-weight: 700;
   line-height: 1.35;
+  }
 }
 
 .banking-home-screen__menu-icon {
@@ -318,10 +308,9 @@
 
 .banking-home-screen__shortcut-list {
   margin-bottom: 1.2rem;
-}
-
-.banking-home-screen__shortcut-list .banking-home-screen__list-button:last-child {
+  .banking-home-screen__list-button:last-child {
   margin-bottom: 0;
+  }
 }
 
 .banking-home-screen__footer-note {

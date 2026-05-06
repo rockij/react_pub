@@ -1,4 +1,4 @@
-﻿.find-id-screen {
+.find-id-screen {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -16,6 +16,14 @@
   display: grid;
   grid-template-columns: 2.4rem 1fr 2.4rem;
   align-items: center;
+  h2 {
+  margin: 0;
+  text-align: center;
+  color: #242c35;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  }
 }
 
 .find-id-screen__back {
@@ -30,15 +38,6 @@
   cursor: pointer;
 }
 
-.find-id-screen__header h2 {
-  margin: 0;
-  text-align: center;
-  color: #242c35;
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
 .find-id-screen__header-spacer {
   width: 2.4rem;
   height: 2.4rem;
@@ -49,13 +48,16 @@
   padding: 2.6rem 0 0;
 }
 
-.find-id-screen__intro strong {
+.find-id-screen__intro {
+
+  strong {
   display: block;
   color: #2b3139;
   font-size: 2.2rem;
   font-weight: 800;
   line-height: 1.35;
   letter-spacing: -0.03em;
+  }
 }
 
 .find-id-screen__form {
@@ -76,21 +78,22 @@
   color: #343c45;
   font-size: 1.4rem;
   font-weight: 700;
-}
-
-.find-id-screen__label svg {
+  svg {
   color: #8d98a4;
+  }
 }
 
-.find-id-screen__textfield .textfield__label {
+.find-id-screen__textfield {
+
+  .textfield__label {
   display: none;
-}
+  }
 
-.find-id-screen__textfield .textfield__control {
+  .textfield__control {
   display: block;
-}
+  }
 
-.find-id-screen__textfield .textfield__input {
+  .textfield__input {
   width: 100%;
   height: 6.2rem;
   padding: 0 1.6rem;
@@ -101,33 +104,32 @@
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-}
+  }
 
-.find-id-screen__textfield .textfield__input:focus {
+  .textfield__input:focus {
   outline: none;
   border-color: #8ea8bd;
-}
+  }
 
-.find-id-screen__textfield .textfield__toggle {
+  .textfield__toggle {
   display: none;
+  }
 }
 
 .find-id-screen__footer {
   display: grid;
   gap: 1.8rem;
   padding: 2.4rem 1.8rem 1.8rem;
-}
-
-.find-id-screen__footer .btn {
+  .btn {
   width: 100%;
   min-height: 5.6rem;
   border-radius: 1.2rem;
   font-size: 1.8rem;
   font-weight: 800;
-}
-
-.find-id-screen__footer .btn--primary {
+  }
+  .btn--primary {
   background: #11a99a;
+  }
 }
 
 .find-id-screen__link {

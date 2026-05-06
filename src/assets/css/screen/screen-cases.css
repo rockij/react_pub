@@ -6,6 +6,13 @@
 .screen-cases-hero {
   padding: 0 0 4rem;
   border-bottom: 0.1rem solid var(--app-border);
+  h2 {
+  margin-top: 1rem;
+  color: var(--app-text-primary);
+  font-size: 3.2rem;
+  line-height: 1.18;
+  font-weight: 700;
+  }
 }
 
 .screen-cases-kicker {
@@ -14,14 +21,6 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.screen-cases-hero h2 {
-  margin-top: 1rem;
-  color: var(--app-text-primary);
-  font-size: 3.2rem;
-  line-height: 1.18;
-  font-weight: 700;
 }
 
 .screen-cases-lead {
@@ -36,9 +35,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.6rem;
   margin-top: 2.8rem;
-}
-
-.screen-cases-stats article {
+  article {
   display: grid;
   gap: 0.8rem;
   padding: 1.8rem 2rem;
@@ -46,17 +43,16 @@
   border-radius: 0.4rem;
   background: var(--app-surface-elevated);
   color: var(--app-text-primary);
-}
-
-.screen-cases-stats strong {
+  }
+  strong {
   font-size: 2rem;
   font-weight: 700;
-}
-
-.screen-cases-stats span {
+  }
+  span {
   color: var(--app-text-muted);
   font-size: 1.45rem;
   line-height: 1.6;
+  }
 }
 
 .screen-cases-section {
@@ -72,10 +68,9 @@
   grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
   gap: 2.4rem;
   align-items: start;
-}
-
-.screen-cases-featured-grid .card {
+  .card {
   max-width: none;
+  }
 }
 
 .screen-case-preview-panel {
@@ -84,25 +79,27 @@
   border-radius: 0.6rem;
   background: linear-gradient(180deg, var(--app-surface-elevated) 0%, var(--app-surface-muted) 100%);
   box-shadow: 0 1.6rem 3.4rem var(--app-shadow);
+  .banking-home-screen {
+  margin-top: 2rem;
+  }
 }
 
-.screen-case-preview-copy h3 {
+.screen-case-preview-copy {
+
+  h3 {
   margin-top: 0.8rem;
   color: var(--app-text-primary);
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 1.35;
-}
+  }
 
-.screen-case-preview-copy p {
+  p {
   margin-top: 1rem;
   color: var(--app-text-muted);
   font-size: 1.6rem;
   line-height: 1.72;
-}
-
-.screen-case-preview-panel .banking-home-screen {
-  margin-top: 2rem;
+  }
 }
 
 .screen-cases-grid {
@@ -117,6 +114,19 @@
   border-radius: 0.6rem;
   background: var(--app-surface);
   box-shadow: 0 1.6rem 3.4rem var(--app-shadow);
+  h3 {
+  margin-top: 1.6rem;
+  color: var(--app-text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.35;
+  }
+  p {
+  margin-top: 1rem;
+  color: var(--app-text-muted);
+  font-size: 1.45rem;
+  line-height: 1.65;
+  }
 }
 
 .screen-case-top {
@@ -148,26 +158,10 @@
 .screen-case-status {
   background: var(--app-surface-muted);
   color: var(--app-text-muted);
-}
-
-.screen-case-status.is-ready {
+  &.is-ready {
   background: #e8f5ef;
   color: #1b6b47;
-}
-
-.screen-case-card h3 {
-  margin-top: 1.6rem;
-  color: var(--app-text-primary);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.screen-case-card p {
-  margin-top: 1rem;
-  color: var(--app-text-muted);
-  font-size: 1.45rem;
-  line-height: 1.65;
+  }
 }
 
 .screen-case-launcher {
@@ -180,6 +174,10 @@
     transform 0.18s ease,
     box-shadow 0.18s ease,
     border-color 0.18s ease;
+  &:focus-visible {
+  outline: 0.2rem solid #2f6ea3;
+  outline-offset: 0.3rem;
+  }
 }
 
 .screen-case-launcher:hover,
@@ -187,11 +185,6 @@
   transform: translateY(-0.4rem);
   border-color: var(--app-border-strong);
   box-shadow: 0 2rem 4rem var(--app-shadow-strong);
-}
-
-.screen-case-launcher:focus-visible {
-  outline: 0.2rem solid #2f6ea3;
-  outline-offset: 0.3rem;
 }
 
 .screen-case-launcher-preview {
@@ -238,22 +231,18 @@
   transform: scale(0.42);
   transform-origin: center center;
   pointer-events: none;
-}
-
-.screen-case-launcher-preview-frame .banking-home-screen {
+  .banking-home-screen {
   margin: -14rem 0;
-}
-
-.screen-case-launcher-preview-frame .consult-inquiry-screen {
+  }
+  .consult-inquiry-screen {
   margin: -11rem 0;
-}
-
-.screen-case-launcher-preview-frame .signup-agreement-screen {
+  }
+  .signup-agreement-screen {
   margin: -10rem 0;
-}
-
-.screen-case-launcher-preview-frame .portfolio-return-screen {
+  }
+  .portfolio-return-screen {
   margin: -6rem 0;
+  }
 }
 
 .screen-case-launcher-preview-placeholder {
@@ -261,30 +250,27 @@
   gap: 0.8rem;
   padding: 2.4rem;
   text-align: center;
-}
-
-.screen-case-launcher-preview-placeholder strong {
+  strong {
   color: var(--app-text-primary);
   font-size: 1.8rem;
   font-weight: 700;
-}
-
-.screen-case-launcher-preview-placeholder span {
+  }
+  span {
   color: var(--app-text-muted);
   font-size: 1.4rem;
   line-height: 1.6;
+  }
 }
 
 .screen-case-component-block {
   margin-top: 2rem;
   padding-top: 1.6rem;
   border-top: 0.1rem solid var(--app-border);
-}
-
-.screen-case-component-block strong {
+  strong {
   color: var(--app-text-primary);
   font-size: 1.45rem;
   font-weight: 700;
+  }
 }
 
 .screen-case-chip-list {
@@ -292,9 +278,7 @@
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 1.2rem;
-}
-
-.screen-case-chip-list li {
+  li {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -306,4 +290,5 @@
   color: var(--app-text-secondary);
   font-size: 1.35rem;
   font-weight: 700;
+  }
 }

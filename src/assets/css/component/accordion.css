@@ -1,38 +1,32 @@
-﻿.accordion-content {
+.accordion-content {
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
   border-top: 0.1rem solid transparent;
   transition: grid-template-rows 340ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease;
-}
-
-.accordion-content[aria-hidden='false'] {
-  grid-template-rows: 1fr;
-  border-top-color: var(--theme-brand-soft-line);
-}
-
-.accordion-content > div {
-  overflow: hidden;
-  padding: 0 2.2rem;
-  color: #5a6672;
-  font-size: 1.6rem;
-  line-height: 1.8;
-  opacity: 0;
-  transform: translateY(-0.8rem);
-  transition:
-    padding 340ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 200ms ease,
-    transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.accordion-content[aria-hidden='false'] > div {
-  padding: 2rem 2.2rem 2.4rem;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.accordion-content p + p {
-  margin-top: 1.6rem;
+  > div {
+    overflow: hidden;
+    padding: 0 2.2rem;
+    color: #5a6672;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateY(-0.8rem);
+    transition: padding 340ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms ease,
+      transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &[aria-hidden='false'] {
+    grid-template-rows: 1fr;
+    border-top-color: var(--theme-brand-soft-line);
+  }
+  &[aria-hidden='false'] > div {
+    padding: 2rem 2.2rem 2.4rem;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  p + p {
+    margin-top: 1.6rem;
+  }
 }
 
 .accordion {
@@ -62,26 +56,26 @@
   padding-left: 2rem;
 }
 
-.accordion-checkbox-panel .accordion-heading {
-  min-width: 0;
-}
-
-.accordion-checkbox-panel .accordion-trigger {
-  padding-left: 0;
+.accordion-checkbox-panel {
+  .accordion-heading {
+    min-width: 0;
+  }
+  .accordion-trigger {
+    padding-left: 0;
+  }
 }
 
 .accordion-header-checkbox {
   min-width: 2.4rem;
-}
-
-.accordion-header-checkbox.checkbox label {
-  display: block;
-  width: 2.4rem;
-  height: 2.4rem;
-  padding-left: 2.4rem;
-  overflow: hidden;
-  color: transparent;
-  white-space: nowrap;
+  &.checkbox label {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding-left: 2.4rem;
+    overflow: hidden;
+    color: transparent;
+    white-space: nowrap;
+  }
 }
 
 .accordion-trigger {
@@ -100,6 +94,16 @@
   font-weight: 700;
   text-align: left;
   cursor: pointer;
+  &[aria-expanded='true'] .accordion-trigger-chevron::before {
+    transform: rotate(-45deg);
+  }
+  &[aria-expanded='true'] .accordion-trigger-chevron::after {
+    transform: rotate(45deg);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.52;
+  }
 }
 
 .accordion-trigger-label {
@@ -134,17 +138,3 @@
   right: 0.42rem;
   transform: rotate(-45deg);
 }
-
-.accordion-trigger[aria-expanded='true'] .accordion-trigger-chevron::before {
-  transform: rotate(-45deg);
-}
-
-.accordion-trigger[aria-expanded='true'] .accordion-trigger-chevron::after {
-  transform: rotate(45deg);
-}
-
-.accordion-trigger:disabled {
-  cursor: not-allowed;
-  opacity: 0.52;
-}
-

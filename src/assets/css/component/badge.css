@@ -30,6 +30,26 @@
 
 .badge--solid {
   --badge-border: transparent;
+  &.badge--neutral {
+    --badge-bg: #36526b;
+    --badge-color: #ffffff;
+  }
+  &.badge--brand {
+    --badge-bg: #0c5a86;
+    --badge-color: #ffffff;
+  }
+  &.badge--success {
+    --badge-bg: #1f7a4b;
+    --badge-color: #ffffff;
+  }
+  &.badge--warning {
+    --badge-bg: #9a6200;
+    --badge-color: #ffffff;
+  }
+  &.badge--danger {
+    --badge-bg: #b04638;
+    --badge-color: #ffffff;
+  }
 }
 
 .badge--soft {
@@ -70,31 +90,6 @@
   --badge-border: #efb2a9;
 }
 
-.badge--solid.badge--neutral {
-  --badge-bg: #36526b;
-  --badge-color: #ffffff;
-}
-
-.badge--solid.badge--brand {
-  --badge-bg: #0c5a86;
-  --badge-color: #ffffff;
-}
-
-.badge--solid.badge--success {
-  --badge-bg: #1f7a4b;
-  --badge-color: #ffffff;
-}
-
-.badge--solid.badge--warning {
-  --badge-bg: #9a6200;
-  --badge-color: #ffffff;
-}
-
-.badge--solid.badge--danger {
-  --badge-bg: #b04638;
-  --badge-color: #ffffff;
-}
-
 .badge__label {
   display: inline-flex;
   align-items: center;
@@ -117,14 +112,12 @@
   margin-right: -0.2rem;
   border-radius: 50%;
   color: inherit;
-}
-
-.badge__remove:hover {
-  background: rgba(12, 46, 78, 0.08);
-}
-
-.badge__remove span {
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1;
+  &:hover {
+    background: rgba(12, 46, 78, 0.08);
+  }
+  span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
 }

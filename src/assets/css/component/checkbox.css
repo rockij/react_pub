@@ -61,40 +61,38 @@
     cursor: not-allowed;
     opacity: 0.4;
   }
-}
-
-.checkbox.-small {
-  label {
-    padding-left: 26px;
-    font-size: 14px;
+  &.-small {
+    label {
+      padding-left: 26px;
+      font-size: 14px;
+    }
+    label::before {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+    label::after {
+      left: 7px;
+      width: 6px;
+      height: 10px;
+    }
   }
-  label::before {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-  }
-  label::after {
-    left: 7px;
-    width: 6px;
-    height: 10px;
-  }
-}
-
-.checkbox.-large {
-  label {
-    padding-left: 36px;
-    font-size: 18px;
-  }
-  label::before {
-    width: 28px;
-    height: 28px;
-  }
-  label::after {
-    left: 9px;
-    width: 10px;
-    height: 16px;
-    border-right: 3px solid #fff;
-    border-bottom: 3px solid #fff;
+  &.-large {
+    label {
+      padding-left: 36px;
+      font-size: 18px;
+    }
+    label::before {
+      width: 28px;
+      height: 28px;
+    }
+    label::after {
+      left: 9px;
+      width: 10px;
+      height: 16px;
+      border-right: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+    }
   }
 }
 

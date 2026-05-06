@@ -1,6 +1,15 @@
-﻿/* Root */
+/* Root */
 .textfield {
   font-family: var(--font-sans);
+  &.has-adornment .textfield__input {
+    padding-right: 48px;
+  }
+  &.has-error .textfield__input {
+    border-color: #d32f2f;
+  }
+  &.is-disabled {
+    opacity: 0.6;
+  }
 }
 
 /* Control */
@@ -22,22 +31,18 @@
   background-color: transparent;
   outline: none;
   box-sizing: border-box;
-}
-
-.textfield.has-adornment .textfield__input {
-  padding-right: 48px;
+  &:focus {
+    border-color: var(--theme-brand);
+  }
+  &:disabled {
+    background-color: var(--theme-brand-softest);
+    cursor: not-allowed;
+  }
 }
 
 /* Focus */
-.textfield__input:focus {
-  border-color: var(--theme-brand);
-}
 
 /* Disabled */
-.textfield__input:disabled {
-  background-color: var(--theme-brand-softest);
-  cursor: not-allowed;
-}
 
 /* Label */
 .textfield__label {
@@ -79,11 +84,10 @@
   justify-content: center;
   color: #111;
   pointer-events: none;
-}
-
-.textfield__adornment svg {
-  width: 20px;
-  height: 20px;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .textfield-case-time-select .textfield__input,
@@ -101,34 +105,33 @@
 /* =========================
    Variant: Outlined
 ========================= */
-.textfield--outlined .textfield__input {
-  background-color: #fff;
+.textfield--outlined {
+  .textfield__input {
+    background-color: #fff;
+  }
 }
 
 /* =========================
    Variant: Filled
 ========================= */
-.textfield--filled .textfield__input {
-  background-color: var(--theme-brand-softest);
-  border: none;
-  border-bottom: 1px solid var(--theme-brand-soft-line);
-  border-radius: 4px 4px 0 0;
-}
-
-.textfield--filled .textfield__input:focus {
-  border-bottom-color: var(--theme-brand);
-}
-
-.textfield--filled .textfield__label {
-  background-color: transparent;
+.textfield--filled {
+  .textfield__input {
+    background-color: var(--theme-brand-softest);
+    border: none;
+    border-bottom: 1px solid var(--theme-brand-soft-line);
+    border-radius: 4px 4px 0 0;
+  }
+  .textfield__input:focus {
+    border-bottom-color: var(--theme-brand);
+  }
+  .textfield__label {
+    background-color: transparent;
+  }
 }
 
 /* =========================
    Error state
 ========================= */
-.textfield.has-error .textfield__input {
-  border-color: #d32f2f;
-}
 
 .textfield.has-error .textfield__label,
 .textfield.has-error .textfield__helper {
@@ -138,8 +141,3 @@
 /* =========================
    Disabled state
 ========================= */
-.textfield.is-disabled {
-  opacity: 0.6;
-}
-
-

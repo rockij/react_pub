@@ -2,6 +2,15 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  h2 {
+  margin: 2.1rem 0 0;
+  text-align: center;
+  color: #272d35;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: -0.03em;
+  }
 }
 
 .insurance-signup-complete-screen__device {
@@ -29,16 +38,6 @@
   color: #10a997;
 }
 
-.insurance-signup-complete-screen h2 {
-  margin: 2.1rem 0 0;
-  text-align: center;
-  color: #272d35;
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1.28;
-  letter-spacing: -0.03em;
-}
-
 .insurance-signup-complete-screen__divider {
   margin-top: 2.4rem;
   border-top: 0.1rem solid #e4e8ec;
@@ -47,51 +46,41 @@
 .insurance-signup-complete-screen__accordion {
   gap: 0;
   margin-top: 0;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-panel {
+  .accordion-panel {
   display: flex;
   flex-direction: column;
   border: 0;
   border-radius: 0;
   box-shadow: none;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-heading {
+  }
+  .accordion-heading {
   order: 2;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-content {
+  }
+  .accordion-content {
   order: 1;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-trigger {
+  border-top: 0;
+  }
+  .accordion-trigger {
   min-height: 4.8rem;
   padding: 1.2rem 0;
   color: #707983;
   font-size: 1.4rem;
   font-weight: 700;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-trigger-label {
+  }
+  .accordion-trigger-label {
   justify-self: center;
+  }
+  .accordion-content > div {
+  padding: 0;
+  }
+  .accordion-content[aria-hidden='false'] > div {
+  padding: 0;
+  }
 }
 
 .insurance-signup-complete-screen__accordion .accordion-trigger-chevron::before,
 .insurance-signup-complete-screen__accordion .accordion-trigger-chevron::after {
   background: #707983;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-content {
-  border-top: 0;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-content > div {
-  padding: 0;
-}
-
-.insurance-signup-complete-screen__accordion .accordion-content[aria-hidden='false'] > div {
-  padding: 0;
 }
 
 .insurance-signup-complete-screen__detail-list {
@@ -104,17 +93,14 @@
   align-items: start;
   gap: 1rem;
   padding: 1.15rem 0;
-}
-
-.insurance-signup-complete-screen__detail-row dt {
+  dt {
   margin: 0;
   color: #7a838d;
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.45;
-}
-
-.insurance-signup-complete-screen__detail-row dd {
+  }
+  dd {
   margin: 0;
   color: #3a4149;
   font-size: 1.4rem;
@@ -123,20 +109,19 @@
   text-align: right;
   letter-spacing: -0.01em;
   word-break: keep-all;
+  }
 }
 
 .insurance-signup-complete-screen__footer {
   padding: 1.6rem 0 1rem;
-}
-
-.insurance-signup-complete-screen__footer .btn {
+  .btn {
   width: 100%;
   min-height: 5.4rem;
   border-radius: 1.1rem;
   font-size: 1.8rem;
   font-weight: 700;
-}
-
-.insurance-signup-complete-screen__footer .btn--primary {
+  }
+  .btn--primary {
   background: #10a997;
+  }
 }

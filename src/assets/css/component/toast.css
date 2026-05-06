@@ -1,4 +1,4 @@
-﻿/* toast.css */
+/* toast.css */
 .ui-toast-host {
   position: fixed;
   left: 0;
@@ -8,6 +8,20 @@
   justify-content: center;
   pointer-events: none; /* 諛붽묑 ?대┃ 諛⑺빐 X */
   padding: 16px;
+  .ui-toast {
+    transform: translateY(18px);
+    opacity: 0;
+    transition: transform var(--toast-transition-ms, 250ms) ease,
+      opacity var(--toast-transition-ms, 250ms) ease;
+  }
+  &.is-open .ui-toast {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.is-closed .ui-toast {
+    transform: translateY(18px);
+    opacity: 0;
+  }
 }
 
 .ui-toast-host--bottom {
@@ -18,22 +32,6 @@
 }
 
 /* ?좊땲硫붿씠?? ?꾨옒->??enter), ??>?꾨옒(exit) */
-.ui-toast-host .ui-toast {
-  transform: translateY(18px);
-  opacity: 0;
-  transition: transform var(--toast-transition-ms, 250ms) ease,
-    opacity var(--toast-transition-ms, 250ms) ease;
-}
-
-.ui-toast-host.is-open .ui-toast {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.ui-toast-host.is-closed .ui-toast {
-  transform: translateY(18px);
-  opacity: 0;
-}
 
 .ui-toast {
   pointer-events: auto; /* ?좎뒪???대? ?대┃ 媛??*/
@@ -91,4 +89,3 @@
 .ui-toast--error {
   background: #6a2a2a;
 }
-

@@ -15,8 +15,11 @@
   overscroll-behavior: contain;
 }
 
-.modal-content.screen-case-modal {
+.modal-content {
+
+  &.screen-case-modal {
   color: #0c2e4e;
+  }
 }
 
 .modal-content.screen-case-modal h2,
@@ -27,12 +30,11 @@
 .screen-case-dialog-header {
   display: grid;
   gap: 1.2rem;
-}
-
-.screen-case-dialog-header p {
+  p {
   color: #47627a;
   font-size: 1.65rem;
   line-height: 1.72;
+  }
 }
 
 .screen-case-dialog-grid {
@@ -52,21 +54,19 @@
 
 .screen-case-dialog-panel--placeholder {
   min-height: 26rem;
-}
-
-.screen-case-dialog-panel--placeholder h3 {
+  h3 {
   margin-top: 0.8rem;
   color: #122b40;
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.35;
-}
-
-.screen-case-dialog-panel--placeholder p:last-child {
+  }
+  p:last-child {
   margin-top: 1rem;
   color: #47627a;
   font-size: 1.6rem;
   line-height: 1.72;
+  }
 }
 
 .screen-case-dialog-live-preview {
@@ -77,31 +77,27 @@
   padding: 0.8rem;
   background: rgba(255, 255, 255, 0.72);
   overscroll-behavior: contain;
+  .banking-home-screen {
+  height: 100%;
+  min-height: auto;
+  width: 100%;
+  }
+  .banking-home-screen__device {
+  width: 100%;
+  max-width: none;
+  }
+  .id-login-screen {
+  width: 100%;
+  }
+  .id-login-screen__device {
+  margin-inline: auto;
+  }
 }
 
 .screen-case-dialog-live-preview--only {
   display: flex;
   justify-content: center;
   margin-top: 0;
-}
-
-.screen-case-dialog-live-preview .banking-home-screen {
-  height: 100%;
-  min-height: auto;
-  width: 100%;
-}
-
-.screen-case-dialog-live-preview .banking-home-screen__device {
-  width: 100%;
-  max-width: none;
-}
-
-.screen-case-dialog-live-preview .id-login-screen {
-  width: 100%;
-}
-
-.screen-case-dialog-live-preview .id-login-screen__device {
-  margin-inline: auto;
 }
 
 .screen-case-dialog-empty-state {
@@ -111,10 +107,9 @@
   padding: 2rem;
   border-radius: 1.6rem;
   background: rgba(255, 255, 255, 0.8);
-}
-
-.screen-case-dialog-empty-state strong {
+  strong {
   color: #163149;
   font-size: 1.6rem;
   font-weight: 700;
+  }
 }

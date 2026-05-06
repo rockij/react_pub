@@ -1,4 +1,4 @@
-﻿.switch {
+.switch {
   --sw-w: 44px;
   --sw-h: 24px;
   --sw-pad: 3px;
@@ -18,6 +18,13 @@
 
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 1;
+  }
+  &.disabled .switch-track {
+    box-shadow: none;
+  }
 }
 
 /* ?묎렐???좎?: ?붾㈃?먯꽌留??④? */
@@ -32,6 +39,29 @@
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
+  &:checked + .switch-track {
+    background: var(--track-on);
+  }
+  &:checked + .switch-track .switch-thumb {
+    background: var(--thumb-on);
+    transform: translateX(calc(var(--sw-w) - var(--sw-h)));
+  }
+  &:focus-visible + .switch-track {
+    outline: 3px solid color-mix(in srgb, var(--theme-brand) 35%, transparent);
+    outline-offset: 2px;
+  }
+  &:disabled + .switch-track {
+    background: var(--track-off-disabled);
+  }
+  &:disabled + .switch-track .switch-thumb {
+    box-shadow: none;
+  }
+  &:disabled:checked + .switch-track {
+    background: var(--track-on-disabled);
+  }
+  &:disabled:checked + .switch-track .switch-thumb {
+    background: var(--thumb-disabled);
+  }
 }
 
 .switch-track {
@@ -64,46 +94,11 @@
 }
 
 /* checked ?곹깭 */
-.switch-input:checked + .switch-track {
-  background: var(--track-on);
-}
-
-.switch-input:checked + .switch-track .switch-thumb {
-  background: var(--thumb-on);
-  transform: translateX(calc(var(--sw-w) - var(--sw-h)));
-}
 
 /* focus ring */
-.switch-input:focus-visible + .switch-track {
-  outline: 3px solid color-mix(in srgb, var(--theme-brand) 35%, transparent);
-  outline-offset: 2px;
-}
 
 /* disabled wrapper */
-.switch.disabled {
-  cursor: not-allowed;
-  opacity: 1;
-}
-
-.switch.disabled .switch-track {
-  box-shadow: none;
-}
 
 /* disabled input */
-.switch-input:disabled + .switch-track {
-  background: var(--track-off-disabled);
-}
-
-.switch-input:disabled + .switch-track .switch-thumb {
-  box-shadow: none;
-}
 
 /* disabled + checked */
-.switch-input:disabled:checked + .switch-track {
-  background: var(--track-on-disabled);
-}
-
-.switch-input:disabled:checked + .switch-track .switch-thumb {
-  background: var(--thumb-disabled);
-}
-

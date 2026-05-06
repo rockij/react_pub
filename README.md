@@ -64,6 +64,39 @@ NEXT_PUBLIC_STORYBOOK_URL=http://localhost:6006
 
 관련 코드: [src/app/component-data.ts](/d:/workspace/react_pub/src/app/component-data.ts)
 
+## VS Code 작업 환경 설정
+
+VS Code에서는 루트 폴더를 그대로 열고, 터미널 2개로 Next.js와 Storybook을 병행 실행하는 흐름을 기준으로 작업합니다.
+
+### 1. 프로젝트 폴더 열기
+
+```bash
+code .
+# 또는 VS Code에서 react_pub 폴더 열기
+```
+
+### 2. 추천 확장 설치
+
+- `ESLint`: 저장 전후 린트 오류 확인
+- `Prettier`: JSX, TS, CSS 포맷 정리
+- `EditorConfig`: 팀 규칙과 자동 정렬 기준 보조
+
+### 3. 통합 터미널 실행
+
+```bash
+npm install
+npm run dev
+npm run storybook
+```
+
+- `npm run dev`와 `npm run storybook`은 별도 터미널에서 실행하면 Home과 Storybook을 함께 확인하기 편합니다.
+
+### 4. 확인 포인트
+
+- Home: `http://localhost:3000`
+- Storybook: `http://localhost:6006`
+- 환경 변수 변경 시 VS Code 터미널에서 개발 서버를 재시작합니다.
+
 ## 사용 가능한 스크립트
 
 ```bash

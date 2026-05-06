@@ -33,6 +33,7 @@ const sectionLinks = [
   { href: '#libraries', label: '주요 라이브러리' },
   { href: '#getting-started', label: '시작 방법' },
   { href: '#environment', label: '환경 설정' },
+  { href: '#vscode-setup', label: 'VS Code 설정' },
   { href: '#scripts', label: '스크립트' },
   { href: '#structure', label: '프로젝트 구조' },
   { href: '#components', label: '컴포넌트' },
@@ -176,6 +177,42 @@ export default async function Page() {
                 <li>프로덕션 환경에서는 값이 없으면 `/storybook/` 경로를 사용합니다.</li>
                 <li>`.env*.local` 파일은 `.gitignore`에 포함되어 있어 커밋되지 않습니다.</li>
               </ul>
+            </section>
+
+            <section className="home-docs-section" id="vscode-setup">
+              <h3>VS Code 작업 환경 설정</h3>
+              <p>
+                VS Code에서는 루트 폴더를 그대로 열고, 터미널 2개로 Next.js와 Storybook을 병행 실행하는
+                흐름을 기준으로 작업합니다.
+              </p>
+              <div className="home-docs-step">
+                <h4>1. 프로젝트 폴더 열기</h4>
+                <pre>{'code .\n# 또는 VS Code에서 react_pub 폴더 열기'}</pre>
+              </div>
+              <div className="home-docs-step">
+                <h4>2. 추천 확장 설치</h4>
+                <ul className="home-docs-bullet-list">
+                  <li>ESLint: 저장 전후 린트 오류 확인</li>
+                  <li>Prettier: JSX, TS, CSS 포맷 정리</li>
+                  <li>EditorConfig 사용 시 팀 규칙과 자동 정렬 기준 보조</li>
+                </ul>
+              </div>
+              <div className="home-docs-step">
+                <h4>3. 통합 터미널 실행</h4>
+                <pre>{'npm install\nnpm run dev\nnpm run storybook'}</pre>
+                <p>
+                  `npm run dev`와 `npm run storybook`은 별도 터미널에서 실행하면 Home과 Storybook을
+                  함께 확인하기 편합니다.
+                </p>
+              </div>
+              <div className="home-docs-step">
+                <h4>4. 확인 포인트</h4>
+                <ul className="home-docs-bullet-list">
+                  <li>Home: `http://localhost:3000`</li>
+                  <li>Storybook: `http://localhost:6006`</li>
+                  <li>환경 변수 변경 시 VS Code 터미널에서 개발 서버를 재시작합니다.</li>
+                </ul>
+              </div>
             </section>
 
             <section className="home-docs-section" id="scripts">

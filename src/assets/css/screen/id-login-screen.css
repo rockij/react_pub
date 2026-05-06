@@ -24,24 +24,22 @@
   gap: 1.6rem;
   padding-top: 0.2rem;
   text-align: center;
-}
-
-.id-login-screen__header h2 {
+  h2 {
   margin: 0;
   color: #25282d;
   font-size: 2.3rem;
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.03em;
-}
-
-.id-login-screen__header p {
+  }
+  p {
   margin: 0;
   color: #616a74;
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: -0.02em;
+  }
 }
 
 .id-login-screen__form {
@@ -50,15 +48,17 @@
   margin-top: 4rem;
 }
 
-.id-login-screen__textfield .textfield__label {
+.id-login-screen__textfield {
+
+  .textfield__label {
   display: none;
-}
+  }
 
-.id-login-screen__textfield .textfield__control {
+  .textfield__control {
   display: block;
-}
+  }
 
-.id-login-screen__textfield .textfield__input {
+  .textfield__input {
   width: 100%;
   height: 5.8rem;
   padding: 0 1.6rem;
@@ -69,14 +69,15 @@
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-}
+  }
 
-.id-login-screen__textfield .textfield__input::placeholder {
+  .textfield__input::placeholder {
   color: #98a1ab;
-}
+  }
 
-.id-login-screen__textfield .textfield__input:focus {
+  .textfield__input:focus {
   border-color: #14a798;
+  }
 }
 
 .id-login-screen__textfield .textfield__toggle,
@@ -124,29 +125,26 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   cursor: pointer;
-}
-
-.id-login-screen__guide svg {
+  svg {
   color: #8d98a4;
+  }
 }
 
 .id-login-screen__footer {
   display: grid;
   gap: 1.8rem;
   margin-top: 10rem;
-}
-
-.id-login-screen__footer .btn {
+  .btn {
   width: 100%;
   min-height: 5.8rem;
   border-radius: 1.4rem;
   font-size: 1.9rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-}
-
-.id-login-screen__footer .btn--primary {
+  }
+  .btn--primary {
   background: #12aa9a;
+  }
 }
 
 .id-login-screen__alt-login {

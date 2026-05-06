@@ -58,12 +58,13 @@
 }
 
 /* Disabled */
-.slider--disabled .slider__track {
-  background-color: var(--theme-brand-soft);
-}
-
-.slider--disabled .slider__track-fill {
-  background-color: var(--theme-brand-soft-line);
+.slider--disabled {
+  .slider__track {
+    background-color: var(--theme-brand-soft);
+  }
+  .slider__track-fill {
+    background-color: var(--theme-brand-soft-line);
+  }
 }
 
 .slider--disabled .slider__input::-webkit-slider-thumb,
