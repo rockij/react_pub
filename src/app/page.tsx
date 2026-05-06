@@ -273,6 +273,9 @@ export default async function Page() {
                 <li>퍼블리셔 관점에서 재사용 구조와 마크업 일관성을 유지합니다.</li>
                 <li>Screen Case 추가 또는 수정 시 사용 컴포넌트 목록을 함께 업데이트합니다.</li>
                 <li>Screen Case 작업 시 프로젝트 내 공통 컴포넌트를 우선 사용합니다.</li>
+                <li>GitHub 작업은 현재 프로젝트 기준 `master` 브랜치에서 새 작업 브랜치를 생성한 뒤 진행합니다.</li>
+                <li>작업 브랜치명은 `pub/메일아이디` 형식으로 생성합니다. 예: `pub/ijkiim`</li>
+                <li>작업 완료 후 `master`로 바로 머지하지 않고 Pull Request를 요청한 뒤 리뷰 및 머지 절차를 진행합니다.</li>
                 <li>공통 스타일 변경은 `src/assets/css/base.css`에서 관리합니다.</li>
                 <li>컴포넌트 스타일은 `src/assets/css/component`, 화면 케이스 스타일은 `src/assets/css/screen`에서 관리합니다.</li>
                 <li>`next.config.js`의 `output: 'export'` 설정으로 정적 사이트를 빌드합니다.</li>
