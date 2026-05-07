@@ -191,6 +191,10 @@ react_pub/
 - 퍼블리셔 관점에서 재사용 구조와 마크업 일관성을 유지합니다.
 - Screen Case 추가 또는 수정 시 사용 컴포넌트 목록을 함께 업데이트합니다.
 - Screen Case 작업 시 프로젝트 내 공통 컴포넌트를 우선 사용합니다.
+- 협업이 필요하면 GitHub 아이디를 이메일 `ijkim@wylie.co.kr`로 보내 주세요. 확인 후 협업 신청 메일을 발송합니다.
+- 협업 승인 후에는 가이드에 따라 환경을 설정하고, `master` 브랜치 기준으로 본인 작업 브랜치를 추가한 뒤 작업합니다.
+- 작업 완료 후에는 본인 브랜치에만 push 하고 Merge Request 또는 Pull Request를 작성해 전달합니다.
+- 승인된 작업만 배포합니다.
 - 공통 스타일 변경은 [src/assets/css/base.css](/d:/workspace/react_pub/src/assets/css/base.css)에서 관리합니다.
 - 컴포넌트 스타일은 `src/assets/css/component`, 화면 케이스 스타일은 `src/assets/css/screen`에서 관리합니다.
 
