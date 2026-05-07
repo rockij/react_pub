@@ -193,8 +193,10 @@ react_pub/
 - Screen Case 작업 시 프로젝트 내 공통 컴포넌트를 우선 사용합니다.
 - 협업이 필요하면 GitHub 아이디를 이메일 `ijkim@wylie.co.kr`로 보내 주세요. 확인 후 협업 신청 메일을 발송합니다.
 - 협업 승인 후에는 가이드에 따라 환경을 설정하고, `develop` 브랜치 기준으로 본인 작업 브랜치를 추가한 뒤 작업합니다.
+- `master` 브랜치는 자동 배포 대상이므로 직접 머지하지 않고, 반드시 `develop` 브랜치로 Merge Request 또는 Pull Request를 요청합니다.
 - 작업 후 스테이지에 올리기 전에는 `develop` 브랜치에 pull 받을 내용이 있는지 확인하고, 있으면 본인 브랜치에 먼저 merge 합니다.
 - 작업 완료 후에는 본인 브랜치에만 push 하고, 타겟 브랜치를 `develop`으로 지정한 Merge Request 또는 Pull Request를 작성해 전달합니다.
+- Pull Request 작성 시 `Add a description`에 작업 내용을 간략히 적어 주는 것을 권장합니다.
 - 승인된 작업만 배포합니다.
 - 공통 스타일 변경은 [src/assets/css/base.css](/d:/workspace/react_pub/src/assets/css/base.css)에서 관리합니다.
 - 컴포넌트 스타일은 `src/assets/css/component`, 화면 케이스 스타일은 `src/assets/css/screen`에서 관리합니다.

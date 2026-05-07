@@ -177,7 +177,6 @@ export function DatePicker({
             className={['date-picker__trigger', displayValue ? 'has-value' : ''].filter(Boolean).join(' ')}
             aria-haspopup="dialog"
             aria-expanded={isOpen}
-            aria-invalid={error || undefined}
             aria-describedby={helperId}
             disabled={disabled}
             onClick={() => setIsOpen(prev => !prev)}

@@ -28,6 +28,8 @@ export const Card: React.FC<CardProps> = ({ title, children, imageUrl, onClick }
 
   return (
     <div className={className} onClick={onClick}>
+      {/* Intentional raw img usage for flexible publisher-managed assets. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       {imageUrl && <img src={imageUrl} alt={title} className="card__image" />}
       <div className="card__content">
         <h3 className="card__title">{title}</h3>

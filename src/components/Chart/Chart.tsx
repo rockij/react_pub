@@ -135,7 +135,12 @@ export function Chart({
   emptyMessage = '표시할 데이터가 없습니다.',
   valueFormatter = defaultValueFormatter,
 }: ChartProps) {
+  const [isMounted, setIsMounted] = React.useState(false);
   const rootClassName = ['chart-card', `chart-card--${variant}`, className].filter(Boolean).join(' ');
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   if (data.length === 0 || series.length === 0) {
     return (
@@ -163,57 +168,61 @@ export function Chart({
       )}
 
       <div className="chart-card__body" style={{ height }}>
-        <ResponsiveContainer width="100%" height="100%">
-          {variant === 'donut' ? (
-            <PieChart>
-              <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
-              {showLegend && <Legend verticalAlign="bottom" height={28} iconType="circle" />}
-              <Pie
-                data={data}
-                dataKey={primarySeries.key}
-                nameKey={xKey}
-                innerRadius="58%"
-                outerRadius="82%"
-                paddingAngle={3}
-                cornerRadius={10}
-              >
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`${entry[xKey]}-${index}`}
-                    fill={series[index]?.color ?? primarySeries.color}
-                  />
-                ))}
-              </Pie>
-            </PieChart>
-          ) : variant === 'bar' ? (
-            <BarChart data={data} barGap={12}>
-              {showGrid && <CartesianGrid vertical={false} strokeDasharray="4 4" stroke="rgba(156, 177, 198, 0.45)" />}
-              <XAxis dataKey={xKey} tickLine={false} axisLine={false} />
-              <YAxis tickLine={false} axisLine={false} />
-              <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
-              {showLegend && <Legend verticalAlign="top" height={36} iconType="circle" />}
-              {renderCartesianSeries(series, variant)}
-            </BarChart>
-          ) : variant === 'composed' ? (
-            <ComposedChart data={data}>
-              {showGrid && <CartesianGrid vertical={false} strokeDasharray="4 4" stroke="rgba(156, 177, 198, 0.45)" />}
-              <XAxis dataKey={xKey} tickLine={false} axisLine={false} />
-              <YAxis tickLine={false} axisLine={false} />
-              <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
-              {showLegend && <Legend verticalAlign="top" height={36} iconType="circle" />}
-              {renderCartesianSeries(series, variant)}
-            </ComposedChart>
-          ) : (
-            <ComposedChart data={data}>
-              {showGrid && <CartesianGrid vertical={false} strokeDasharray="4 4" stroke="rgba(156, 177, 198, 0.45)" />}
-              <XAxis dataKey={xKey} tickLine={false} axisLine={false} />
-              <YAxis tickLine={false} axisLine={false} />
-              <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
-              {showLegend && <Legend verticalAlign="top" height={36} iconType="circle" />}
-              {renderCartesianSeries(series, variant)}
-            </ComposedChart>
-          )}
-        </ResponsiveContainer>
+        {isMounted ? (
+          <ResponsiveContainer width="100%" height="100%">
+            {variant === 'donut' ? (
+              <PieChart>
+                <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
+                {showLegend && <Legend verticalAlign="bottom" height={28} iconType="circle" />}
+                <Pie
+                  data={data}
+                  dataKey={primarySeries.key}
+                  nameKey={xKey}
+                  innerRadius="58%"
+                  outerRadius="82%"
+                  paddingAngle={3}
+                  cornerRadius={10}
+                >
+                  {data.map((entry, index) => (
+                    <Cell
+                      key={`${entry[xKey]}-${index}`}
+                      fill={series[index]?.color ?? primarySeries.color}
+                    />
+                  ))}
+                </Pie>
+              </PieChart>
+            ) : variant === 'bar' ? (
+              <BarChart data={data} barGap={12}>
+                {showGrid && <CartesianGrid vertical={false} strokeDasharray="4 4" stroke="rgba(156, 177, 198, 0.45)" />}
+                <XAxis dataKey={xKey} tickLine={false} axisLine={false} />
+                <YAxis tickLine={false} axisLine={false} />
+                <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
+                {showLegend && <Legend verticalAlign="top" height={36} iconType="circle" />}
+                {renderCartesianSeries(series, variant)}
+              </BarChart>
+            ) : variant === 'composed' ? (
+              <ComposedChart data={data}>
+                {showGrid && <CartesianGrid vertical={false} strokeDasharray="4 4" stroke="rgba(156, 177, 198, 0.45)" />}
+                <XAxis dataKey={xKey} tickLine={false} axisLine={false} />
+                <YAxis tickLine={false} axisLine={false} />
+                <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
+                {showLegend && <Legend verticalAlign="top" height={36} iconType="circle" />}
+                {renderCartesianSeries(series, variant)}
+              </ComposedChart>
+            ) : (
+              <ComposedChart data={data}>
+                {showGrid && <CartesianGrid vertical={false} strokeDasharray="4 4" stroke="rgba(156, 177, 198, 0.45)" />}
+                <XAxis dataKey={xKey} tickLine={false} axisLine={false} />
+                <YAxis tickLine={false} axisLine={false} />
+                <Tooltip content={<ChartTooltip formatter={valueFormatter} />} />
+                {showLegend && <Legend verticalAlign="top" height={36} iconType="circle" />}
+                {renderCartesianSeries(series, variant)}
+              </ComposedChart>
+            )}
+          </ResponsiveContainer>
+        ) : (
+          <div className="chart-card__placeholder" aria-hidden="true" />
+        )}
       </div>
     </section>
   );

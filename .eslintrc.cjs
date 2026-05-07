@@ -1,29 +1,15 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
-    'prettier', // ⚠️ Prettier와 충돌 방지
+  extends: ['next/core-web-vitals', 'next/typescript'],
+  overrides: [
+    {
+      files: ['**/*.stories.tsx'],
+      rules: {
+        'react-hooks/rules-of-hooks': 'off',
+      },
+    },
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: { jsx: true },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: ['react', '@typescript-eslint', 'jsx-a11y'],
   rules: {
-    'react/react-in-jsx-scope': 'off', // Next.js 환경용
     'react/prop-types': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
-  },
-  settings: {
-    react: { version: 'detect' },
   },
 };

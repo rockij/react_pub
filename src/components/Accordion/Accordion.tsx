@@ -68,7 +68,7 @@ export function Accordion({
 
   return (
     <div className={['accordion', className].filter(Boolean).join(' ')} aria-label={ariaLabel}>
-      {items.map((item, index) => {
+      {items.map(item => {
         const isOpen = openIds.includes(item.id);
         const titleId = `${item.id}-title`;
         const panelId = `${item.id}-content`;
