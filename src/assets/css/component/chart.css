@@ -42,6 +42,15 @@
   padding: 12px 12px 20px;
 }
 
+.chart-card__placeholder {
+  height: 100%;
+  border-radius: 18px;
+  background:
+    linear-gradient(120deg, rgba(212, 225, 238, 0.72), rgba(255, 255, 255, 0.96), rgba(212, 225, 238, 0.72));
+  background-size: 220% 100%;
+  animation: chart-card-loading 1.4s ease-in-out infinite;
+}
+
 .chart-card__empty {
   display: grid;
   place-items: center;
@@ -97,4 +106,13 @@
 .chart-tooltip__value {
   font-weight: 700;
   color: var(--theme-brand-strong);
+}
+
+@keyframes chart-card-loading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }

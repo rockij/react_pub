@@ -46,6 +46,9 @@ export function Toast({
   closeLabel = '닫기',
 }: ToastProps) {
   const closeTimerRef = React.useRef<number | null>(null);
+  const transitionStyle: React.CSSProperties & { '--toast-transition-ms': string } = {
+    '--toast-transition-ms': `${transitionMs}ms`,
+  };
 
   // open=true가 되면 duration 후 close 트리거
   React.useEffect(() => {
@@ -81,7 +84,7 @@ export function Toast({
   const toastClass = ['ui-toast', `ui-toast--${variant}`, className ?? ''].join(' ').trim();
 
   return (
-    <div className={rootClass} style={{ ['--toast-transition-ms' as any]: `${transitionMs}ms` }}>
+    <div className={rootClass} style={transitionStyle}>
       <div className={toastClass} role="status" aria-live="polite" aria-atomic="true">
         <div className="ui-toast__message">{message}</div>
 

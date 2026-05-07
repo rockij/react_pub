@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
 import { CircleAlert, Copy, Search, Triangle } from 'lucide-react';
-import { Badge, Button, Pagination, Table, type TableColumn, type TableRow } from '../../components';
+import { Badge, Pagination, Table, type TableColumn, type TableRow } from '../../components';
 import { Select } from '../../components/Select/Select';
 import TooltipDemo from '../../components/Tooltip/Tooltip';
 import { ModeToggle } from '../mode-toggle';

@@ -1,10 +1,17 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
-};
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
-module.exports = nextConfig;
+module.exports = (phase) => {
+  const isDevelopmentServer = phase === PHASE_DEVELOPMENT_SERVER;
+
+  return {
+    reactStrictMode: true,
+    distDir: process.env.NEXT_DIST_DIR || (isDevelopmentServer ? '.next' : '.next-build'),
+    experimental: {
+      cpus: 1,
+    },
+    output: 'export',
+    images: {
+      unoptimized: true,
+    },
+  };
+};
