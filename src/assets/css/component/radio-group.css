@@ -1,0 +1,84 @@
+.radio-group {
+  display: grid;
+  gap: 12px;
+
+  .radio {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input[type='radio'] {
+      /* 접근성 유지용 숨김 */
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+
+      /* 체크 상태 */
+      &:checked + label {
+        &::before {
+          border-color: var(--theme-brand);
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      /* 키보드 포커스 */
+      &:focus-visible + label::before {
+        outline: 3px solid color-mix(in srgb, var(--theme-brand) 30%, transparent);
+        outline-offset: 2px;
+      }
+
+      /* 비활성화 */
+      &:disabled + label {
+        cursor: not-allowed;
+        opacity: 0.55;
+      }
+    }
+
+    label {
+      position: relative;
+      padding-left: 28px;
+      line-height: 20px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 16px;
+      color: var(--theme-brand-strong);
+
+      /* 바깥 원 */
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        border: 2px solid var(--theme-brand-soft-line);
+        background: #fff;
+        box-sizing: border-box;
+      }
+
+      /* 안쪽 점 */
+      &::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background: var(--theme-brand);
+        opacity: 0;
+      }
+    }
+  }
+}

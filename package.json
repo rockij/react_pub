@@ -4,18 +4,28 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/next-build.mjs",
+    "build:netlify": "npm run build && npm run build-storybook:static",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build-storybook:static": "storybook build -o out/storybook"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "lucide-react": "^1.7.0",
+    "next": "^14.0.0",
     "react": "^18.2.0",
+    "react-day-picker": "^9.14.0",
     "react-dom": "^18.2.0",
-    "next": "^14.0.0"
+    "react-modal": "^3.16.3",
+    "react-tooltip": "^5.4.0",
+    "recharts": "^3.8.1"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.6.0",
     "@storybook/addon-essentials": "^7.6.0",
     "@storybook/addon-interactions": "^7.6.0",
     "@storybook/addon-links": "^7.6.0",
@@ -23,13 +33,16 @@
     "@storybook/nextjs": "^7.6.0",
     "@storybook/react": "^7.6.0",
     "@storybook/testing-library": "^0.2.2",
-    "storybook": "^7.6.0",
-    "typescript": "^5.0.0",
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@types/react-modal": "^3.16.3",
     "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0"
+    "eslint-config-next": "^14.0.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "i18next": "^26.0.3",
+    "react-i18next": "^17.0.2",
+    "storybook": "^7.6.0",
+    "typescript": "^5.0.0"
   }
 }
-

@@ -1,0 +1,58 @@
+/* Keep screen case visuals identical in both light and dark color modes. */
+:is(
+    .banking-home-screen,
+    .consult-inquiry-screen,
+    .find-id-screen,
+    .first-trade-saving-screen,
+    .id-login-screen,
+    .insurance-signup-complete-screen,
+    .notice-bottomsheet-screen,
+    .portfolio-return-screen,
+    .signup-agreement-screen,
+    .signup-period-bottomsheet-screen,
+    .modal-bottom-content.notice-bottomsheet-modal,
+    .modal-bottom-content.signup-period-bottomsheet-modal
+  ) {
+  --app-bg: #f3f7fb;
+  --app-surface: #ffffff;
+  --app-surface-muted: #f7fafd;
+  --app-surface-elevated: #fbfdff;
+  --app-surface-hero: #ffffff;
+  --app-border: #d9e3ea;
+  --app-border-strong: #c5d3df;
+  --app-text-primary: #101f2c;
+  --app-text-secondary: #23384a;
+  --app-text-muted: #51697f;
+  --app-text-inverse: #ffffff;
+  --app-shadow: rgba(15, 51, 82, 0.08);
+  --app-shadow-strong: rgba(12, 46, 78, 0.12);
+  --app-code-bg: #f7f9fb;
+  --app-code-border: #d8e2ea;
+  --app-preview-bg-start: #cfe0f1;
+  --app-preview-bg-end: #bfd4e7;
+  --app-preview-inset-border: rgba(255, 255, 255, 0.4);
+  --app-demo-surface: #ffffff;
+  --app-demo-surface-strong: #f7fbff;
+  --app-demo-border: #d9e2ea;
+  --app-demo-shadow: rgba(12, 46, 78, 0.08);
+  --app-demo-hero-1: linear-gradient(135deg, #e4f1ff 0%, #f7fbff 100%);
+  --app-demo-hero-2: linear-gradient(135deg, #fce7d6 0%, #fff7ef 100%);
+  --app-demo-hero-3: linear-gradient(135deg, #e0f0e5 0%, #f6fcf8 100%);
+  --app-demo-card-1: linear-gradient(135deg, #cfe2f5 0%, #eef5fb 100%);
+  --app-demo-card-2: linear-gradient(135deg, #f0dbc9 0%, #fbf2eb 100%);
+  --app-demo-card-3: linear-gradient(135deg, #d8ead8 0%, #f3faf3 100%);
+  --app-demo-card-4: linear-gradient(135deg, #e4dff7 0%, #f7f5fd 100%);
+  --theme-brand: #005a9c;
+  --theme-brand-strong: #0c2e4e;
+  --theme-brand-mid: #1f5c8f;
+  --theme-brand-soft: #d3e0ec;
+  --theme-brand-soft-strong: #c2cfdd;
+  --theme-brand-soft-line: #b8c7d8;
+  --theme-brand-softest: #f1f6fb;
+  --theme-panel-soft: #edf4fa;
+  --theme-panel-soft-alt: #eaf3fa;
+  --theme-accent: #0c5a86;
+  --theme-title: #12385a;
+  --theme-title-fill: #12385a;
+  --theme-shadow: rgba(12, 46, 78, 0.12);
+}

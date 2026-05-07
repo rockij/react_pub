@@ -1,0 +1,335 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+html {
+  scroll-behavior: smooth;
+  &[data-color-mode='dark'] {
+    --app-bg: #09131d;
+    --app-surface: #0f1b27;
+    --app-surface-muted: #132230;
+    --app-surface-elevated: #162636;
+    --app-surface-hero: #10263a;
+    --app-border: #23394d;
+    --app-border-strong: #2d4b65;
+    --app-text-primary: #e8f0f7;
+    --app-text-secondary: #bfd0df;
+    --app-text-muted: #89a1b4;
+    --app-text-inverse: #ffffff;
+    --app-shadow: rgba(0, 0, 0, 0.28);
+    --app-shadow-strong: rgba(0, 0, 0, 0.36);
+    --app-code-bg: #0b1520;
+    --app-code-border: #1c3347;
+    --app-preview-bg-start: #7c94aa;
+    --app-preview-bg-end: #667d93;
+    --app-preview-inset-border: rgba(255, 255, 255, 0.16);
+    --app-demo-surface: #f4f7fb;
+    --app-demo-surface-strong: #dce8f5;
+    --app-demo-border: #23394d;
+    --app-demo-shadow: rgba(0, 0, 0, 0.22);
+    --app-demo-hero-1: linear-gradient(135deg, #d7e5f5 0%, #edf3f9 100%);
+    --app-demo-hero-2: linear-gradient(135deg, #ead9cb 0%, #f6eee9 100%);
+    --app-demo-hero-3: linear-gradient(135deg, #d6e5da 0%, #edf5ef 100%);
+    --app-demo-card-1: linear-gradient(135deg, #c8daec 0%, #e8f0f7 100%);
+    --app-demo-card-2: linear-gradient(135deg, #e7d5c8 0%, #f5ece5 100%);
+    --app-demo-card-3: linear-gradient(135deg, #d4e4d4 0%, #edf5ed 100%);
+    --app-demo-card-4: linear-gradient(135deg, #ddd8ef 0%, #f0edf9 100%);
+
+    --theme-brand: #4ca4e8;
+    --theme-brand-strong: #dceeff;
+    --theme-brand-mid: #2f78b7;
+    --theme-brand-soft: #132a3e;
+    --theme-brand-soft-strong: #1e3a50;
+    --theme-brand-soft-line: #28506e;
+    --theme-brand-softest: #112537;
+    --theme-panel-soft: #102638;
+    --theme-panel-soft-alt: #122a3d;
+    --theme-accent: #68b8ff;
+    --theme-title: #e8f0f7;
+    --theme-title-fill: #1b3248;
+    --theme-shadow: rgba(0, 0, 0, 0.34);
+  }
+}
+
+:root {
+  /* 색상 변수 */
+  --color-overlay: rgba(0, 0, 0, 0.3);
+  --color-text-primary: #f9f1e7;
+  --color-text-secondary: #fff;
+  --color-surface-primary: #f5ede1;
+  --color-accent-primary: #f3cd81;
+  --color-action-primary-bg: #fff;
+  --color-action-primary-text: #333;
+
+  --container-max: 1100px;
+
+  /* 타이포(프로젝트에 맞게 교체) */
+  --font-display: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
+
+  --app-bg: #f3f7fb;
+  --app-surface: #ffffff;
+  --app-surface-muted: #f7fafd;
+  --app-surface-elevated: #fbfdff;
+  --app-surface-hero: #ffffff;
+  --app-border: #d9e3ea;
+  --app-border-strong: #c5d3df;
+  --app-text-primary: #101f2c;
+  --app-text-secondary: #23384a;
+  --app-text-muted: #51697f;
+  --app-text-inverse: #ffffff;
+  --app-shadow: rgba(15, 51, 82, 0.08);
+  --app-shadow-strong: rgba(12, 46, 78, 0.12);
+  --app-code-bg: #f7f9fb;
+  --app-code-border: #d8e2ea;
+  --app-preview-bg-start: #cfe0f1;
+  --app-preview-bg-end: #bfd4e7;
+  --app-preview-inset-border: rgba(255, 255, 255, 0.4);
+  --app-demo-surface: #ffffff;
+  --app-demo-surface-strong: #f7fbff;
+  --app-demo-border: #d9e2ea;
+  --app-demo-shadow: rgba(12, 46, 78, 0.08);
+  --app-demo-hero-1: linear-gradient(135deg, #e4f1ff 0%, #f7fbff 100%);
+  --app-demo-hero-2: linear-gradient(135deg, #fce7d6 0%, #fff7ef 100%);
+  --app-demo-hero-3: linear-gradient(135deg, #e0f0e5 0%, #f6fcf8 100%);
+  --app-demo-card-1: linear-gradient(135deg, #cfe2f5 0%, #eef5fb 100%);
+  --app-demo-card-2: linear-gradient(135deg, #f0dbc9 0%, #fbf2eb 100%);
+  --app-demo-card-3: linear-gradient(135deg, #d8ead8 0%, #f3faf3 100%);
+  --app-demo-card-4: linear-gradient(135deg, #e4dff7 0%, #f7f5fd 100%);
+
+  --theme-brand: #005a9c;
+  --theme-brand-strong: #0c2e4e;
+  --theme-brand-mid: #1f5c8f;
+  --theme-brand-soft: #d3e0ec;
+  --theme-brand-soft-strong: #c2cfdd;
+  --theme-brand-soft-line: #b8c7d8;
+  --theme-brand-softest: #f1f6fb;
+  --theme-panel-soft: #edf4fa;
+  --theme-panel-soft-alt: #eaf3fa;
+  --theme-accent: #0c5a86;
+  --theme-title: #12385a;
+  --theme-title-fill: #12385a;
+  --theme-shadow: rgba(12, 46, 78, 0.12);
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-font-smoothing: antialiased;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  font-size: 100%;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  font: 1.6rem/1.4 var(--font-sans);
+  letter-spacing: -0.05rem;
+  background: var(--app-bg);
+  color: var(--app-text-primary);
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+img,
+video,
+audio,
+object,
+embed,
+iframe {
+  max-width: 100%;
+}
+img {
+  height: auto;
+  vertical-align: top;
+}
+i,
+address {
+  font-style: normal;
+}
+em {
+  font-style: italic;
+}
+a,
+s {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+strong,
+b,
+th {
+  font-weight: 500;
+}
+code,
+.wfos {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+pre {
+  font-family: var(--font-sans);
+  word-break: break-all;
+  white-space: pre-line;
+}
+legend,
+caption,
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+:focus {
+  outline: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+button {
+  cursor: pointer;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}

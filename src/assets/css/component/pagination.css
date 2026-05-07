@@ -1,0 +1,101 @@
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+.pagination__list {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.pagination__button,
+.pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.2rem;
+  height: 3.2rem;
+  padding: 0 1rem;
+  border: 0.1rem solid var(--theme-brand-soft-line);
+  border-radius: 0.6rem;
+  background: var(--app-surface);
+  color: var(--app-text-secondary);
+  font: inherit;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease,
+    box-shadow 180ms ease, transform 180ms ease;
+}
+
+.pagination__button {
+  &:hover:not(:disabled) {
+    border-color: var(--app-border-strong);
+    background: var(--theme-brand-softest);
+    color: var(--theme-brand-strong);
+    transform: translateY(-0.1rem);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--theme-brand) 22%, transparent);
+  }
+
+  &[aria-current='page'] {
+    border-color: var(--theme-accent);
+    background: var(--theme-brand-strong);
+    color: var(--app-text-inverse);
+    box-shadow: 0 1rem 2rem var(--theme-shadow);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.42;
+    transform: none;
+  }
+}
+
+html {
+  &[data-color-mode='dark'] .pagination__button[aria-current='page'] {
+    border-color: var(--theme-brand-soft-line);
+    background: var(--theme-title-fill);
+    color: var(--theme-title);
+  }
+}
+
+.pagination__button--edge {
+  color: var(--theme-brand-strong);
+  font-size: 1.8rem;
+}
+
+.pagination__icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.pagination__ellipsis {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.pagination--large .pagination__button,
+.pagination--large .pagination__ellipsis {
+  min-width: 5rem;
+  height: 5rem;
+  border-radius: 1.6rem;
+  font-size: 1.6rem;
+}
+
+.pagination--large {
+  .pagination__button--edge {
+    font-size: 2rem;
+  }
+}
+
+.pagination--disabled {
+  opacity: 0.72;
+}
