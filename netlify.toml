@@ -2,7 +2,7 @@
 
 [build]
   command = "npm run build:netlify"
-  publish = "out"
+  publish = ".next-build"
 
 # Storybook 내부 라우팅 지원
 [[redirects]]

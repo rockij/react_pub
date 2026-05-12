@@ -23,8 +23,8 @@ const scriptItems = [
   { name: 'npm run lint', description: 'ESLint 실행' },
   { name: 'npm run storybook', description: 'Storybook 개발 서버 실행' },
   { name: 'npm run build-storybook', description: 'Storybook 정적 빌드' },
-  { name: 'npm run build-storybook:static', description: 'Storybook 결과물을 out/storybook으로 출력' },
-  { name: 'npm run build:netlify', description: 'Next.js 빌드와 Storybook 정적 결과물을 함께 생성' },
+  { name: 'npm run build-storybook:static', description: 'Storybook 결과물을 .next-build/storybook으로 출력' },
+  { name: 'npm run build:netlify', description: 'Next.js 빌드와 Storybook 정적 결과물을 .next-build 기준으로 함께 생성' },
 ];
 
 const sectionLinks = [
@@ -285,7 +285,7 @@ export default async function Page() {
                 <li>Pull Request 작성 시 `Add a description`에 작업 내용을 간략히 적어 주는 것을 권장합니다.</li>
                 <li>승인된 작업만 배포합니다.</li>
                 <li>`next.config.js`의 `output: &apos;export&apos;` 설정으로 정적 사이트를 빌드합니다.</li>
-                <li>Netlify는 `netlify.toml` 기준으로 `out` 디렉터리를 배포합니다.</li>
+                <li>Netlify는 `netlify.toml` 기준으로 `.next-build` 디렉터리를 배포합니다.</li>
               </ul>
               <div className="home-docs-build-grid">
                 <div className="home-docs-build-card">
