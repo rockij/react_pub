@@ -2,7 +2,7 @@ import React from 'react';
 import { addMonths } from 'date-fns';
 import { Button } from '../../components/Button/Button';
 import { DatePicker } from '../../components/DatePicker/DatePicker';
-import { Dialog } from '../../components/Dialog/DialogIcon';
+import { Dialog } from '../../components/Dialog';
 import '../../assets/css/screen/transaction-filter-bottomsheet-screen.css';
 
 const DEFAULT_END_DATE = new Date(2025, 5, 5);

@@ -29,7 +29,10 @@ export default function Page() {
               Screen Cases
             </Link>
             <Link href="/pubsheet">Pub Sheet</Link>
-            <StorybookNavLinkBottom href={storybookUrl} tooltipId="global-storybook-nav-screen-cases" />
+            <StorybookNavLinkBottom
+              href={storybookUrl}
+              tooltipId="global-storybook-nav-screen-cases"
+            />
           </div>
         </nav>
       </header>
@@ -39,8 +42,8 @@ export default function Page() {
           <p className="screen-cases-kicker">Use Cases</p>
           <h2>재사용 가능한 컴포넌트로 구성한 화면 케이스</h2>
           <p className="screen-cases-lead">
-            이 페이지에서는 개별 컴포넌트가 실제 화면으로 조합되는 방식을 확인할 수 있습니다. 은행 홈
-            케이스는 제공된 레퍼런스 이미지와 현재 컴포넌트 기반의 라이브 미리보기를 함께 제공합니다.
+            이 페이지에서는 개별 컴포넌트가 실제 화면으로 조합되는 방식을 확인할 수 있습니다. 썸네일
+            이미지를 선택하면 상세 팝업 확인할 수 있습니다.
           </p>
 
           <div className="screen-cases-stats">

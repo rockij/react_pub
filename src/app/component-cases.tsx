@@ -11,7 +11,7 @@ import { Chart } from '../components/Chart/Chart';
 import { Checkbox } from '../components/Checkbox/Checkbox';
 import { DatePicker } from '../components/DatePicker/DatePicker';
 import { DateRangeFieldDemo } from '../components/DatePicker/DateRangeFieldDemo';
-import { Dialog } from '../components/Dialog/DialogIcon';
+import { Dialog } from '../components/Dialog';
 import { Pagination } from '../components/Pagination/Pagination';
 import { RadioGroup } from '../components/RadioGroup/RadioGroup';
 import { Select } from '../components/Select/Select';

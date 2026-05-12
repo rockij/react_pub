@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../../components/Button/Button';
 import { Checkbox } from '../../components/Checkbox/Checkbox';
-import { Dialog } from '../../components/Dialog/DialogIcon';
+import { Dialog } from '../../components/Dialog';
 import '../../assets/css/screen/notice-bottomsheet-screen.css';
 
 type NoticeItem = {

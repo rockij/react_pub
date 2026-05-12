@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { Dialog } from '../../components/Dialog/DialogIcon';
+import { Dialog } from '../../components/Dialog';
 import bankingHomeThumbnail from '../../assets/images/temp/001.png';
 import findIdThumbnail from '../../assets/images/temp/002.png';
 import consultInquiryThumbnail from '../../assets/images/temp/003.png';
@@ -13,17 +13,19 @@ import transactionFilterBottomsheetThumbnail from '../../assets/images/temp/011.
 import signupPeriodBottomsheetThumbnail from '../../assets/images/temp/008.png';
 import portfolioReturnThumbnail from '../../assets/images/temp/009.png';
 import firstTradeSavingThumbnail from '../../assets/images/temp/010.png';
-import { BankingHomeScreenCase } from '../../screen/BankingHomeScreenCase/BankingHomeScreenCase';
-import { ConsultInquiryScreenCase } from '../../screen/ConsultInquiryScreenCase/ConsultInquiryScreenCase';
-import { FindIdScreenCase } from '../../screen/FindIdScreenCase/FindIdScreenCase';
-import { FirstTradeSavingScreenCase } from '../../screen/FirstTradeSavingScreenCase/FirstTradeSavingScreenCase';
-import { IdLoginScreenCase } from '../../screen/IdLoginScreenCase/IdLoginScreenCase';
-import { InsuranceSignupCompleteScreenCase } from '../../screen/InsuranceSignupCompleteScreenCase/InsuranceSignupCompleteScreenCase';
-import { NoticeBottomsheetScreenCase } from '../../screen/NoticeBottomsheetScreenCase/NoticeBottomsheetScreenCase';
-import { PortfolioReturnScreenCase } from '../../screen/PortfolioReturnScreenCase/PortfolioReturnScreenCase';
-import { SignupPeriodBottomsheetScreenCase } from '../../screen/SignupPeriodBottomsheetScreenCase/SignupPeriodBottomsheetScreenCase';
-import { SignupAgreementScreenCase } from '../../screen/SignupAgreementScreenCase/SignupAgreementScreenCase';
-import { TransactionFilterBottomsheetScreenCase } from '../../screen/TransactionFilterBottomsheetScreenCase/TransactionFilterBottomsheetScreenCase';
+import {
+  BankingHomeScreenCase,
+  ConsultInquiryScreenCase,
+  FindIdScreenCase,
+  FirstTradeSavingScreenCase,
+  IdLoginScreenCase,
+  InsuranceSignupCompleteScreenCase,
+  NoticeBottomsheetScreenCase,
+  PortfolioReturnScreenCase,
+  SignupAgreementScreenCase,
+  SignupPeriodBottomsheetScreenCase,
+  TransactionFilterBottomsheetScreenCase,
+} from '../../screen';
 import type { ScreenCaseItem } from './data';
 
 type ScreenCaseGalleryProps = {
