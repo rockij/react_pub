@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../../components/Button/Button';
-import { Dialog } from '../../components/Dialog/DialogIcon';
+import { Dialog } from '../../components/Dialog';
 import '../../assets/css/screen/signup-period-bottomsheet-screen.css';
 
 const signupPeriods = [
