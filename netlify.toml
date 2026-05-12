@@ -6,6 +6,16 @@
 
 # Storybook 내부 라우팅 지원
 [[redirects]]
+  from = "/storybook"
+  to = "/storybook/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/storybook/"
+  to = "/storybook/index.html"
+  status = 200
+
+[[redirects]]
   from = "/storybook/*"
   to = "/storybook/index.html"
   status = 200

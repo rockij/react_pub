@@ -6,6 +6,7 @@ module.exports = (phase) => {
   return {
     reactStrictMode: true,
     distDir: process.env.NEXT_DIST_DIR || (isDevelopmentServer ? '.next' : '.next-build'),
+    trailingSlash: true,
     experimental: {
       cpus: 1,
     },
