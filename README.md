@@ -116,8 +116,8 @@ npm run build:netlify
 - `npm run lint`: ESLint 실행
 - `npm run storybook`: Storybook 개발 서버 실행
 - `npm run build-storybook`: Storybook 정적 빌드
-- `npm run build-storybook:static`: Storybook 결과물을 `out/storybook`으로 출력
-- `npm run build:netlify`: Next.js 빌드와 Storybook 정적 결과물을 함께 생성
+- `npm run build-storybook:static`: Storybook 결과물을 `.next-build/storybook`으로 출력
+- `npm run build:netlify`: Next.js 빌드와 Storybook 정적 결과물을 `.next-build` 기준으로 함께 생성
 
 ## 프로젝트 구조
 
@@ -227,10 +227,10 @@ npm run build:netlify
 
 생성 결과:
 
-- `out/`: Next.js 정적 결과물
-- `out/storybook/`: Storybook 정적 결과물
+- `.next-build/`: Next.js 정적 결과물과 Netlify 배포 루트
+- `.next-build/storybook/`: Storybook 정적 결과물
 
-Netlify에서는 `netlify.toml` 설정 기준으로 `out` 디렉터리를 배포합니다.
+Netlify에서는 `netlify.toml` 설정 기준으로 `.next-build` 디렉터리를 배포합니다.
 
 ## 참고 문서
 

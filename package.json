@@ -10,7 +10,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-storybook:static": "storybook build -o out/storybook"
+    "build-storybook:static": "storybook build -o .next-build/storybook"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
