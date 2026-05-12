@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
+import { X } from 'lucide-react';
 import { lockBodyScroll, unlockBodyScroll } from './body-scroll-lock';
 import '../../assets/css/component/dialog.css';
 
@@ -37,6 +38,7 @@ export const Dialog: React.FC<DialogProps> = ({
       unlockBodyScroll();
     };
   }, [isOpen]);
+
   const isBottom = variant === 'bottomsheet';
   const isFull = variant === 'full';
 
@@ -53,16 +55,16 @@ export const Dialog: React.FC<DialogProps> = ({
         beforeClose: 'modal-bottom-content--before-close',
       }
     : isFull
-    ? {
-        base: contentClassName ? `modal-full-content ${contentClassName}` : 'modal-full-content',
-        afterOpen: 'modal-full-content--after-open',
-        beforeClose: 'modal-full-content--before-close',
-      }
-    : {
-        base: contentClassName ? `modal-content ${contentClassName}` : 'modal-content',
-        afterOpen: 'modal-content--after-open',
-        beforeClose: 'modal-content--before-close',
-      };
+      ? {
+          base: contentClassName ? `modal-full-content ${contentClassName}` : 'modal-full-content',
+          afterOpen: 'modal-full-content--after-open',
+          beforeClose: 'modal-full-content--before-close',
+        }
+      : {
+          base: contentClassName ? `modal-content ${contentClassName}` : 'modal-content',
+          afterOpen: 'modal-content--after-open',
+          beforeClose: 'modal-content--before-close',
+        };
 
   return (
     <ReactModal
@@ -81,7 +83,7 @@ export const Dialog: React.FC<DialogProps> = ({
           <header className="modal-bottom-header">
             <h3 style={{ margin: 0 }}>{title}</h3>
             <button onClick={onRequestClose} aria-label="Close" className="modal-bottom-close">
-              ×
+              <X size={20} strokeWidth={2.2} />
             </button>
           </header>
           <div style={{ marginTop: 12 }}>{children}</div>
@@ -91,7 +93,7 @@ export const Dialog: React.FC<DialogProps> = ({
           <header className="modal-full-header">
             <h2 style={{ margin: 0 }}>{title}</h2>
             <button onClick={onRequestClose} aria-label="Close" className="modal-full-close">
-              ×
+              <X size={20} strokeWidth={2.2} />
             </button>
           </header>
           <div className="modal-full-body" style={{ marginTop: 12 }}>
@@ -109,7 +111,7 @@ export const Dialog: React.FC<DialogProps> = ({
               aria-label="Close"
               style={{ fontSize: 18, lineHeight: 1 }}
             >
-              ×
+              <X size={20} strokeWidth={2.2} />
             </button>
           </header>
           <div style={{ marginTop: 12 }}>{children}</div>
@@ -118,4 +120,3 @@ export const Dialog: React.FC<DialogProps> = ({
     </ReactModal>
   );
 };
-
